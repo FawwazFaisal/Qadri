@@ -1,0 +1,229 @@
+<resources>
+    <string name="app_name">Qadri</string>
+    <string name="nav_header_desc">TODO</string>
+    <string name="nav_header_title">Abdullah</string>
+    <string name="Home">Dashboard</string>
+    <string name="customer_name">Customer Name *</string>
+    <string name="enter_customer_name">Enter Customer Name</string>
+    <string name="enter_ac_name">Enter Account No</string>
+    <string name="contact_number">Contact Number *</string>
+    <string name="contact_number_wdout_asterik">Contact Number </string>
+    <string name="enter_contact_number">Enter Contact Number</string>
+    <string name="company_name">Company Name *</string>
+    <string name="enter_company_name">Enter Company Name</string>
+    <string name="address">Address *</string>
+    <string name="error_login_id">Enter Login ID </string>
+    <string name="enter_new_pass">Enter New Password</string>
+    <string name="un_synced_msg">PLease upload data first </string>
+    <string name="enter_address">Enter Address</string>
+    <string name="additional_information">Additional Information</string>
+    <string name="cnic">CNIC</string>
+    <string name="enter_cnic">Enter CNIC</string>
+    <string name="source_of_income">Source of Income</string>
+    <string name="estimated_income">Estimated Income</string>
+    <string name="enter_income">Enter Income</string>
+    <string name="plus">+</string>
+    <string name="age">Age</string>
+    <string name="enter_age">Enter Age</string>
+    <string name="gender">GENDER</string>
+    <string name="update">update</string>
+    <string name="add_lead"><u>Add Lead</u></string>
+    <string name="dummy_name">Shakoor Ali</string>
+    <string name="dummy_address">P.E.C.H.S Housing Society</string>
+    <string name="sync">SYNC</string>
+    <string name="upload">UPLOAD</string>
+    <string name="dummy_date">16-10-2020</string>
+    <string name="dummy_time">12:10 PM</string>
+    <string name="dummy_amt">2,000,00</string>
+    <string name="submit">Submit</string>
+    <string name="account_no">Account Number</string>
+    <string name="status">Status * </string>
+    <string name="contact_no">Contact No *</string>
+    <string name="date">Date</string>
+    <string name="time">Time</string>
+    <string name="date_of_conversion">Date of Conversion</string>
+    <string name="product">Product *</string>
+    <string name="amount">Amount</string>
+    <string name="remarks">Remarks</string>
+    <string name="please_enter_valid_email_address">Please enter valid email address</string>
+    <string name="please_enter_valid_year">Please enter valid year</string>
+    <string name="please_enter_valid_account_number">Please enter valid account number</string>
+    <string name="please_enter_valid_phone_number">Please enter valid phone number</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="verification_failed">Failed to verified OTP</string>
+
+    <string name="visit_plan"><u color="#F46523">VISIT PLAN</u></string>
+    <string name="orders_taken"><u color="#F46523">ORDERS TAKEN</u></string>
+    <string name="open_complaints"><u color="#F46523">OPEN COMPLAINTS</u></string>
+    <string name="pending_deposit"><u color="#F46523">PENDING BANK DEPOSIT</u></string>
+    <string name="pending_recovery"><u color="#F46523">PENDING RECOVERY</u></string>
+    <string name="visits_done_per_plan"><u color="#F46523">VISITS DONE PER PLAN</u></string>
+
+    <string name="this_field_is_required">This field is required.</string>
+    <string name="housing_finance">Housing Finance</string>
+    <string name="apni_car_lower">Apni Car</string>
+    <string name="cash_finance">Cash Finance</string>
+    <string name="low_cost_housingfacility">Low Cost HousingFacility</string>
+    <string name="two">2</string>
+    <string name="four">4</string>
+    <string name="six">6</string>
+    <string name="eight">8</string>
+    <string name="branch_code">Branch Code :   </string>
+    <string name="area">Area :   </string>
+    <string name="zone">Zone :   </string>
+
+    <string name="dummy_area"> Shahrah-e-Faisal </string>
+    <string name="dummy_zone">Downtown </string>
+    <string name="sector">Sector </string>
+    <string name="branch_code_name">Branch Code / Name</string>
+    <string name="visit_date">Visit Date</string>
+    <string name="visit_time">Visit Time</string>
+    <string name="follow_up_date">Follow up Date</string>
+    <string name="follow_up_time">Follow up Time</string>
+    <string name="call_log_details">Call Log Details</string>
+    <string name="visit_log_details">Visit Log Details</string>
+    <string name="previous_visits">Previous Visits</string>
+    <string name="dummy_bdb">BDB - 123456</string>
+    <string name="dummy_shift_started_at">Shift Started At 10:47 AM 21-10-2020</string>
+    <string name="mtd_deposit">MTD DEPOSIT</string>
+    <string name="mtd_accounts">MTD ACCOUNTS</string>
+    <string name="target_vs_achievement">TARGET \n VS \n ACHIEVEMENT</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="login">LOGIN</string>
+    <string name="error_empty_email">PLease Provide Login ID</string>
+    <string name="error_empty_pass">PLease Provide Password</string>
+    <string name="error_checkbox">Please select answer</string>
+    <string name="error">Error</string>
+    <string name="success">Success</string>
+    <string name="verify">Verify</string>
+    <string name="generate_otp">Generate OTP</string>
+    <string name="re_enter_password">Re-enter New Password *</string>
+    <string name="error_empty_field">Empty field not allowed</string>
+    <string name="password_hint">Make sure to chose minimum 8 characters hint: John@123</string>
+    <string name="error_wrong_password_pattern">Password with minimum 8 characters having:\n\u2022 Small letter(s)\n\u2022 Capital letter(s)\n\u2022 Number(s)\n\u2022 Special character(s)</string>
+    <string name="error_different_fields">Password didn\'t match</string>
+    <string name="todays_follow_up">TODAY\'S FOLLOW UP</string>
+    <string name="todays_call">TODAY\'S CALL</string>
+    <string name="todays_visit">TODAY\'S VISIT</string>
+    <string name="sales_target">Sales Target</string>
+    <string name="achievement">Achievements</string>
+    <string name="enter_old_password">Enter Old Password *</string>
+    <string name="enter_new_password">Enter New Password *</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="ytd">YTD</string>
+    <string name="ltd">LTD</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="joint_visit">Joint Visit</string>
+    <string name="_10">10</string>
+    <string name="_M">M</string>
+    <string name="_slash_20M">/20M</string>
+    <string name="_slash_20">/20</string>
+    <string name="calculator">Calculators</string>
+    <string name="_4">(0)</string>
+
+    <string name="name">Abdullah Nagori</string>
+    <string name="account_number_dummy">Account Number : XXXXXXXXX7980</string>
+    <string name="phone_number_dummy">Phone Number : 0320 - XXXXXXX</string>
+    <string name="branch_dummy">Branch : Sharah-e-Faisal, Karachi</string>
+    <string name="add">Add</string>
+
+    <string name="password">Password</string>
+    <string name="highest_average_balance">Highest Average Balance</string>
+    <string name="deposit">Deposit</string>
+    <string name="twohundred_m">200 M</string>
+    <string name="accounts">Accounts</string>
+    <string name="fivehundred">500</string>
+    <string name="twnty">/20</string>
+    <string name="occupation">Occupation</string>
+    <string name="total_customers">Total Customers</string>
+    <string name="lead_management">Lead Management</string>
+    <string name="call_log">Call log</string>
+    <string name="visit_log">Visit Log</string>
+    <string name="notification">Notification</string>
+    <string name="followup_meeting_scheduler_fragment">Follow Up</string>
+    <string name="notifications">Notifications</string>
+    <string name="new_lead">New Lead</string>
+    <string name="u_ve_new_lead">You have a New Lead</string>
+    <string name="dummy_notif_date">9th November</string>
+    <string name="search">Search</string>
+    <string name="total_calls">Total Calls</string>
+    <string name="change_password">Change Password</string>
+    <string name="change_password_successfuly">Password changed Successfully</string>
+    <string name="data_not_found">Data Not Found</string>
+    <string name="search_here">Search Here</string>
+    <string name="search_by">Search By</string>
+    <string name="start_your_shift">Start your shift</string>
+    <string name="check_in_cap">Check In</string>
+    <string name="close">Close</string>
+
+
+    <!--New Service-->
+    <string name="preference_file_key">com.app.bank_al_habib.PREFERENCE_FILE_KEY</string>
+    <string name="launch_activity">Launch activity</string>
+    <string name="stop_location_updates_button_text">Stop receiving location updates</string>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
+    <string name="please_select_status">Please select status</string>
+    <!--New Service-->
+
+    <array name="call_log_search">
+        <item>YTD</item>
+        <item>LTD</item>
+        <item>NTB</item>
+        <item>Lead</item>
+    </array>
+
+    <array name="select_search">
+        <item>Name</item>
+        <item>Phone Number</item>
+        <item>Branch</item>
+        <item>Account Title</item>
+    </array>
+
+
+    <array name="gender">
+        <item>Enter Gender</item>
+        <item>Male</item>
+        <item>Female</item>
+        <item>Other</item>
+    </array>
+
+    <!-- todolist calendar-->
+
+    <string name="car_ijarah">Car Ijarah</string>
+    <string name="bike_ijarah">Bike Ijarah</string>
+    <string name="easy_home">Easy Home</string>
+    <string name="comprehensive_training">Comprehensive Training</string>
+    <string name="enter_occupation">Enter Occupation</string>
+    <string name="enter_source_of_income">Enter Source of Income</string>
+    <string name="total_branches">Total Branches</string>
+    <string name="branch_directory">Branch DIrectory</string>
+    <string name="birthday_notification">Birthday Notification</string>
+    <string name="setting">Setting</string>
+    <string name="scorecard">Scorecard</string>
+    <string name="branch_name">Branch Name : </string>
+    <string name="branch_code_dummy">1002</string>
+    <string name="branch_address">Branch Address : </string>
+    <string name="get_direction">Get Direction</string>
+    <string name="branch_detail">Branch Detail</string>
+    <string name="branch_manager">Branch Manager</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="bdo_list">BDO List</string>
+    <string name="branch_visit_report">Branch Visit Report</string>
+    <string name="rs">Rs</string>
+    <string name="hall_of_fame">Hall Of Fame</string>
+    <string name="customer_tagging">Customer Tagging</string>
+    <string name="last_activity">Last Activity: Call</string>
+    <string name="customer_notes">Visit-Call-Customer Notes</string>
+    <string name="custom_template">Custom Template</string>
+    <string name="movement">Movement</string>
+    <string name="top150Customer">Top 150 Customers</string>
+    <string name="tierWiseReport">Tier Wise Deposit</string>
+    <string name="ntb">NTB</string>
+    <string name="financial">Financial</string>
+    <string name="round_robin">Round Robin</string>
+    <string name="kafalah">Kafalah</string>
+    <string name="default_notification_channel_id">com.example.qadri</string>
+    <string name="fcm_message">Qadri</string>
+
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black_light">#2A2A2A</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="colorAccent">#F46523</color>
+    <color name="colorPrimary">#F46523</color>
+    <color name="colorPrimaryDark">#F46523</color>
+    <color name="colorDivider">#01082E</color>
+    <color name="lightGray">#9f9f9f</color>
+    <color name="red">#ff0033</color>
+    <color name="red_error">#AF2626</color>
+    <color name="darkGrey">#585858</color>
+    <color name="mediumPurple">#69337E</color>
+    <color name="yellow">#D9A03B</color>
+    <color name="darkGreen">#1B5D1E</color>
+    <color name="pieChartYellow">#CCDB38</color>
+    <color name="bg_off_white">#FFF6E8</color>
+
+
+</resources>

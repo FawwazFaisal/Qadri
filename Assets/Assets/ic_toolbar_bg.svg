@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1098" height="274" viewBox="0 0 1098 274">
+  <defs>
+    <filter id="ic_toolbar_bg" x="0" y="0" width="1098" height="274" filterUnits="userSpaceOnUse">
+      <feOffset dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g transform="matrix(1, 0, 0, 1, 0, 0)" filter="url(#ic_toolbar_bg)">
+    <path id="ic_toolbar_bg-2" data-name="ic_toolbar_bg" d="M0,0H1080a0,0,0,0,1,0,0V215a41,41,0,0,1-41,41H41A41,41,0,0,1,0,215V0A0,0,0,0,1,0,0Z" transform="translate(9 4)" fill="#2a2a2a"/>
+  </g>
+</svg>

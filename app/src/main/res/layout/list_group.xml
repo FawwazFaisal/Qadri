@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_group"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_35sdp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/_5sdp"
+    android:paddingBottom="@dimen/_5sdp"
+    android:weightSum="1">
+
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginStart="@dimen/_8sdp"
+        android:layout_weight="0.1" />
+
+    <TextView
+        android:id="@+id/lblListHeader"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_weight="0.8"
+        android:gravity="center|start"
+        android:maxLines="1"
+        android:text="@string/calculator"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_11ssp" />
+
+    <ImageView
+        android:id="@+id/indicator"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_weight="0.1" />
+
+</LinearLayout>

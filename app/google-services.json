@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "168428992243",
+    "project_id": "qadri-3b470",
+    "storage_bucket": "qadri-3b470.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:168428992243:android:7d11bb5b91e491f09e6986",
+        "android_client_info": {
+          "package_name": "com.example.qadri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "168428992243-hdjmesea3uul5ccks009utd8mvsbc44e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.qadri",
+            "certificate_hash": "ee626319b63f9789fb5067d3860016b826ef7a5d"
+          }
+        },
+        {
+          "client_id": "168428992243-jv87tjips35gt49q6ue5sres7umjiu71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzcS3Tx9ABLJbamWOV0qreoG3Lc-ct45Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168428992243-jv87tjips35gt49q6ue5sres7umjiu71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

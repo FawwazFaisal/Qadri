@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_off_white"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:scrollbars="none"
+    tools:context="ui.fragment.dashboard.DashboardFragment">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/bg_off_white"
+        android:gravity="center_horizontal"
+        android:clipChildren="false"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_180sdp"
+            android:background="@color/black_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:orientation="horizontal" />
+
+        <LinearLayout
+            android:id="@+id/user_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/name"
+                style="@style/text_user_db"
+                android:text="@string/dummy_name"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/bdb"
+                style="@style/text_user_db"
+                android:text="@string/dummy_bdb"
+                android:textColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/shift_start"
+                style="@style/text_user_db"
+                android:text="@string/dummy_shift_started_at"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/ll_bar_chart"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_below="@+id/user_detail"
+            android:layout_marginHorizontal="@dimen/_12sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            app:cardCornerRadius="@dimen/margin_small"
+            app:cardElevation="@dimen/_5sdp"
+            app:layout_constraintDimensionRatio="1"
+            app:layout_constraintTop_toBottomOf="@+id/user_detail"
+            app:strokeColor="@android:color/transparent"
+            app:strokeWidth="@dimen/_1sdp"
+            tools:layout_editor_absoluteX="16dp">
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/barchart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_5sdp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:id="@+id/ll_todays_counter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:clipChildren="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ll_bar_chart"
+            app:layout_constraintVertical_bias="0.0">
+
+            <androidx.cardview.widget.CardView
+                style="@style/dbTopCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+
+                <LinearLayout
+                    android:id="@+id/ll_followup"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/cardtxtDB"
+                        android:text="@string/orders_taken"
+                        android:textColor="@color/black_light"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/todays_follow_up"
+                            style="@style/txtAchvDB"
+                            android:text="500"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                style="@style/dbTopCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5">
+
+                <LinearLayout
+                    android:id="@+id/ll_todays_visit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/cardtxtDB"
+                        android:text="@string/orders_taken"
+                        android:textColor="@color/black_light"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/today_visit"
+                            style="@style/txtAchvDB"
+                            android:text="10"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:clipChildren="false"
+            app:layout_constraintTop_toBottomOf="@+id/ll_todays_counter">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/dbTopCard"
+                android:padding="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/cardtxtDB"
+                        android:text="@string/pending_recovery"
+                        android:textColor="@color/black_light"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            style="@style/txtAchvDB"
+                            android:text="Rs. 500K"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

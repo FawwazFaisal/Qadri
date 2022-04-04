@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.qadri">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+
+    <application
+        android:name="com.example.qadri.App"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_qadri_logo"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_config"
+        android:usesCleartextTraffic="true"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name="com.example.qadri.ui.activity.ScanActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.qadri.ui.activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.qadri.ui.activity.WelcomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.qadri.ui.activity.LoginActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.qadri.ui.activity.SplashActivity"
+            android:screenOrientation="portrait"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.qadri.ui.activity.MainActivity"
+            android:screenOrientation="portrait" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDLcz0kMX5XISsZKYfZcduPM3MQc0JOx7k" />
+
+        <service
+            android:name="com.example.qadri.location.ForegroundOnlyLocationService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="location" />
+
+        <service
+            android:name="com.example.qadri.fcm.MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="com.example.qadri.utils.Schedulers.LocationWorkManager.LocationWorker.workmanager-init"
+            tools:node="remove" />
+
+        <receiver
+            android:name="com.example.qadri.utils.NewAlarmReceiver"
+            android:enabled="true"
+            android:exported="true" />
+    </application>
+
+</manifest>
