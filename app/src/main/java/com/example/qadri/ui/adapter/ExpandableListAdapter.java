@@ -109,7 +109,7 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         lblListHeader.setText(headerTitle);
 
         ImageView indicator = convertView.findViewById(R.id.indicator);
-        if (lblListHeader.getText().toString().equals("Sales Plan") || lblListHeader.getText().toString().equals("Order")|| lblListHeader.getText().toString().equals("Reports") || lblListHeader.getText().toString().equals("Settings")) {
+        if (_listDataChild.containsKey(_listDataHeader.get(groupPosition))) {
             indicator.setVisibility(View.VISIBLE);
             indicator.setImageDrawable(ContextCompat.getDrawable(_context, R.drawable.ic_right));
             indicator.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.colorAccent)));

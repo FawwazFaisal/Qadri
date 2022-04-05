@@ -32,6 +32,7 @@ import butterknife.Unbinder
 import com.deepakkumardk.kontactpickerlib.KontactPicker
 import com.deepakkumardk.kontactpickerlib.model.KontactPickerItem
 import com.deepakkumardk.kontactpickerlib.model.SelectionMode
+import com.example.qadri.BuildConfig
 import com.example.qadri.R
 import com.example.qadri.ui.adapter.ExpandableListAdapter
 import com.example.qadri.constant.Constants
@@ -79,7 +80,7 @@ class MainActivity : DockActivity() {
         initView()
         setData()
         //   setGesture()
-        sendUserTracking()
+//        sendUserTracking()
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -142,18 +143,18 @@ class MainActivity : DockActivity() {
 //            sendLeadData()
         }
 
-        getSyncData(isShowLoading = false)
+//        getSyncData(isShowLoading = false)
         prepareSideMenu()
     }
 
     private fun setData() {
 //        binding.sideLayout.name.text = sharedPrefManager.getUserDetails()?.first_name + " " + sharedPrefManager.getUserDetails()?.last_name
-        Picasso.get().load("https://medias.spotern.com/spots/w640/229/229560-1567745387.jpg").error(R.drawable.ic_user).into(binding.sideLayout.profile)
+        binding.sideLayout.version.text = "version: ${BuildConfig.VERSION_CODE}"
+        Picasso.get().load("https://medias.spotern.com/spots/w640/229/229560-1567745387.jpg").error(R.drawable.ic_user).into(binding.sideLayout.userProfile)
 
     }
 
     private fun fragmentClickEvent(itemString: String) {
-        closeDrawer()
         when (itemString) {
             Constants.NODE_DASHBOARD -> {
                 navigateToFragment(R.id.nav_home)
@@ -208,13 +209,13 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.nav_home)
             }
             Constants.SUB_NODE_REPORTS_SALES_PLAN -> {
-                showLogOutAlert()
+                navigateToFragment(R.id.nav_home)
             }
             Constants.NODE_NOTIFICATIONS -> {
-                showLogOutAlert()
+                navigateToFragment(R.id.nav_home)
             }
             Constants.SUB_NODE_CHANGE_PASSWORD -> {
-                showLogOutAlert()
+                navigateToFragment(R.id.nav_home)
             }
             Constants.NODE_LOGOUT -> {
                 showLogOutAlert()
@@ -243,6 +244,7 @@ class MainActivity : DockActivity() {
         listDataHeader.add(Constants.NODE_DASHBOARD) //0
         listDataHeader.add(Constants.NODE_CREATE_ORDER) //1
         listDataHeader.add(Constants.NODE_SALES_PLAN) //2
+        listDataHeader.add(Constants.NODE_CUSTOMERS) //3
         listDataHeader.add(Constants.NODE_BANK_DEPOSIT) //4
         listDataHeader.add(Constants.NODE_ORDERS) //5
         listDataHeader.add(Constants.NODE_REPORTS) //6
@@ -263,14 +265,14 @@ class MainActivity : DockActivity() {
         salesPlan.add(Constants.SUB_NODE_PENDING)
         salesPlan.add(Constants.SUB_NODE_COMPLETED)
         salesPlan.add(Constants.SUB_NODE_OTHER_VISITS)
-        listDataChild[listDataHeader[1]] = salesPlan
+        listDataChild[listDataHeader[2]] = salesPlan
 
         //order child nodes
         val orders: MutableList<String> = ArrayList()
         orders.add(Constants.SUB_NODE_PENDING_ORDER)
         orders.add(Constants.SUB_NODE_IN_TRANSIT_ORDER)
         orders.add(Constants.SUB_NODE_COMPLETED_ORDER)
-        listDataChild[listDataHeader[4]] = orders
+        listDataChild[listDataHeader[5]] = orders
 
         //report child nodes
         val report: MutableList<String> = ArrayList()
@@ -281,7 +283,11 @@ class MainActivity : DockActivity() {
         report.add(Constants.SUB_NODE_REPORTS_BANK_DEPOSIT)
         report.add(Constants.SUB_NODE_REPORTS_COMPLAINTS)
         report.add(Constants.SUB_NODE_REPORTS_SALES_PLAN)
-        listDataChild[listDataHeader[5]] = report
+        listDataChild[listDataHeader[6]] = report
+
+        val settings: MutableList<String> = ArrayList()
+        settings.add(Constants.SUB_NODE_CHANGE_PASSWORD)
+        listDataChild[listDataHeader[8]] = settings
 
 
         // setting list adapter
@@ -339,6 +345,7 @@ class MainActivity : DockActivity() {
     }
 
     private fun navigateToFragment(@IdRes id: Int, args: Bundle? = null) {
+        closeDrawer()
         if (args != null) {
             navController.navigate(id, args)
             return
