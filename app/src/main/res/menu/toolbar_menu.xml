@@ -10,6 +10,13 @@
         app:actionLayout="@layout/switch_layout"
         app:showAsAction="always" />
     <item
+        android:id="@+id/cart"
+        android:enabled="true"
+        android:title=""
+        android:visible="true"
+        android:icon="@drawable/ic_cart"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_notification"
         android:icon="@drawable/ic_notification"
         android:orderInCategory="100"

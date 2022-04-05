@@ -51,7 +51,7 @@
 
     <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@android:color/white</item>
+        <item name="color">@color/colorAccent</item>
     </style>
 
     <style name="text_user_db">
@@ -66,7 +66,7 @@
 
     <style name="SCBSwitch" parent="Theme.AppCompat.Light">
         <!-- active thumb & track color (30% transparency) -->
-        <item name="colorControlActivated">@color/yellow</item>
+        <item name="colorControlActivated">@color/colorAccent</item>
 
         <!-- inactive thumb color -->
         <item name="colorSwitchThumbNormal">#f1f1f1

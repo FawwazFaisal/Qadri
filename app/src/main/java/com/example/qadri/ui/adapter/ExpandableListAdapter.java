@@ -103,16 +103,16 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
 
         ImageView iconView = convertView.findViewById(R.id.icon);
         iconView.setImageResource(this._icon.get(groupPosition));
-        iconView.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.yellow)));
+        iconView.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.colorAccent)));
 
         TextView lblListHeader = convertView.findViewById(R.id.lblListHeader);
         lblListHeader.setText(headerTitle);
 
         ImageView indicator = convertView.findViewById(R.id.indicator);
-        if (lblListHeader.getText().toString().equals("Sales Management") || lblListHeader.getText().toString().equals("Lead Management")) {
+        if (lblListHeader.getText().toString().equals("Sales Plan") || lblListHeader.getText().toString().equals("Order")|| lblListHeader.getText().toString().equals("Reports") || lblListHeader.getText().toString().equals("Settings")) {
             indicator.setVisibility(View.VISIBLE);
             indicator.setImageDrawable(ContextCompat.getDrawable(_context, R.drawable.ic_right));
-            indicator.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.yellow)));
+            indicator.setImageTintList(ColorStateList.valueOf(ContextCompat.getColor(_context, R.color.colorAccent)));
         } else {
             indicator.setVisibility(View.GONE);
         }

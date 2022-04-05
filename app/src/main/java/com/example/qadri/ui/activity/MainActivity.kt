@@ -56,21 +56,14 @@ import kotlin.collections.set
 
 class MainActivity : DockActivity() {
     lateinit var binding: ActivityMainBinding
-
-    lateinit var number: CustomEditText
-    lateinit var navController: NavController
-    private lateinit var appBarConfiguration: AppBarConfiguration
-    lateinit var contentView: ConstraintLayout
-    val END_SCALE = 0.7f
-    private lateinit var actionBarMenu: Menu
-    private lateinit var switchAB: SwitchCompat
     private lateinit var sharedPreferences: SharedPreferences
     lateinit var viewModel: CoroutineViewModel
     lateinit var listDataChild: HashMap<String, List<String>>
     lateinit var listDataHeader: ArrayList<String>
-    private var x1 = 0f
-    private var x2 = 0f
-    val MIN_DISTANCE = 60
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    lateinit var navController: NavController
+
+    private lateinit var switchAB: SwitchCompat
     val encryptionKeyStore = EncryptionKeyStoreImpl.instance
 
     @RequiresApi(Build.VERSION_CODES.O)
@@ -96,9 +89,12 @@ class MainActivity : DockActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
-        actionBarMenu = menu
         val item = menu.findItem(R.id.myswitch) as MenuItem
-        actionBarMenu.findItem(R.id.action_notification).setOnMenuItemClickListener {
+        menu.findItem(R.id.action_notification).setOnMenuItemClickListener {
+            navigateToFragment(R.id.nav_home)
+            true
+        }
+        menu.findItem(R.id.cart).setOnMenuItemClickListener {
             navigateToFragment(R.id.nav_home)
             true
         }
@@ -107,7 +103,7 @@ class MainActivity : DockActivity() {
         switchAB = item.actionView.findViewById(R.id.switchAB)
         sharedPreferences = this.getSharedPreferences("SharedPrefs", MODE_PRIVATE)
         if (switchAB.isChecked) {
-            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+            Handler(Looper.getMainLooper()).postDelayed({
                 foregroundOnlyLocationService?.subscribeToLocationUpdates()
             }, 120000)
         }
@@ -127,7 +123,6 @@ class MainActivity : DockActivity() {
 
     private fun initView() {
         setSupportActionBar(findViewById(R.id.toolBar))
-        contentView = binding.appBarMain.content
         navController = findNavController(R.id.nav_host_main)
 
         // Passing each menu ID as a set of Ids because each
@@ -140,12 +135,11 @@ class MainActivity : DockActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
-        animateNavigationDrawer(binding.drawerLayout)
 
         if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
                 .isNotEmpty() && internetHelper.isNetworkAvailable()
         ) {
-            sendLeadData()
+//            sendLeadData()
         }
 
         getSyncData(isShowLoading = false)
@@ -153,26 +147,9 @@ class MainActivity : DockActivity() {
     }
 
     private fun setData() {
-        binding.sideLayout.name.text = sharedPrefManager.getUserDetails()?.first_name + " " + sharedPrefManager.getUserDetails()?.last_name
+//        binding.sideLayout.name.text = sharedPrefManager.getUserDetails()?.first_name + " " + sharedPrefManager.getUserDetails()?.last_name
         Picasso.get().load("https://medias.spotern.com/spots/w640/229/229560-1567745387.jpg").error(R.drawable.ic_user).into(binding.sideLayout.profile)
 
-    }
-
-    private fun animateNavigationDrawer(drawerLayout: DrawerLayout) {
-        drawerLayout.addDrawerListener(object : DrawerLayout.SimpleDrawerListener() {
-            override fun onDrawerSlide(drawerView: View, slideOffset: Float) {
-                // Scale the View based on current slide offset
-                val diffScaledOffset: Float = slideOffset * (1 - END_SCALE)
-                val offsetScale = 1 - diffScaledOffset
-                contentView.scaleX = offsetScale
-                contentView.scaleY = offsetScale
-                // Translate the View, accounting for the scaled width
-                val xOffset: Float = drawerView.width * slideOffset
-                val xOffsetDiff: Float = contentView.width * diffScaledOffset / 2
-                val xTranslation = xOffset - xOffsetDiff
-                contentView.translationX = xTranslation
-            }
-        })
     }
 
     private fun fragmentClickEvent(itemString: String) {
@@ -361,43 +338,12 @@ class MainActivity : DockActivity() {
         }
     }
 
-    @SuppressLint("ClickableViewAccessibility")
-    private fun setGesture() {
-        binding.appBarMain.sideMenu.root.setOnTouchListener { p0, p1 ->
-            if (p1 != null) {
-                when (p1.action) {
-                    MotionEvent.ACTION_DOWN -> x1 = p1.x
-                    MotionEvent.ACTION_UP -> {
-                        x2 = p1.x
-                        val deltaX: Float = x2 - x1
-                        if (Math.abs(deltaX) > MIN_DISTANCE) {
-                            showOrHide()
-                        }
-                    }
-                }
-            }
-            true
-        }
-    }
-
     private fun navigateToFragment(@IdRes id: Int, args: Bundle? = null) {
         if (args != null) {
             navController.navigate(id, args)
             return
         }
         navController.navigate(id)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (resultCode == Activity.RESULT_OK && requestCode == 3000) {
-            val list = KontactPicker.getSelectedKontacts(data) //ArrayList<MyContacts>
-            if (list!!.isNotEmpty()) {
-                list[0].contactNumber?.let {
-                    number.setText(it)
-                }
-            }
-        }
     }
 
     private fun getSyncData(isShowLoading: Boolean? = true) {

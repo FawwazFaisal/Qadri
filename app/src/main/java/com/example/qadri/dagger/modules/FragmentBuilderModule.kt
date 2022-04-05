@@ -1,7 +1,9 @@
 package com.example.qadri.dagger.modules
 
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.example.qadri.ui.fragment.dashboard.BankDepositGraphFragment
 import com.example.qadri.ui.fragment.dashboard.DashboardFragment
+import com.example.qadri.ui.fragment.dashboard.VisitsGraphFragment
 import com.example.qadri.ui.fragment.login.*
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
@@ -35,4 +37,10 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeChangePasswordFragment(): ChangePasswordFragment
+
+    @ContributesAndroidInjector
+    fun contributeVisitsGraphFragment(): VisitsGraphFragment
+
+    @ContributesAndroidInjector
+    fun contributeBankDepositGraphFragment(): BankDepositGraphFragment
 }

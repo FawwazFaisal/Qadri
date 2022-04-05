@@ -5,6 +5,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#F46523</color>
     <color name="colorPrimary">#F46523</color>
+    <color name="colorPrimaryLight">#EA7B48</color>
     <color name="colorPrimaryDark">#F46523</color>
     <color name="colorDivider">#01082E</color>
     <color name="lightGray">#9f9f9f</color>

@@ -83,7 +83,7 @@ object Constants {
     const val SHIFT_TIME: String = "SHIFT_TIME"
     const val IS_FINGERPRINT: String = "IS_FINGERPRINT"
 
-    //Bundle Tags
+    //Bundle Keys
     const val VISIT : String = "VISIT"
     const val VISIT_TYPE  = "VISIT_TYPE"
 

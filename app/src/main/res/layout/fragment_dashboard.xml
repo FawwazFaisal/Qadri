@@ -62,30 +62,111 @@
 
         </LinearLayout>
 
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/ll_bar_chart"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/graphContainer"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_below="@+id/user_detail"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_15sdp"
+            android:paddingTop="@dimen/_25sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:elevation="@dimen/_4sdp"
             android:theme="@style/Theme.MaterialComponents.Light"
             app:cardCornerRadius="@dimen/margin_small"
             app:cardElevation="@dimen/_5sdp"
             app:layout_constraintDimensionRatio="1"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
+            app:layout_constraintStart_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toBottomOf="@+id/user_detail"
             app:strokeColor="@android:color/transparent"
-            app:strokeWidth="@dimen/_1sdp"
-            tools:layout_editor_absoluteX="16dp">
-
-            <com.github.mikephil.charting.charts.LineChart
-                android:id="@+id/barchart"
+            app:strokeWidth="@dimen/_1sdp" >
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/_5sdp"
-                android:layout_marginBottom="@dimen/_5sdp" />
-        </com.google.android.material.card.MaterialCardView>
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:elevation="@dimen/_5sdp"
+                    android:text="@string/visit_plan"
+                    android:textColor="@color/black_light"
+                    app:layout_constraintEnd_toEndOf="@+id/graphContainer"
+                    app:layout_constraintStart_toStartOf="@+id/graphContainer"
+                    app:layout_constraintTop_toTopOf="@+id/graphContainer" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:elevation="@dimen/_5sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:textColor="@color/black_light"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="10"
+                                android:textSize="@dimen/_20ssp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black_light"
+                                android:text="TARGET" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_20sdp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="05"
+                                android:textColor="@color/black_light"
+                                android:textSize="@dimen/_20ssp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/black_light"
+                                android:text="ACTUAL" />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/graphViewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_10sdp"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:id="@+id/ll_todays_counter"
@@ -96,7 +177,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ll_bar_chart"
+            app:layout_constraintTop_toBottomOf="@+id/graphContainer"
             app:layout_constraintVertical_bias="0.0">
 
             <androidx.cardview.widget.CardView
@@ -108,6 +189,7 @@
                 <LinearLayout
                     android:id="@+id/ll_followup"
                     android:layout_width="match_parent"
+                    android:padding="@dimen/_10sdp"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
@@ -127,6 +209,7 @@
                             android:id="@+id/todays_follow_up"
                             style="@style/txtAchvDB"
                             android:text="500"
+                            android:textSize="@dimen/_20ssp"
                             android:textColor="@color/black_light" />
 
                     </LinearLayout>
@@ -143,6 +226,7 @@
                     android:id="@+id/ll_todays_visit"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp"
                     android:orientation="vertical">
 
                     <TextView
@@ -161,6 +245,7 @@
                             android:id="@+id/today_visit"
                             style="@style/txtAchvDB"
                             android:text="10"
+                            android:textSize="@dimen/_20ssp"
                             android:textColor="@color/black_light" />
 
                     </LinearLayout>
@@ -173,7 +258,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:clipChildren="false"
@@ -188,11 +273,13 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp"
                     android:orientation="vertical">
 
                     <TextView
                         style="@style/cardtxtDB"
                         android:text="@string/pending_recovery"
+                        android:textSize="@dimen/_13ssp"
                         android:textColor="@color/black_light"
                         android:textStyle="bold" />
 
@@ -205,6 +292,7 @@
                         <TextView
                             style="@style/txtAchvDB"
                             android:text="Rs. 500K"
+                            android:textSize="@dimen/_20ssp"
                             android:textColor="@color/black_light" />
 
                     </LinearLayout>
