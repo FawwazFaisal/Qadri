@@ -75,7 +75,7 @@ class VisitsGraphFragment : BaseDockFragment() {
         for (i in dayLabels.indices) {
             xAxisLabel.add(dayLabels[i])
             colors.add(resources.getColor(R.color.colorPrimary))
-            colors.add(resources.getColor(R.color.colorPrimaryLight))
+            colors.add(resources.getColor(R.color.lightGray))
             salesList = salesTarget()
             achievementList = achievement()
             values.add(BarEntry((i).toFloat(), floatArrayOf(achievementList[i], salesList[i])))
@@ -185,7 +185,7 @@ class VisitsGraphFragment : BaseDockFragment() {
         )
         val l1 = LegendEntry(
             resources.getString(R.string.sales_target), Legend.LegendForm.CIRCLE, 10f,
-            2f, null, resources.getColor(R.color.colorPrimaryLight)
+            2f, null, resources.getColor(R.color.lightGray)
         )
         l.setCustom(arrayOf(l1, l2))
         l.isEnabled = true

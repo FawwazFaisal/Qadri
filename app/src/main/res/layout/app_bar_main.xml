@@ -10,15 +10,23 @@
 
     <fragment
         android:id="@+id/nav_host_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:name="androidx.navigation.fragment.NavHostFragment"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolBar"
         android:layout_width="match_parent"
-        android:layout_height="0dp" />
+        android:layout_height="wrap_content"
+        android:background="@color/zxing_transparent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/colorAccent" />
 
     <include
         android:id="@+id/banner"
@@ -31,14 +39,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolBar"
-        android:background="@color/black_light"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:titleTextColor="@color/colorAccent" />
-
 
     <ImageButton
         android:id="@+id/dropdown_menu"
@@ -46,13 +46,15 @@
         android:layout_height="@dimen/_40ssp"
         android:background="@color/colorAccent"
         android:elevation="@dimen/_7ssp"
-        app:srcCompat="@drawable/ic_right"
-        android:rotation="180"
         android:minWidth="@dimen/_10sdp"
         android:minHeight="@dimen/_30sdp"
         android:onClick="dropDownMenu"
+        android:rotation="180"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/banner" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.13"
+        app:srcCompat="@drawable/ic_right" />
 
     <include
         android:id="@+id/side_menu"

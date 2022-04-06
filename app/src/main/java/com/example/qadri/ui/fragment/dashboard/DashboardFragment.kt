@@ -103,24 +103,24 @@ class DashboardFragment : BaseDockFragment() {
             }
         }
 
-        Handler(Looper.getMainLooper()).postDelayed(Runnable {
-            val image =
-                (requireActivity() as MainActivity).findViewById<ImageView>(R.id.user_profile)
+//        Handler(Looper.getMainLooper()).postDelayed(Runnable {
+//            val image =
+//                (requireActivity() as MainActivity).findViewById<ImageView>(R.id.user_profile)
+//
+//                if (sharedPrefManager.getUserDetails()?.profile_img?.isNotEmpty() == true)
+//                {
+//                    Picasso.get()
+//                        .load(sharedPrefManager.getUserDetails()?.profile_img)
+//                        .placeholder(R.drawable.ic_user_add)
+//                        .into(image)
+//                }
+//
+//            image.setOnClickListener {
+//                showAttachmentDialog()
+//            }
+//        }, 1000)
 
-                if (sharedPrefManager.getUserDetails()?.profile_img?.isNotEmpty() == true)
-                {
-                    Picasso.get()
-                        .load(sharedPrefManager.getUserDetails()?.profile_img)
-                        .placeholder(R.drawable.ic_user_add)
-                        .into(image)
-                }
-
-            image.setOnClickListener {
-                showAttachmentDialog()
-            }
-        }, 1000)
-
-        binding.bdb.text = sharedPrefManager.getUserDetails()?.des_name
+//        binding.bdb.text = sharedPrefManager.getUserDetails()?.des_name
         binding.shiftStart.text = "Shift Started At ${
             sharedPrefManager.sharedPreferences.getString(
                 Constants.SHIFT_TIME,

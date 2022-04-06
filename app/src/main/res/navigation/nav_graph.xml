@@ -11,6 +11,16 @@
         android:label="@string/Home"
         tools:layout="@layout/fragment_dashboard">
 
+        <action
+            android:id="@+id/action_nav_home_to_reportVisit"
+            app:destination="@id/reportVisit"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
+    <fragment
+        android:id="@+id/reportVisit"
+        android:name="com.example.qadri.ui.fragment.reports.visit.ReportVisit"
+        android:label="Visit Logs"
+        tools:layout="@layout/fragment_report_visit" />
 
 </navigation>

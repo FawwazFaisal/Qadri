@@ -190,7 +190,7 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.nav_home)
             }
             Constants.SUB_NODE_REPORTS_VISIT -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportVisit)
             }
             Constants.SUB_NODE_REPORTS_RECOVERY -> {
                 navigateToFragment(R.id.nav_home)
@@ -511,7 +511,6 @@ class MainActivity : DockActivity() {
         alertDialog.setPositiveButton(
             "Yes"
         ) { dialog, which ->
-
             if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
                     .isNotEmpty()
             ) {

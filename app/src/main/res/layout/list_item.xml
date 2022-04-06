@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:textSize="@dimen/_10ssp"
         android:paddingTop="5dp"
+        android:gravity="center_vertical"
         android:paddingBottom="5dp"
         android:textColor="@color/colorAccent"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
