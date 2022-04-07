@@ -7,13 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
+import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogFilterReportsBinding
 import com.example.qadri.databinding.FragmentReportVisitBinding
 import com.example.qadri.mvvm.model.reports.ReportsModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 
 
-class ReportVisit : BaseDockFragment() {
+class ReportVisit : BaseDockFragment(), ClickListener {
 
     lateinit var bd: FragmentReportVisitBinding
 
@@ -27,14 +28,11 @@ class ReportVisit : BaseDockFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bd.searchFilter.customerCount.text = "Customer Count : 03"
-        bd.searchFilter.filter.setOnClickListener {
+        bd.searchLayout.customerCount.text = "Customer Count : 03"
+        bd.searchLayout.search.setOnClickListener {
             openSearchDialog()
         }
-        bd.searchFilter.searh.setOnClickListener {
-            openSearchDialog()
-        }
-        bd.recyclerView.adapter = AdapterRVReportVisit().apply {
+        bd.recyclerView.adapter = AdapterRVReportVisit(this).apply {
             setList(arrayListOf<ReportsModel>().apply {
                 add(
                     ReportsModel(
@@ -86,4 +84,13 @@ class ReportVisit : BaseDockFragment() {
         }
         searchDialog.show()
     }
+
+    override fun <T> onClick(data: T, createNested: Boolean) {
+        val reportItem = data as ReportsModel
+        navigateToFragment(R.id.action_reportVisit_to_visitLogDetail,Bundle().apply {
+            putSerializable("data",reportItem)
+        })
+    }
+
+
 }

@@ -21,6 +21,15 @@
         android:id="@+id/reportVisit"
         android:name="com.example.qadri.ui.fragment.reports.visit.ReportVisit"
         android:label="Visit Logs"
-        tools:layout="@layout/fragment_report_visit" />
+        tools:layout="@layout/fragment_report_visit" >
+        <action
+            android:id="@+id/action_reportVisit_to_visitLogDetail"
+            app:destination="@id/visitLogDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/visitLogDetail"
+        android:name="com.example.qadri.ui.fragment.reports.visit.VisitLogDetail"
+        android:label="Visit Log Details"
+        tools:layout="@layout/fragment_visit_log_detail" />
 
 </navigation>

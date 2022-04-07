@@ -12,10 +12,6 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar_layout" />
 
-    <include
-        android:id="@+id/searchFilter"
-        layout="@layout/search_filter_layout" />
-
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -23,12 +19,18 @@
         android:layout_marginHorizontal="@dimen/_10sdp"
         android:layout_marginVertical="@dimen/_10sdp"
         android:background="@color/white">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_report_visit" />nearLayout>
+            android:orientation="vertical">
+            <include android:id="@+id/searchLayout"
+                layout="@layout/search_filter_layout"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_report_visit" />
+        </LinearLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>
