@@ -6,10 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
+import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.databinding.DialogRecoveryDetailsBinding
+import com.example.qadri.databinding.DialogReportComplaintBinding
 import com.example.qadri.databinding.FragmentReportComplaintBinding
+import com.example.qadri.mvvm.model.reports.ReportComplaintModel
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class ReportComplaint : BaseDockFragment() {
+class ReportComplaint : BaseDockFragment(), ClickListener {
 
     lateinit var bd:FragmentReportComplaintBinding
 
@@ -24,4 +29,24 @@ class ReportComplaint : BaseDockFragment() {
         bd = FragmentReportComplaintBinding.inflate(layoutInflater)
         return bd.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bd.recyclerView.adapter = AdapterRvComplaint(this).apply {
+            setList(arrayListOf<ReportComplaintModel>().apply {
+                add(ReportComplaintModel("Ahsan Mehboob","03001234567","A-Category","2-2-2022"))
+                add(ReportComplaintModel("Ahsan Mehboob","03001234567","A-Category","2-2-2022"))
+                add(ReportComplaintModel("Ahsan Mehboob","03001234567","A-Category","2-2-2022"))
+            })
+        }
+    }
+
+    override fun <T> onClick(data: T, createNested: Boolean) {
+        BottomSheetDialog(requireContext()).apply {
+            val bd = DialogReportComplaintBinding.inflate(layoutInflater)
+            setContentView(bd.root)
+        }.show()
+    }
+
+
 }

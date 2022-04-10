@@ -22,6 +22,18 @@
         <action
             android:id="@+id/action_nav_home_to_reportOrder"
             app:destination="@id/reportOrder" />
+        <action
+            android:id="@+id/action_nav_home_to_reportAging"
+            app:destination="@id/reportAging" />
+        <action
+            android:id="@+id/action_nav_home_to_reportBankDeposit"
+            app:destination="@id/reportBankDeposit" />
+        <action
+            android:id="@+id/action_nav_home_to_reportComplaint"
+            app:destination="@id/reportComplaint" />
+        <action
+            android:id="@+id/action_nav_home_to_reportSalesPlan"
+            app:destination="@id/reportSalesPlan" />
     </fragment>
     <fragment
         android:id="@+id/reportVisit"
@@ -56,5 +68,25 @@
         android:name="com.example.qadri.ui.fragment.reports.order.ReportOrderDetail"
         android:label=""
         tools:layout="@layout/fragment_report_order_detail" />
+    <fragment
+        android:id="@+id/reportAging"
+        android:name="com.example.qadri.ui.fragment.reports.aging.ReportAging"
+        android:label="AgingAccounts"
+        tools:layout="@layout/fragment_report_aging" />
+    <fragment
+        android:id="@+id/reportBankDeposit"
+        android:name="com.example.qadri.ui.fragment.reports.bankDeposit.ReportBankDeposit"
+        android:label="BankDeposits"
+        tools:layout="@layout/fragment_report_bank_deposit" />
+    <fragment
+        android:id="@+id/reportComplaint"
+        android:name="com.example.qadri.ui.fragment.reports.complaint.ReportComplaint"
+        android:label="Complaints"
+        tools:layout="@layout/fragment_report_complaint" />
+    <fragment
+        android:id="@+id/reportSalesPlan"
+        android:name="com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan"
+        android:label="fragment_sales_plan_visit_report"
+        tools:layout="@layout/fragment_sales_plan_visit_report" />
 
 </navigation>

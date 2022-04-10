@@ -42,7 +42,7 @@
 
     <ImageButton
         android:id="@+id/dropdown_menu"
-        android:layout_width="@dimen/_25sdp"
+        android:layout_width="@dimen/_15sdp"
         android:layout_height="@dimen/_40ssp"
         android:background="@color/colorAccent"
         android:elevation="@dimen/_7ssp"
@@ -50,10 +50,11 @@
         android:minHeight="@dimen/_30sdp"
         android:onClick="dropDownMenu"
         android:rotation="180"
+        android:padding="@dimen/_5sdp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.15"
         app:srcCompat="@drawable/ic_right" />
 
     <include

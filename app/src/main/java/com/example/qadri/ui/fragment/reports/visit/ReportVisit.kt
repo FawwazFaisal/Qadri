@@ -9,19 +9,20 @@ import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogFilterReportsBinding
 import com.example.qadri.databinding.FragmentReportRecoveryBinding
+import com.example.qadri.databinding.FragmentReportVisitBinding
 import com.example.qadri.mvvm.model.reports.VisitReportsModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 
 
 class ReportVisit : BaseDockFragment(), ClickListener {
 
-    lateinit var bd: FragmentReportRecoveryBinding
+    lateinit var bd: FragmentReportVisitBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bd = FragmentReportRecoveryBinding.inflate(layoutInflater)
+        bd = FragmentReportVisitBinding.inflate(layoutInflater)
         return bd.root
     }
 

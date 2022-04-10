@@ -5,12 +5,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.databinding.ItemReportOrderDetailBinding
-import com.example.qadri.mvvm.model.reports.DummyEntity
+import com.example.qadri.mvvm.model.reports.OrderDetailModel
 
 class AdapterRvOrderDetail() : RecyclerView.Adapter<AdapterRvOrderDetail.RecoveryHolder>() {
 
     lateinit var context: Context
-    val recoveryList = arrayListOf<DummyEntity>()
+    val recoveryList = arrayListOf<OrderDetailModel>()
 
     inner class RecoveryHolder(val bd: ItemReportOrderDetailBinding) :
         RecyclerView.ViewHolder(bd.root)
@@ -25,7 +25,7 @@ class AdapterRvOrderDetail() : RecyclerView.Adapter<AdapterRvOrderDetail.Recover
         val item = recoveryList[position]
     }
 
-    fun setList(list: ArrayList<DummyEntity>){
+    fun setList(list: ArrayList<OrderDetailModel>){
         recoveryList.clear()
         recoveryList.addAll(list)
         notifyDataSetChanged()

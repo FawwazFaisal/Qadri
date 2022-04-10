@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.databinding.FragmentReportOrderDetailBinding
-import com.example.qadri.mvvm.model.reports.DummyEntity
+import com.example.qadri.mvvm.model.reports.OrderDetailModel
 import com.example.qadri.mvvm.model.reports.RecoveryReportModel
 import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.fragment.BaseDockFragment
@@ -33,10 +33,10 @@ class ReportOrderDetail : BaseDockFragment() {
         (requireActivity() as MainActivity).supportActionBar?.title = order.name
 
         bd.recyclerView.adapter = AdapterRvOrderDetail().apply {
-            setList(arrayListOf<DummyEntity>().apply {
-                add(DummyEntity("3RD Design (BURNISH OFF) 0.9mm Black","500"))
-                add(DummyEntity("3RD Design (BURNISH OFF) 0.9mm Black","500"))
-                add(DummyEntity("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+            setList(arrayListOf<OrderDetailModel>().apply {
+                add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+                add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+                add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
             })
         }
     }
