@@ -16,6 +16,12 @@
             app:destination="@id/reportVisit"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_home_to_reportRecovery"
+            app:destination="@id/reportRecovery" />
+        <action
+            android:id="@+id/action_nav_home_to_reportOrder"
+            app:destination="@id/reportOrder" />
     </fragment>
     <fragment
         android:id="@+id/reportVisit"
@@ -29,7 +35,26 @@
     <fragment
         android:id="@+id/visitLogDetail"
         android:name="com.example.qadri.ui.fragment.reports.visit.VisitLogDetail"
-        android:label="Visit Log Details"
+        android:label="Details"
         tools:layout="@layout/fragment_visit_log_detail" />
+    <fragment
+        android:id="@+id/reportRecovery"
+        android:name="com.example.qadri.ui.fragment.reports.recovery.ReportRecovery"
+        android:label="Recoveries"
+        tools:layout="@layout/fragment_report_recovery" />
+    <fragment
+        android:id="@+id/reportOrder"
+        android:name="com.example.qadri.ui.fragment.reports.order.ReportOrder"
+        android:label="Orders"
+        tools:layout="@layout/fragment_report_order" >
+        <action
+            android:id="@+id/action_reportOrder_to_visitOrderDetail"
+            app:destination="@id/reportOrderDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportOrderDetail"
+        android:name="com.example.qadri.ui.fragment.reports.order.ReportOrderDetail"
+        android:label=""
+        tools:layout="@layout/fragment_report_order_detail" />
 
 </navigation>

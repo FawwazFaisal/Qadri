@@ -1,15 +1,20 @@
 package com.example.qadri.ui.fragment.reports.recovery
 
+import android.app.Dialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
+import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.databinding.DialogFilterReportsBinding
+import com.example.qadri.databinding.DialogRecoveryDetailsBinding
 import com.example.qadri.databinding.FragmentReportRecoveryBinding
+import com.example.qadri.mvvm.model.reports.RecoveryReportModel
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class ReportRecovery : BaseDockFragment() {
+class ReportRecovery : BaseDockFragment(), ClickListener {
 
     lateinit var bd : FragmentReportRecoveryBinding
 
@@ -23,5 +28,52 @@ class ReportRecovery : BaseDockFragment() {
     ): View? {
         bd = FragmentReportRecoveryBinding.inflate(layoutInflater)
         return bd.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bd.titleLayout.search.setOnClickListener {
+            openSearchDialog()
+        }
+
+        bd.recyclerView.adapter = AdapterRvRecovery(this).apply {
+            setList(arrayListOf<RecoveryReportModel>().apply {
+                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+            })
+        }
+    }
+
+    private fun openSearchDialog() {
+        val searchDialog = Dialog(requireContext())
+        searchDialog.window?.setBackgroundDrawableResource(R.color.zxing_transparent)
+        val bd = DialogFilterReportsBinding.inflate(layoutInflater)
+        searchDialog.setContentView(bd.root)
+        bd.radioGrp.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.radioDate -> {
+                    bd.dateContainer.visibility = View.VISIBLE
+                    bd.name.visibility = View.GONE
+                }
+                R.id.radioName -> {
+                    bd.dateContainer.visibility = View.GONE
+                    bd.name.visibility = View.VISIBLE
+                }
+            }
+        }
+        bd.btnSearch.setOnClickListener {
+            searchDialog.dismiss()
+        }
+        searchDialog.show()
+    }
+
+    override fun <T> onClick(data: T, createNested: Boolean) {
+        val reportItem = data as RecoveryReportModel
+        BottomSheetDialog(requireContext()).apply {
+            val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
+            setContentView(bd.root)
+        }.show()
+
     }
 }

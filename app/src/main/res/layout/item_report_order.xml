@@ -54,7 +54,7 @@
             android:textColor="@color/black_light" />
 
         <TextView
-            android:id="@+id/address"
+            android:id="@+id/type"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginStart="@dimen/_10sdp"
@@ -81,7 +81,7 @@
             android:textSize="@dimen/_10ssp" />
 
         <TextView
-            android:id="@+id/date"
+            android:id="@+id/amount"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="bottom"

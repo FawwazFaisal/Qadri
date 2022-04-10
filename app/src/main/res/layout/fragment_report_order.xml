@@ -31,6 +31,16 @@
             <include
                 android:id="@+id/searchLayout"
                 layout="@layout/search_filter_layout" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:elevation="@dimen/_4sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/btn_bg_white"
+                android:textColor="@color/black_light"
+                android:text="Total Amount: 400,000"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"

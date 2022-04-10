@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.ItemReportVisitBinding
-import com.example.qadri.mvvm.model.reports.ReportsModel
+import com.example.qadri.mvvm.model.reports.VisitReportsModel
 
 class AdapterRVReportVisit(val listener:ClickListener): RecyclerView.Adapter<AdapterRVReportVisit.ReportViewHolder>() {
 
     lateinit var bd :ItemReportVisitBinding
-    val listReports = arrayListOf<ReportsModel>()
+    val listReports = arrayListOf<VisitReportsModel>()
 
     inner class ReportViewHolder(val bd : ItemReportVisitBinding) : RecyclerView.ViewHolder(bd.root){
 
@@ -32,7 +32,7 @@ class AdapterRVReportVisit(val listener:ClickListener): RecyclerView.Adapter<Ada
         }
     }
 
-    fun setList(list :ArrayList<ReportsModel>){
+    fun setList(list :ArrayList<VisitReportsModel>){
         listReports.clear()
         listReports.addAll(list)
         notifyDataSetChanged()

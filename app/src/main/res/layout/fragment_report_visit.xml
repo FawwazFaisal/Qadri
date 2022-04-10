@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <include android:id="@+id/searchLayout"
+            <include android:id="@+id/titleLayout"
                 layout="@layout/search_filter_layout"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
