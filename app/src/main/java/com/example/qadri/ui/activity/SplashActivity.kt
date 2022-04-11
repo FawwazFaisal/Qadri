@@ -8,6 +8,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.example.qadri.R
 import com.example.qadri.constant.Constants
 import com.example.qadri.databinding.ActivitySplashBinding
@@ -32,6 +33,7 @@ class SplashActivity : AppCompatActivity() {
 
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         SharedPrefKeyManager.with(this)
         sharedPrefManager = SharedPrefManager(this)
         val isFirstRun = sharedPrefManager.get(Constants.FIRST_TIME) as Boolean?

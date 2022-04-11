@@ -7,7 +7,7 @@
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_60sdp"
+        android:layout_height="@dimen/_50sdp"
         android:background="@drawable/bg_toolbar"/>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"

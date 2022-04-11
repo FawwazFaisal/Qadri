@@ -39,6 +39,7 @@
         <activity
             android:name="com.example.qadri.ui.activity.SplashActivity"
             android:screenOrientation="portrait"
+            android:theme="@style/AppThemeSplash"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -16,7 +16,32 @@
             app:destination="@id/reportVisit"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_nav_home_to_pending_order"
+            app:destination="@id/pendingOrder"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+
+        <action
+            android:id="@+id/action_nav_home_to_transit_order"
+            app:destination="@id/transitOrder"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
     </fragment>
+
+    <fragment
+        android:id="@+id/transitOrder"
+        android:name="com.example.qadri.ui.fragment.order.TransitOrderFragment"
+        android:label="Transit"
+        tools:layout="@layout/transit_order_fragment" />
+
+    <fragment
+        android:id="@+id/pendingOrder"
+        android:name="com.example.qadri.ui.fragment.order.PendingOrderFragment"
+        android:label="Pending"
+        tools:layout="@layout/pending_order_fragment" />
+
     <fragment
         android:id="@+id/reportVisit"
         android:name="com.example.qadri.ui.fragment.reports.visit.ReportVisit"

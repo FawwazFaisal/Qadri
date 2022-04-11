@@ -74,6 +74,8 @@ class MainActivity : DockActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        window.statusBarColor = ContextCompat.getColor(this,R.color.black_light);
+
 //      navController = findNavController(R.id.nav_host_main)
         viewModel = ViewModelProvider(this, viewModelFactory).get(CoroutineViewModel::class.java)
 
@@ -181,10 +183,10 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.nav_home)
             }
             Constants.SUB_NODE_PENDING_ORDER -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_pending_order)
             }
             Constants.SUB_NODE_IN_TRANSIT_ORDER -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_transit_order)
             }
             Constants.SUB_NODE_COMPLETED_ORDER -> {
                 navigateToFragment(R.id.nav_home)
