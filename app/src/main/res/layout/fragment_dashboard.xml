@@ -133,7 +133,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="10"
-                                android:textSize="@dimen/_20ssp"
+                                android:fontFamily="@font/poppins_bold"
+                                android:textSize="@dimen/_30ssp"
                                 android:textStyle="bold" />
 
                             <TextView
@@ -155,8 +156,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="05"
+                                android:fontFamily="@font/popping_extra_bold"
                                 android:textColor="@color/black_light"
-                                android:textSize="@dimen/_20ssp"
+                                android:textSize="@dimen/_30ssp"
                                 android:textStyle="bold" />
 
                             <TextView
