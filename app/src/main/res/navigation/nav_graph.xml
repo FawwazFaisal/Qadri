@@ -46,6 +46,9 @@
             app:destination="@id/transitOrder"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_home_to_hostSalesPlan"
+            app:destination="@id/hostSalesPlan" />
     </fragment>
 
     <fragment
@@ -96,12 +99,12 @@
     <fragment
         android:id="@+id/reportAging"
         android:name="com.example.qadri.ui.fragment.reports.aging.ReportAging"
-        android:label="AgingAccounts"
+        android:label="Aging Accounts"
         tools:layout="@layout/fragment_report_aging" />
     <fragment
         android:id="@+id/reportBankDeposit"
         android:name="com.example.qadri.ui.fragment.reports.bankDeposit.ReportBankDeposit"
-        android:label="BankDeposits"
+        android:label="Deposits"
         tools:layout="@layout/fragment_report_bank_deposit" />
     <fragment
         android:id="@+id/reportComplaint"
@@ -113,5 +116,10 @@
         android:name="com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan"
         android:label="fragment_sales_plan_visit_report"
         tools:layout="@layout/fragment_sales_plan_visit_report" />
+    <fragment
+        android:id="@+id/hostSalesPlan"
+        android:name="com.example.qadri.ui.fragment.salesPlan.HostSalesPlan"
+        android:label="Sales Plan"
+        tools:layout="@layout/fragment_host_sales_plan" />
 
 </navigation>

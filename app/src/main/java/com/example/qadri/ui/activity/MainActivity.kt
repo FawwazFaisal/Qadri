@@ -156,31 +156,17 @@ class MainActivity : DockActivity() {
     }
 
     private fun setData() {
-//        binding.sideLayout.name.text = sharedPrefManager.getUserDetails()?.first_name + " " + sharedPrefManager.getUserDetails()?.last_name
         binding.sideLayout.version.text = "version: ${BuildConfig.VERSION_CODE}"
         Picasso.get().load("https://medias.spotern.com/spots/w640/229/229560-1567745387.jpg").error(R.drawable.ic_user).into(binding.sideLayout.userProfile)
-
     }
 
     private fun fragmentClickEvent(itemString: String) {
         when (itemString) {
-            Constants.NODE_DASHBOARD -> {
-                navigateToFragment(R.id.nav_home)
-            }
             Constants.NODE_CREATE_ORDER -> {
                 navigateToFragment(R.id.nav_home)
             }
-            Constants.SUB_NODE_TODAY -> {
-                navigateToFragment(R.id.nav_home)
-            }
-            Constants.SUB_NODE_PENDING -> {
-                navigateToFragment(R.id.nav_home)
-            }
-            Constants.SUB_NODE_COMPLETED -> {
-                navigateToFragment(R.id.nav_home)
-            }
-            Constants.SUB_NODE_OTHER_VISITS -> {
-                navigateToFragment(R.id.nav_home)
+            Constants.NODE_SALES_PLAN -> {
+                navigateToFragment(R.id.action_nav_home_to_hostSalesPlan)
             }
             Constants.NODE_CUSTOMERS -> {
                 navigateToFragment(R.id.nav_home)
@@ -202,7 +188,6 @@ class MainActivity : DockActivity() {
             }
             Constants.SUB_NODE_REPORTS_RECOVERY -> {
                 navigateToFragment(R.id.action_nav_home_to_reportRecovery)
-
             }
             Constants.SUB_NODE_REPORTS_ORDER -> {
                 navigateToFragment(R.id.action_nav_home_to_reportOrder)
@@ -238,27 +223,25 @@ class MainActivity : DockActivity() {
         listDataChild = HashMap<String, List<String>>()
         val icons = ArrayList<Int>()
 
-        icons.add(R.drawable.ic_dashboard) //0
-        icons.add(R.drawable.ic_edit) //1
-        icons.add(R.drawable.ic_sales) //2
-        icons.add(R.drawable.ic_customers) // 3
-        icons.add(R.drawable.ic_bank_deposit) //4
-        icons.add(R.drawable.ic_orders) //5
-        icons.add(R.drawable.ic_reports) //6
-        icons.add(R.drawable.ic_notification) //7
-        icons.add(R.drawable.ic_settings)//8
-        icons.add(R.drawable.ic_logout)//9
+        icons.add(R.drawable.ic_edit) //0
+        icons.add(R.drawable.ic_sales) //1
+        icons.add(R.drawable.ic_customers) // 2
+        icons.add(R.drawable.ic_bank_deposit) //3
+        icons.add(R.drawable.ic_orders) //4
+        icons.add(R.drawable.ic_reports) //5
+        icons.add(R.drawable.ic_notification) //6
+        icons.add(R.drawable.ic_settings)//7
+        icons.add(R.drawable.ic_logout)//8
 
-        listDataHeader.add(Constants.NODE_DASHBOARD) //0
-        listDataHeader.add(Constants.NODE_CREATE_ORDER) //1
-        listDataHeader.add(Constants.NODE_SALES_PLAN) //2
-        listDataHeader.add(Constants.NODE_CUSTOMERS) //3
-        listDataHeader.add(Constants.NODE_BANK_DEPOSIT) //4
-        listDataHeader.add(Constants.NODE_ORDERS) //5
-        listDataHeader.add(Constants.NODE_REPORTS) //6
-        listDataHeader.add(Constants.NODE_NOTIFICATIONS) //7
-        listDataHeader.add(Constants.NODE_SETTINGS) //8
-        listDataHeader.add(Constants.NODE_LOGOUT) //9
+        listDataHeader.add(Constants.NODE_CREATE_ORDER) //0
+        listDataHeader.add(Constants.NODE_SALES_PLAN) //1
+        listDataHeader.add(Constants.NODE_CUSTOMERS) //2
+        listDataHeader.add(Constants.NODE_BANK_DEPOSIT) //3
+        listDataHeader.add(Constants.NODE_ORDERS) //4
+        listDataHeader.add(Constants.NODE_REPORTS) //5
+        listDataHeader.add(Constants.NODE_NOTIFICATIONS) //6
+        listDataHeader.add(Constants.NODE_SETTINGS) //7
+        listDataHeader.add(Constants.NODE_LOGOUT) //8
 
         val listAdapter = ExpandableListAdapter(
             this,
@@ -268,19 +251,19 @@ class MainActivity : DockActivity() {
         )
 
         // Sales management child nodes
-        val salesPlan: MutableList<String> = ArrayList()
-        salesPlan.add(Constants.SUB_NODE_TODAY)
-        salesPlan.add(Constants.SUB_NODE_PENDING)
-        salesPlan.add(Constants.SUB_NODE_COMPLETED)
-        salesPlan.add(Constants.SUB_NODE_OTHER_VISITS)
-        listDataChild[listDataHeader[2]] = salesPlan
+//        val salesPlan: MutableList<String> = ArrayList()
+//        salesPlan.add(Constants.SUB_NODE_TODAY)
+//        salesPlan.add(Constants.SUB_NODE_PENDING)
+//        salesPlan.add(Constants.SUB_NODE_COMPLETED)
+//        salesPlan.add(Constants.SUB_NODE_OTHER_VISITS)
+//        listDataChild[listDataHeader[2]] = salesPlan
 
         //order child nodes
         val orders: MutableList<String> = ArrayList()
         orders.add(Constants.SUB_NODE_PENDING_ORDER)
         orders.add(Constants.SUB_NODE_IN_TRANSIT_ORDER)
         orders.add(Constants.SUB_NODE_COMPLETED_ORDER)
-        listDataChild[listDataHeader[5]] = orders
+        listDataChild[listDataHeader[4]] = orders
 
         //report child nodes
         val report: MutableList<String> = ArrayList()
@@ -291,11 +274,11 @@ class MainActivity : DockActivity() {
         report.add(Constants.SUB_NODE_REPORTS_BANK_DEPOSIT)
         report.add(Constants.SUB_NODE_REPORTS_COMPLAINTS)
         report.add(Constants.SUB_NODE_REPORTS_SALES_PLAN)
-        listDataChild[listDataHeader[6]] = report
+        listDataChild[listDataHeader[5]] = report
 
         val settings: MutableList<String> = ArrayList()
         settings.add(Constants.SUB_NODE_CHANGE_PASSWORD)
-        listDataChild[listDataHeader[8]] = settings
+        listDataChild[listDataHeader[7]] = settings
 
 
         // setting list adapter

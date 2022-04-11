@@ -14,6 +14,8 @@ import com.example.qadri.ui.fragment.reports.recovery.ReportRecovery
 import com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan
 import com.example.qadri.ui.fragment.reports.visit.ReportVisit
 import com.example.qadri.ui.fragment.reports.visit.VisitLogDetail
+import com.example.qadri.ui.fragment.salesPlan.HostSalesPlan
+import com.example.qadri.ui.fragment.salesPlan.SalesPlanTab
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -79,4 +81,10 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeReportOrderDetail(): ReportOrderDetail
+
+    @ContributesAndroidInjector
+    fun contributeHostSalesPlan(): HostSalesPlan
+
+    @ContributesAndroidInjector
+    fun contributeSalesPlanTab(): SalesPlanTab
 }
