@@ -9,9 +9,11 @@ import com.example.qadri.ui.fragment.reports.aging.ReportAging
 import com.example.qadri.ui.fragment.reports.bankDeposit.ReportBankDeposit
 import com.example.qadri.ui.fragment.reports.complaint.ReportComplaint
 import com.example.qadri.ui.fragment.reports.order.ReportOrder
+import com.example.qadri.ui.fragment.reports.order.ReportOrderDetail
 import com.example.qadri.ui.fragment.reports.recovery.ReportRecovery
 import com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan
 import com.example.qadri.ui.fragment.reports.visit.ReportVisit
+import com.example.qadri.ui.fragment.reports.visit.VisitLogDetail
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -71,4 +73,10 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeBankDepositGraphFragment(): BankDepositGraphFragment
+
+    @ContributesAndroidInjector
+    fun contributeVisitLogDetail(): VisitLogDetail
+
+    @ContributesAndroidInjector
+    fun contributeReportOrderDetail(): ReportOrderDetail
 }

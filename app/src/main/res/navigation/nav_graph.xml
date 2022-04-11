@@ -16,6 +16,24 @@
             app:destination="@id/reportVisit"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_home_to_reportRecovery"
+            app:destination="@id/reportRecovery" />
+        <action
+            android:id="@+id/action_nav_home_to_reportOrder"
+            app:destination="@id/reportOrder" />
+        <action
+            android:id="@+id/action_nav_home_to_reportAging"
+            app:destination="@id/reportAging" />
+        <action
+            android:id="@+id/action_nav_home_to_reportBankDeposit"
+            app:destination="@id/reportBankDeposit" />
+        <action
+            android:id="@+id/action_nav_home_to_reportComplaint"
+            app:destination="@id/reportComplaint" />
+        <action
+            android:id="@+id/action_nav_home_to_reportSalesPlan"
+            app:destination="@id/reportSalesPlan" />
 
         <action
             android:id="@+id/action_nav_home_to_pending_order"
@@ -46,6 +64,54 @@
         android:id="@+id/reportVisit"
         android:name="com.example.qadri.ui.fragment.reports.visit.ReportVisit"
         android:label="Visit Logs"
-        tools:layout="@layout/fragment_report_visit" />
+        tools:layout="@layout/fragment_report_visit" >
+        <action
+            android:id="@+id/action_reportVisit_to_visitLogDetail"
+            app:destination="@id/visitLogDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/visitLogDetail"
+        android:name="com.example.qadri.ui.fragment.reports.visit.VisitLogDetail"
+        android:label="Details"
+        tools:layout="@layout/fragment_visit_log_detail" />
+    <fragment
+        android:id="@+id/reportRecovery"
+        android:name="com.example.qadri.ui.fragment.reports.recovery.ReportRecovery"
+        android:label="Recoveries"
+        tools:layout="@layout/fragment_report_recovery" />
+    <fragment
+        android:id="@+id/reportOrder"
+        android:name="com.example.qadri.ui.fragment.reports.order.ReportOrder"
+        android:label="Orders"
+        tools:layout="@layout/fragment_report_order" >
+        <action
+            android:id="@+id/action_reportOrder_to_visitOrderDetail"
+            app:destination="@id/reportOrderDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/reportOrderDetail"
+        android:name="com.example.qadri.ui.fragment.reports.order.ReportOrderDetail"
+        android:label=""
+        tools:layout="@layout/fragment_report_order_detail" />
+    <fragment
+        android:id="@+id/reportAging"
+        android:name="com.example.qadri.ui.fragment.reports.aging.ReportAging"
+        android:label="AgingAccounts"
+        tools:layout="@layout/fragment_report_aging" />
+    <fragment
+        android:id="@+id/reportBankDeposit"
+        android:name="com.example.qadri.ui.fragment.reports.bankDeposit.ReportBankDeposit"
+        android:label="BankDeposits"
+        tools:layout="@layout/fragment_report_bank_deposit" />
+    <fragment
+        android:id="@+id/reportComplaint"
+        android:name="com.example.qadri.ui.fragment.reports.complaint.ReportComplaint"
+        android:label="Complaints"
+        tools:layout="@layout/fragment_report_complaint" />
+    <fragment
+        android:id="@+id/reportSalesPlan"
+        android:name="com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan"
+        android:label="fragment_sales_plan_visit_report"
+        tools:layout="@layout/fragment_sales_plan_visit_report" />
 
 </navigation>

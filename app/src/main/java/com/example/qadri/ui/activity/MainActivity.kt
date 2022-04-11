@@ -1,57 +1,47 @@
 package com.example.qadri.ui.activity
 
-import android.annotation.SuppressLint
-import android.app.Activity
-import android.content.*
-import android.net.Uri
+import android.content.DialogInterface
+import android.content.Intent
+import android.content.SharedPreferences
 import android.os.Build
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.*
-import android.widget.ImageButton
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SwitchCompat
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
+import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.work.*
-import butterknife.ButterKnife
-import butterknife.Unbinder
-import com.deepakkumardk.kontactpickerlib.KontactPicker
-import com.deepakkumardk.kontactpickerlib.model.KontactPickerItem
-import com.deepakkumardk.kontactpickerlib.model.SelectionMode
 import com.example.qadri.BuildConfig
 import com.example.qadri.R
-import com.example.qadri.ui.adapter.ExpandableListAdapter
 import com.example.qadri.constant.Constants
 import com.example.qadri.databinding.ActivityMainBinding
 import com.example.qadri.mvvm.model.addLead.DynamicLeadsItem
 import com.example.qadri.mvvm.model.checkin.CheckinModel
-import com.example.qadri.mvvm.model.lov.CompanyLeadSource
 import com.example.qadri.mvvm.model.lov.LovResponse
 import com.example.qadri.mvvm.model.portfolio.PortfolioResponse
+import com.example.qadri.mvvm.viewModel.coroutine.CoroutineViewModel
 import com.example.qadri.security.EncryptionKeyStoreImpl
-import com.example.qadri.utils.*
+import com.example.qadri.ui.adapter.ExpandableListAdapter
 import com.example.qadri.utils.Schedulers.LocationWorkManager.LocationWorker
 import com.example.qadri.utils.Schedulers.UploadCheckInWorkManager.UploadCheckInWorker
 import com.example.qadri.utils.Schedulers.UploadLeadWorkManager.UploadLeadWorker
-import com.example.qadri.mvvm.viewModel.coroutine.CoroutineViewModel
 import com.squareup.picasso.Picasso
 import java.util.concurrent.TimeUnit
-import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 import kotlin.collections.set
 
 
@@ -127,6 +117,22 @@ class MainActivity : DockActivity() {
     private fun initView() {
         setSupportActionBar(findViewById(R.id.toolBar))
         navController = findNavController(R.id.nav_host_main)
+        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener{
+            override fun onDestinationChanged(
+                controller: NavController,
+                destination: NavDestination,
+                arguments: Bundle?
+            ) {
+                if(this@MainActivity::switchAB.isInitialized){
+                    if(destination.label!="Dashboard"){
+                        switchAB.visibility = View.GONE
+                    }else{
+                        switchAB.visibility = View.VISIBLE
+                    }
+                }
+            }
+
+        })
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -195,20 +201,20 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.action_nav_home_to_reportVisit)
             }
             Constants.SUB_NODE_REPORTS_RECOVERY -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportRecovery)
 
             }
             Constants.SUB_NODE_REPORTS_ORDER -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportOrder)
             }
             Constants.SUB_NODE_REPORTS_AGING -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportAging)
             }
             Constants.SUB_NODE_REPORTS_BANK_DEPOSIT -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportBankDeposit)
             }
             Constants.SUB_NODE_REPORTS_COMPLAINTS -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportComplaint)
             }
             Constants.SUB_NODE_REPORTS_SALES_PLAN -> {
                 navigateToFragment(R.id.nav_home)

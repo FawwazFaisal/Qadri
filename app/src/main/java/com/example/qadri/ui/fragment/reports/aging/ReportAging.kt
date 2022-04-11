@@ -1,27 +1,43 @@
 package com.example.qadri.ui.fragment.reports.aging
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.R
-import com.example.qadri.databinding.FragmentReportAgaingBinding
+import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.databinding.DialogReportAgingDetailBinding
+import com.example.qadri.databinding.FragmentReportAgingBinding
+import com.example.qadri.mvvm.model.reports.ReportAgingModel
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
-class ReportAging : BaseDockFragment() {
+class ReportAging : BaseDockFragment(), ClickListener {
 
-    lateinit var bd: FragmentReportAgaingBinding
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
+    lateinit var bd: FragmentReportAgingBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        bd = FragmentReportAgaingBinding.inflate(layoutInflater)
+        bd = FragmentReportAgingBinding.inflate(layoutInflater)
         return bd.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        bd.recyclerView.adapter = AdapterRvAging(this).apply {
+            setList(arrayListOf<ReportAgingModel>().apply {
+                add(ReportAgingModel("Al Yaqeen Arts Printer", "175,000", "200,000"))
+                add(ReportAgingModel("Al Yaqeen Arts Printer", "175,000", "200,000"))
+                add(ReportAgingModel("Al Yaqeen Arts Printer", "175,000", "200,000"))
+            })
+        }
+    }
+
+    override fun <T> onClick(data: T, createNested: Boolean) {
+        BottomSheetDialog(requireContext()).apply {
+            val bd = DialogReportAgingDetailBinding.inflate(layoutInflater)
+            setContentView(bd.root)
+        }.show()
     }
 }

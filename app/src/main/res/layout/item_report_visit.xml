@@ -5,6 +5,7 @@
     android:background="@drawable/cardview_bg_white"
     android:layout_marginHorizontal="@dimen/_5sdp"
     android:layout_marginVertical="@dimen/_5sdp"
+    android:foreground="?attr/selectableItemBackground"
     android:layout_height="wrap_content">
 
     <TextView
