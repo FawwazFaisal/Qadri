@@ -1,12 +1,11 @@
 package com.example.qadri.ui.fragment.salesPlan
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.R
 import com.example.qadri.databinding.FragmentHostSalesPlanBinding
+import com.example.qadri.ui.adapter.AdapterGenericVp
 import com.example.qadri.ui.fragment.BaseDockFragment
 
 class HostSalesPlan : BaseDockFragment() {
@@ -27,7 +26,7 @@ class HostSalesPlan : BaseDockFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bd.viewPager.adapter = AdapterVpSalesPlan(childFragmentManager).apply {
+        bd.viewPager.adapter = AdapterGenericVp(childFragmentManager).apply {
             addFragment(SalesPlanTab(),"Today's Plan")
             addFragment(SalesPlanTab(),"Pending Visits")
             addFragment(SalesPlanTab(),"Other Visits")
