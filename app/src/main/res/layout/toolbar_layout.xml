@@ -7,10 +7,10 @@
     android:orientation="vertical">
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_50sdp"
-        android:background="@drawable/bg_toolbar"/>
+        android:layout_height="@dimen/_23sdp"
+        android:background="@color/black_light"/>
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_30sdp"
-        android:background="@color/black_light"/>
+        android:layout_height="@dimen/_50sdp"
+        android:background="@drawable/bg_toolbar"/>
 </FrameLayout>

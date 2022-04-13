@@ -1,12 +1,12 @@
 package com.example.qadri.ui.fragment.customerDetail
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.databinding.FragmentCustomerDetailBinding
+import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.adapter.AdapterGenericVp
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.customerDetail.tabs.*
@@ -29,12 +29,13 @@ class CustomerDetails : BaseDockFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as MainActivity).supportActionBar?.title = arguments?.getString("title")
         bd.viewPager.adapter = AdapterGenericVp(childFragmentManager).apply {
             addFragment(CustomerInfo(),"Customer Info")
             addFragment(PreviousVisit(),"Previous Visits")
             addFragment(AccountsReceivables(),"Account/Receivables")
             addFragment(BookedOrders(),"Booked Orders")
-            addFragment(CustomerComplaints(),"Customer Complaints")
+            addFragment(CustomerFeedback(),"Customer Feedback")
             addFragment(UpdateLocation(),"Update Location")
             addFragment(CompetitorsProduct(),"Competitor's Product")
         }

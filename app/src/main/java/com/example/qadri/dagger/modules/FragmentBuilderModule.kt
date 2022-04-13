@@ -109,7 +109,7 @@ FragmentBuilderModule {
     fun contributeBookedOrders(): BookedOrders
 
     @ContributesAndroidInjector
-    fun contributeCustomerComplaints(): CustomerComplaints
+    fun contributeCustomerComplaints(): CustomerFeedback
 
     @ContributesAndroidInjector
     fun contributeUpdateLocation(): UpdateLocation
@@ -125,4 +125,7 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeCheckIn(): CheckIn
+
+    @ContributesAndroidInjector
+    fun contributeOrderDetailReport(): OrderDetails
 }

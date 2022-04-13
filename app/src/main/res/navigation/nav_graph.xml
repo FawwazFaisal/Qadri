@@ -143,17 +143,17 @@
     <fragment
         android:id="@+id/customerNotes"
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.CustomerNotes"
-        android:label="fragment_customer_notes"
+        android:label="Notes"
         tools:layout="@layout/fragment_customer_notes" />
     <fragment
         android:id="@+id/checkIn2"
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.CheckIn"
-        android:label="fragment_check_in"
+        android:label="Check in"
         tools:layout="@layout/fragment_check_in" />
     <fragment
         android:id="@+id/recoveryForm"
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm"
-        android:label="fragment_recovery_form"
+        android:label="Recovery Form"
         tools:layout="@layout/fragment_recovery_form" />
 
 </navigation>

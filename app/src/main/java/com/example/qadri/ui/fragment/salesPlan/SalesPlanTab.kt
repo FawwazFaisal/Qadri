@@ -40,6 +40,8 @@ class SalesPlanTab : BaseDockFragment(), ClickListener {
 
     override fun <T> onClick(data: T, createNested: Boolean) {
         val item = data as SalesPlanModel
-        navigateToFragment(R.id.action_hostSalesPlan_to_customerDetail)
+        navigateToFragment(R.id.action_hostSalesPlan_to_customerDetail,Bundle().apply {
+            putString("title",item.name)
+        })
     }
 }
