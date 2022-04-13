@@ -226,5 +226,6 @@
     <string name="kafalah">Kafalah</string>
     <string name="default_notification_channel_id">com.example.qadri</string>
     <string name="fcm_message">Qadri</string>
+    <string name="dummy_order_number">ORDER# 0001</string>
 
 </resources>
