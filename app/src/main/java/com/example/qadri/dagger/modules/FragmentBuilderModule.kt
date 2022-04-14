@@ -1,6 +1,8 @@
 package com.example.qadri.dagger.modules
 
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.example.qadri.ui.fragment.createOrder.CreateOrderCustomerFragment
+import com.example.qadri.ui.fragment.createOrder.OrderProductFragment
 import com.example.qadri.ui.fragment.dashboard.BankDepositGraphFragment
 import com.example.qadri.ui.fragment.dashboard.DashboardFragment
 import com.example.qadri.ui.fragment.dashboard.VisitsGraphFragment
@@ -87,4 +89,11 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeSalesPlanTab(): SalesPlanTab
+
+    @ContributesAndroidInjector
+    fun contributeCreateOrderCustomerFragment(): CreateOrderCustomerFragment
+
+
+    @ContributesAndroidInjector
+    fun contributeOrderProductFragment(): OrderProductFragment
 }

@@ -6,6 +6,6 @@
     <corners android:radius="@dimen/_5sdp" />
     <stroke
         android:width="0.5dp"
-        android:color="@color/lightGray"
+        android:color="@color/colorPrimary"
         tools:ignore="NewApi" />
 </shape>

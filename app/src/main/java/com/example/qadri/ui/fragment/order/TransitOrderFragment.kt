@@ -5,12 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.PendingOrderFragmentBinding
 import com.example.qadri.databinding.TransitOrderFragmentBinding
-import com.example.qadri.ui.adapter.PendingOrderAdapter
-import com.example.qadri.ui.adapter.TransitOrderAdapter
+import com.example.qadri.ui.fragment.order.adapter.TransitOrderAdapter
 
 class TransitOrderFragment : Fragment(), ClickListener {
 

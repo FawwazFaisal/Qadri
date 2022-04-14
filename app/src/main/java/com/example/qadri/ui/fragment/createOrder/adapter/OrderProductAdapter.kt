@@ -1,4 +1,4 @@
-package com.example.qadri.ui.adapter
+package com.example.qadri.ui.fragment.createOrder.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,21 +8,22 @@ import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.ItemPendingOrderBinding
+import com.example.qadri.databinding.ItemCustomerBinding
+import com.example.qadri.databinding.ItemOrderProductBinding
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
-import kotlinx.android.synthetic.main.item_pending_order.view.*
+import kotlinx.android.synthetic.main.item_order_product.view.*
 
-class PendingOrderAdapter(val context: Context?, val listener: ClickListener) :
-    RecyclerView.Adapter<PendingOrderAdapter.ViewHolder>() {
+class OrderProductAdapter (val context: Context?, val listener: ClickListener) :
+    RecyclerView.Adapter<OrderProductAdapter.ViewHolder>() {
 
     private lateinit var dataList: List<DummyPendingOrder>
-    lateinit var view: ItemPendingOrderBinding
+    lateinit var view: ItemOrderProductBinding
+    var count = 0
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bindItems(item: DummyPendingOrder) {
-
-            view.orderName.text = (item.name ?: "N/A")
+            view.name.text = (item.name ?: "N/A")
         }
 
     }
@@ -33,7 +34,7 @@ class PendingOrderAdapter(val context: Context?, val listener: ClickListener) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        view = ItemPendingOrderBinding.inflate(LayoutInflater.from(context), parent, false)
+        view = ItemOrderProductBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(view.root)
     }
 
@@ -41,18 +42,19 @@ class PendingOrderAdapter(val context: Context?, val listener: ClickListener) :
         val item = dataList[position]
         holder.bindItems(item)
 
-//        holder.itemView.viewIv.setOnClickListener {
-//            holder.itemView.ll_detail.visibility = View.VISIBLE
-//            holder.itemView.cancelIv.visibility = View.VISIBLE
-//            holder.itemView.viewIv.visibility = View.GONE
-//        }
-//
-//        holder.itemView.cancelIv.setOnClickListener {
-//            holder.itemView.ll_detail.visibility = View.GONE
-//            holder.itemView.cancelIv.visibility = View.GONE
-//            holder.itemView.viewIv.visibility = View.VISIBLE
-//        }
 
+        holder.itemView.increment.setOnClickListener {
+            count++
+            holder.itemView.quantityTv.text = count.toString()
+        }
+
+        holder.itemView.decrement.setOnClickListener {
+            if (count != 0) {
+                count--
+                holder.itemView.quantityTv.text = count.toString()
+            }
+
+        }
         holder.itemView.setOnClickListener {
             listener.onClick(item)
         }

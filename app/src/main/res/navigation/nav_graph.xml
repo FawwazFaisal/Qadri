@@ -42,6 +42,12 @@
             app:exitAnim="@anim/slide_out_right" />
 
         <action
+            android:id="@+id/action_nav_home_to_create_order"
+            app:destination="@id/create_order"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_right" />
+
+        <action
             android:id="@+id/action_nav_home_to_transit_order"
             app:destination="@id/transitOrder"
             app:enterAnim="@anim/slide_in_right"
@@ -50,6 +56,35 @@
             android:id="@+id/action_nav_home_to_hostSalesPlan"
             app:destination="@id/hostSalesPlan" />
     </fragment>
+
+    <fragment
+        android:id="@+id/create_order"
+        android:name="com.example.qadri.ui.fragment.createOrder.CreateOrderCustomerFragment"
+        android:label="Create Order"
+        tools:layout="@layout/create_order_customer_fragment">
+
+        <action
+            android:id="@+id/action_nav_create_order_Order_Host"
+            app:destination="@id/create_order_host_fragment"/>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/create_order_host_fragment"
+        android:name="com.example.qadri.ui.fragment.createOrder.CreateOrderHostFragment"
+        android:label="Detail"
+        tools:layout="@layout/create_order_host_fragment" >
+
+        <action
+            android:id="@+id/action_nav_create_order_host_fragment_to_view_cart"
+            app:destination="@id/view_cart_fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/view_cart_fragment"
+        android:name="com.example.qadri.ui.fragment.createOrder.ViewCartOrderFragment"
+        android:label="Cart"
+        tools:layout="@layout/view_cart_order_fragment" />
 
     <fragment
         android:id="@+id/transitOrder"

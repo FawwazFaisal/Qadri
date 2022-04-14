@@ -163,7 +163,7 @@ class MainActivity : DockActivity() {
     private fun fragmentClickEvent(itemString: String) {
         when (itemString) {
             Constants.NODE_CREATE_ORDER -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_create_order)
             }
             Constants.NODE_SALES_PLAN -> {
                 navigateToFragment(R.id.action_nav_home_to_hostSalesPlan)

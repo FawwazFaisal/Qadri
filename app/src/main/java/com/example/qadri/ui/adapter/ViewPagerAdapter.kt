@@ -1,10 +1,10 @@
-package com.example.qadri.ui.fragment.salesPlan
+package com.example.qadri.ui.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class AdapterVpSalesPlan(fm:FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
+class ViewPagerAdapter(fm:FragmentManager) : FragmentPagerAdapter(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT){
 
     val fragList = arrayListOf<Fragment>()
     val titleList = arrayListOf<String>()

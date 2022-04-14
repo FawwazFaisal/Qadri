@@ -1,19 +1,15 @@
 package com.example.qadri.ui.fragment.order
 
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.DialogPasswordInstructionBinding
 import com.example.qadri.databinding.DialogPendingOrderDetailBinding
 import com.example.qadri.databinding.PendingOrderFragmentBinding
-import com.example.qadri.ui.adapter.PendingOrderAdapter
+import com.example.qadri.ui.fragment.order.adapter.PendingOrderAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 data class DummyPendingOrder(
@@ -48,6 +44,11 @@ class PendingOrderFragment : Fragment(), ClickListener {
         adapter = PendingOrderAdapter(requireContext(), this)
         adapter.setList(list)
         binding.recyclerView.adapter = adapter
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        dataList.clear()
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
