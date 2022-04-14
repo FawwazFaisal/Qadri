@@ -1,6 +1,11 @@
 package com.example.qadri.dagger.modules
 
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.example.qadri.ui.fragment.customerDetail.CustomerDetails
+import com.example.qadri.ui.fragment.customerDetail.actions.CheckIn
+import com.example.qadri.ui.fragment.customerDetail.actions.CustomerNotes
+import com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm
+import com.example.qadri.ui.fragment.customerDetail.tabs.*
 import com.example.qadri.ui.fragment.createOrder.CreateOrderCustomerFragment
 import com.example.qadri.ui.fragment.createOrder.OrderProductFragment
 import com.example.qadri.ui.fragment.dashboard.BankDepositGraphFragment
@@ -89,6 +94,42 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeSalesPlanTab(): SalesPlanTab
+
+    @ContributesAndroidInjector
+    fun contributeCustomerDetail(): CustomerDetails
+
+    @ContributesAndroidInjector
+    fun contributeCustomerInfo(): CustomerInfo
+
+    @ContributesAndroidInjector
+    fun contributePreviousVisit(): PreviousVisit
+
+    @ContributesAndroidInjector
+    fun contributeAccountsReceivables(): AccountsReceivables
+
+    @ContributesAndroidInjector
+    fun contributeBookedOrders(): BookedOrders
+
+    @ContributesAndroidInjector
+    fun contributeCustomerComplaints(): CustomerFeedback
+
+    @ContributesAndroidInjector
+    fun contributeUpdateLocation(): UpdateLocation
+
+    @ContributesAndroidInjector
+    fun contributeCompetitorsProduct(): CompetitorsProduct
+
+    @ContributesAndroidInjector
+    fun contributeCustomerNotes(): CustomerNotes
+
+    @ContributesAndroidInjector
+    fun contributeRecoveryForm(): RecoveryForm
+
+    @ContributesAndroidInjector
+    fun contributeCheckIn(): CheckIn
+
+    @ContributesAndroidInjector
+    fun contributeOrderDetailReport(): OrderDetails
 
     @ContributesAndroidInjector
     fun contributeCreateOrderCustomerFragment(): CreateOrderCustomerFragment

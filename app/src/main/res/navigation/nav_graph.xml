@@ -155,6 +155,40 @@
         android:id="@+id/hostSalesPlan"
         android:name="com.example.qadri.ui.fragment.salesPlan.HostSalesPlan"
         android:label="Sales Plan"
-        tools:layout="@layout/fragment_host_sales_plan" />
+        tools:layout="@layout/fragment_host_sales_plan" >
+        <action
+            android:id="@+id/action_hostSalesPlan_to_customerDetail"
+            app:destination="@id/customerDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerDetail"
+        android:name="com.example.qadri.ui.fragment.customerDetail.CustomerDetails"
+        android:label=""
+        tools:layout="@layout/fragment_customer_detail" >
+        <action
+            android:id="@+id/action_customerDetail_to_customerNotes"
+            app:destination="@id/customerNotes" />
+        <action
+            android:id="@+id/action_customerDetail_to_recoveryForm"
+            app:destination="@id/recoveryForm" />
+        <action
+            android:id="@+id/action_customerDetail_to_checkIn"
+            app:destination="@id/checkIn2" />
+    </fragment>
+    <fragment
+        android:id="@+id/customerNotes"
+        android:name="com.example.qadri.ui.fragment.customerDetail.actions.CustomerNotes"
+        android:label="Notes"
+        tools:layout="@layout/fragment_customer_notes" />
+    <fragment
+        android:id="@+id/checkIn2"
+        android:name="com.example.qadri.ui.fragment.customerDetail.actions.CheckIn"
+        android:label="Check in"
+        tools:layout="@layout/fragment_check_in" />
+    <fragment
+        android:id="@+id/recoveryForm"
+        android:name="com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm"
+        android:label="Recovery Form"
+        tools:layout="@layout/fragment_recovery_form" />
 
 </navigation>
