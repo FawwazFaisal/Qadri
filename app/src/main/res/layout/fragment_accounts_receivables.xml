@@ -1,35 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <LinearLayout
-        android:id="@+id/linearLayout20"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout19"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_chainStyle="packed">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Ledger ID"
-            android:textColor="@color/black_light"
-            android:textSize="@dimen/_15ssp" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="1001"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/_13ssp" />
-    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout19"
@@ -37,7 +12,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout21"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout20">
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -91,7 +66,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout22"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout20"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout19">
 
         <LinearLayout
@@ -142,28 +117,58 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout22"
+        android:id="@+id/linearLayout20"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout23"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout21">
 
-        <TextView
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Overdue"
-            android:textColor="@color/black_light"
-            android:textSize="@dimen/_15ssp" />
+            android:layout_weight="0.5"
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="More Than 90 Days"
+                android:textColor="@color/black_light"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="50,000"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_13ssp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="175,000"
-            android:textColor="@color/red"
-            android:textSize="@dimen/_13ssp" />
+            android:layout_weight="0.5"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Overdue"
+                android:textColor="@color/black_light"
+                android:textSize="@dimen/_15ssp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="50,000"
+                android:textColor="@color/colorAccent"
+                android:textSize="@dimen/_13ssp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
@@ -173,7 +178,7 @@
         android:layout_marginVertical="@dimen/_20sdp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout22">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout20">
 
         <TextView
             android:layout_width="match_parent"

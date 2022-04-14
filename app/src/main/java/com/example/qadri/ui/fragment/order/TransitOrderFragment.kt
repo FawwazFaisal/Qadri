@@ -6,8 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.databinding.DialogCompletedOrderBinding
+import com.example.qadri.databinding.DialogTransitOrderDetailBinding
 import com.example.qadri.databinding.TransitOrderFragmentBinding
 import com.example.qadri.ui.fragment.order.adapter.TransitOrderAdapter
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class TransitOrderFragment : Fragment(), ClickListener {
 
@@ -25,6 +28,11 @@ class TransitOrderFragment : Fragment(), ClickListener {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.searchBar.customerCount.text = "Total Orders: 03"
+    }
+
     private fun initView() {
         binding = TransitOrderFragmentBinding.inflate(layoutInflater)
         dataList.add(DummyPendingOrder("ORDER# 001"))
@@ -40,6 +48,13 @@ class TransitOrderFragment : Fragment(), ClickListener {
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
+        showTransitDetailDialog()
+    }
 
+    private fun showTransitDetailDialog() {
+        BottomSheetDialog(requireContext()).apply {
+            val bd = DialogTransitOrderDetailBinding.inflate(layoutInflater)
+            setContentView(bd.root)
+        }.show()
     }
 }

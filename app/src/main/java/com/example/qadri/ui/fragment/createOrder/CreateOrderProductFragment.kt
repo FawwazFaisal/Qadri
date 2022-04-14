@@ -14,7 +14,7 @@ import com.example.qadri.ui.fragment.createOrder.adapter.OrderProductAdapter
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
 import com.example.qadri.ui.fragment.order.adapter.PendingOrderAdapter
 
-class OrderProductFragment : BaseDockFragment(), ClickListener {
+class CreateOrderProductFragment : BaseDockFragment(), ClickListener {
 
     lateinit var binding: OrderProductFragmentBinding
     lateinit var adapter: OrderProductAdapter

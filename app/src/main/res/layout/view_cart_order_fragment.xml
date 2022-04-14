@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragment.createOrder.ViewCartOrderFragment">
+    tools:context=".ui.fragment.createOrder.Cart">
 
     <include
         android:id="@+id/toolBar"
@@ -173,6 +173,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
                 android:background="@color/lightGray" />
+            <Button
+                android:id="@+id/addDiscount"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_gravity="end"
+                android:background="@drawable/btn_bg_orange"
+                android:text="Add Discount"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -211,6 +222,7 @@
                     </RelativeLayout>
 
                     <Button
+                        android:id="@+id/btnConfirm"
                         android:layout_width="@dimen/_200sdp"
                         android:layout_height="@dimen/_35sdp"
                         android:layout_gravity="center"

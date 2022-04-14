@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_off_white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.fragment.order.CompletedOrderFragment">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar_layout" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolBar"
+        android:layout_marginLeft="@dimen/_10sdp"
+        android:layout_marginRight="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_10sdp"
+        app:cardCornerRadius="@dimen/margin_small"
+        app:strokeColor="@android:color/transparent"
+        app:cardElevation="@dimen/_5sdp"
+        android:theme="@style/Theme.MaterialComponents.Light"
+        app:strokeWidth="@dimen/_1sdp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <include android:id="@+id/search_bar"
+                layout="@layout/search_filter_layout"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_pending_order" />
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</RelativeLayout>

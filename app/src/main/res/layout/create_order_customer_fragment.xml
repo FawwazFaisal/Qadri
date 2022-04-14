@@ -11,38 +11,36 @@
         android:id="@+id/toolBar"
         layout="@layout/toolbar_layout" />
 
-    <TextView
-        android:id="@+id/total_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/toolBar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:layout_marginBottom="@dimen/_10sdp"
-        android:text="Total Customers (03)"
-        android:textColor="@color/black_light"
-        android:textSize="@dimen/_13sdp" />
-
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/total_order"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginRight="@dimen/_10sdp"
         android:layout_marginBottom="@dimen/_10sdp"
+        android:layout_below="@id/toolBar"
         app:cardCornerRadius="@dimen/margin_small"
         app:strokeColor="@android:color/transparent"
         app:cardElevation="@dimen/_5sdp"
         android:theme="@style/Theme.MaterialComponents.Light"
         app:strokeWidth="@dimen/_1sdp">
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/item_customer" />
+            android:orientation="vertical">
+            <include
+                android:id="@+id/search_bar"
+                layout="@layout/search_filter_layout"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent"/>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_customer" />
+        </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 

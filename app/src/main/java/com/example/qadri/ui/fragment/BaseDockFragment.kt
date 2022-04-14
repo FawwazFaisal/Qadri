@@ -1,15 +1,19 @@
 package com.example.qadri.ui.fragment
 
+import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.Gravity
+import android.view.View
 import androidx.annotation.IdRes
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.qadri.R
+import com.example.qadri.databinding.DialogFilterReportsBinding
 import com.example.qadri.ui.activity.*
 import com.example.qadri.databinding.DialogPasswordInstructionBinding
 import com.example.qadri.mvvm.network.ApiListener
@@ -119,6 +123,27 @@ abstract class BaseDockFragment : DaggerFragment(), ApiListener {
             return
         }
         findNavController().navigate(id)
+    }
+    fun openSearchDialog() {
+        val searchDialog = BottomSheetDialog(requireContext(),R.style.SheetDialog)
+        val bd = DialogFilterReportsBinding.inflate(layoutInflater)
+        searchDialog.setContentView(bd.root)
+        bd.radioGrp.setOnCheckedChangeListener { group, checkedId ->
+            when (checkedId) {
+                R.id.radioDate -> {
+                    bd.dateContainer.visibility = View.VISIBLE
+                    bd.name.visibility = View.GONE
+                }
+                R.id.radioName -> {
+                    bd.dateContainer.visibility = View.GONE
+                    bd.name.visibility = View.VISIBLE
+                }
+            }
+        }
+        bd.btnSearch.setOnClickListener {
+            searchDialog.dismiss()
+        }
+        searchDialog.show()
     }
 
 //    override fun <T> initiateListArrayAdapter(list: List<T>): ArrayAdapter<T> {

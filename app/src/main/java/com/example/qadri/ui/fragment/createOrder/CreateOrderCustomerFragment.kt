@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.CreateOrderCustomerFragmentBinding
+import com.example.qadri.mvvm.model.salesPlan.SalesPlanModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.createOrder.adapter.CreateOrderCustomerAdapter
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
@@ -16,7 +17,7 @@ import com.example.qadri.ui.fragment.order.adapter.PendingOrderAdapter
 class CreateOrderCustomerFragment : BaseDockFragment(), ClickListener {
 
     lateinit var binding: CreateOrderCustomerFragmentBinding
-    var dataList = ArrayList<DummyPendingOrder>()
+    var dataList = ArrayList<SalesPlanModel>()
     lateinit var adapter: CreateOrderCustomerAdapter
 
     override fun onCreateView(
@@ -29,11 +30,18 @@ class CreateOrderCustomerFragment : BaseDockFragment(), ClickListener {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.searchBar.search.setOnClickListener {
+            openSearchDialog()
+        }
+    }
+
     private fun initView() {
         binding = CreateOrderCustomerFragmentBinding.inflate(layoutInflater)
-        dataList.add(DummyPendingOrder("AR Traders"))
-        dataList.add(DummyPendingOrder("3 M Brothers"))
-        dataList.add(DummyPendingOrder("AZ Traders"))
+        dataList.add(SalesPlanModel("Anum Estate Building, Shahrah-e-Faisal","Fawwaz","A+ Category"))
+        dataList.add(SalesPlanModel("Anum Estate Building, Shahrah-e-Faisal","Fawwaz","A+ Category"))
+        dataList.add(SalesPlanModel("Anum Estate Building, Shahrah-e-Faisal","Fawwaz","A+ Category"))
         initRecyclerView(dataList)
     }
 
@@ -42,14 +50,16 @@ class CreateOrderCustomerFragment : BaseDockFragment(), ClickListener {
         dataList.clear()
     }
 
-    private fun initRecyclerView(list: List<DummyPendingOrder>){
+    private fun initRecyclerView(list: List<SalesPlanModel>){
         adapter = CreateOrderCustomerAdapter(requireContext(), this)
         adapter.setList(list)
         binding.recyclerView.adapter = adapter
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        navigateToFragment(R.id.create_order_host_fragment)
+        navigateToFragment(R.id.create_order_host_fragment,Bundle().apply {
+            putString("title",(data as DummyPendingOrder).name)
+        })
     }
 
 }

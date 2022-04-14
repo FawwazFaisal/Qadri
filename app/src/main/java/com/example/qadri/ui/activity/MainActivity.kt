@@ -84,11 +84,11 @@ class MainActivity : DockActivity() {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         val item = menu.findItem(R.id.myswitch) as MenuItem
         menu.findItem(R.id.action_notification).setOnMenuItemClickListener {
-            navigateToFragment(R.id.nav_home)
+            navigateToFragment(R.id.notification)
             true
         }
         menu.findItem(R.id.cart).setOnMenuItemClickListener {
-            navigateToFragment(R.id.nav_home)
+            navigateToFragment(R.id.view_cart_fragment)
             true
         }
 
@@ -169,10 +169,10 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.action_nav_home_to_hostSalesPlan)
             }
             Constants.NODE_CUSTOMERS -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_customers)
             }
             Constants.NODE_BANK_DEPOSIT -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_bankDeposit)
             }
             Constants.SUB_NODE_PENDING_ORDER -> {
                 navigateToFragment(R.id.action_nav_home_to_pending_order)
@@ -181,7 +181,7 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.action_nav_home_to_transit_order)
             }
             Constants.SUB_NODE_COMPLETED_ORDER -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_completedOrderFragment)
             }
             Constants.SUB_NODE_REPORTS_VISIT -> {
                 navigateToFragment(R.id.action_nav_home_to_reportVisit)
@@ -202,13 +202,13 @@ class MainActivity : DockActivity() {
                 navigateToFragment(R.id.action_nav_home_to_reportComplaint)
             }
             Constants.SUB_NODE_REPORTS_SALES_PLAN -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_reportSalesPlan)
             }
             Constants.NODE_NOTIFICATIONS -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_notification)
             }
             Constants.SUB_NODE_CHANGE_PASSWORD -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_changePassword)
             }
             Constants.NODE_LOGOUT -> {
                 showLogOutAlert()

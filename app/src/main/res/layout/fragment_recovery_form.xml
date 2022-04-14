@@ -22,40 +22,27 @@
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/_5sdp"
                 android:orientation="vertical">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Date"/>
-                    <EditText
-                        android:id="@+id/date"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
 
-                </LinearLayout>
                 <RadioGroup
+                    android:id="@+id/radioGrp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_20sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
+
                     <RadioButton
                         android:id="@+id/paymentStatus"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Payment Collection"/>
+                        android:text="Payment Collection"
+                        android:textColor="@color/black_light" />
+
                     <View
                         android:layout_width="0dp"
                         android:layout_height="0dp"
-                        android:layout_marginHorizontal="@dimen/_20sdp"/>
+                        android:layout_marginHorizontal="@dimen/_20sdp" />
+
                     <RadioButton
                         android:id="@+id/followUpRadio"
                         android:layout_width="wrap_content"
@@ -64,124 +51,203 @@
                         android:textColor="@color/black_light" />
 
                 </RadioGroup>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Payment Mode"/>
-                    <EditText
-                        android:id="@+id/paymentMode"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
 
-                </LinearLayout>
                 <LinearLayout
+                    android:id="@+id/followUpView"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Select Bank"/>
-                    <EditText
-                        android:id="@+id/bank"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
+                    android:orientation="vertical"
+                    android:visibility="gone">
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Instrument Number"/>
-                    <EditText
-                        android:id="@+id/instrumentNumber"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Amount"/>
-                    <EditText
-                        android:id="@+id/amount"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Reason"/>
-                    <EditText
-                        android:id="@+id/reason"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_90sdp"
-                        android:textColor="@color/black_light"
-                        style="@style/SimpleEditText"/>
-
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="@dimen/_10sdp"
-                    android:gravity="start"
-                    android:orientation="vertical">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_light"
-                        android:text="Upload Images"/>
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/_10sdp"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-                        <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:padding="@dimen/_10sdp"
-                            android:background="@drawable/cardview_bg_white"
-                            app:srcCompat="@drawable/ic_add_circle"/>
+                            android:text="Date"
+                            android:textColor="@color/black_light" />
+
+                        <EditText
+                            android:id="@+id/followUpDate"
+                            style="@style/SimpleEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/collectionView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Date"
+                            android:textColor="@color/black_light" />
+
+                        <EditText
+                            android:id="@+id/collectionDate"
+                            style="@style/SimpleEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
                     </LinearLayout>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Payment Mode"
+                            android:textColor="@color/black_light" />
+
+                        <Spinner
+                            android:id="@+id/paymentMode"
+                            style="@style/spinnerStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Select Bank"
+                            android:textColor="@color/black_light" />
+
+                        <Spinner
+                            android:id="@+id/bank"
+                            style="@style/spinnerStyle"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Instrument Number"
+                            android:textColor="@color/black_light" />
+
+                        <EditText
+                            android:id="@+id/instrumentNumber"
+                            style="@style/SimpleEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Amount"
+                            android:textColor="@color/black_light" />
+
+                        <EditText
+                            android:id="@+id/amount"
+                            style="@style/SimpleEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reason"
+                            android:textColor="@color/black_light" />
+
+                        <EditText
+                            android:id="@+id/reason"
+                            style="@style/SimpleEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/_90sdp"
+                            android:gravity="start"
+                            android:singleLine="false"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="@dimen/_10sdp"
+                        android:gravity="start"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Upload Images"
+                            android:textColor="@color/black_light" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/_10sdp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.utils.widget.ImageFilterView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/cardview_bg_white"
+                                android:padding="@dimen/_10sdp"
+                                app:srcCompat="@drawable/ic_add_circle" />
+                        </LinearLayout>
+
+                    </LinearLayout>
                 </LinearLayout>
+
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

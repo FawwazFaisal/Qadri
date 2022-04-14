@@ -32,6 +32,11 @@ class PendingOrderFragment : Fragment(), ClickListener {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.searchBar.customerCount.text = "Total Orders: 03"
+    }
+
     private fun initView() {
         binding = PendingOrderFragmentBinding.inflate(layoutInflater)
         dataList.add(DummyPendingOrder("ORDER# 001"))

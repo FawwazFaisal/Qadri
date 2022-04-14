@@ -1,4 +1,4 @@
-package com.example.qadri.ui.fragment.customerDetail.tabs
+package com.example.qadri.ui.fragment.customerDetail.tabs.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.ItemBookedOrderBinding
-import com.example.qadri.databinding.ItemReportAgingBinding
 import com.example.qadri.mvvm.model.bookedOrder.BookedOrderModel
 
 class AdapterRvBookedOrders(val listener:ClickListener) : RecyclerView.Adapter<AdapterRvBookedOrders.BookedOrderHolder>() {

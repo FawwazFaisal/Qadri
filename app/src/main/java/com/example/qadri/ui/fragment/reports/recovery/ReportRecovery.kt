@@ -45,29 +45,6 @@ class ReportRecovery : BaseDockFragment(), ClickListener {
         }
     }
 
-    private fun openSearchDialog() {
-        val searchDialog = Dialog(requireContext())
-        searchDialog.window?.setBackgroundDrawableResource(R.color.zxing_transparent)
-        val bd = DialogFilterReportsBinding.inflate(layoutInflater)
-        searchDialog.setContentView(bd.root)
-        bd.radioGrp.setOnCheckedChangeListener { group, checkedId ->
-            when (checkedId) {
-                R.id.radioDate -> {
-                    bd.dateContainer.visibility = View.VISIBLE
-                    bd.name.visibility = View.GONE
-                }
-                R.id.radioName -> {
-                    bd.dateContainer.visibility = View.GONE
-                    bd.name.visibility = View.VISIBLE
-                }
-            }
-        }
-        bd.btnSearch.setOnClickListener {
-            searchDialog.dismiss()
-        }
-        searchDialog.show()
-    }
-
     override fun <T> onClick(data: T, createNested: Boolean) {
         val reportItem = data as RecoveryReportModel
         BottomSheetDialog(requireContext()).apply {

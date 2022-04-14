@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.databinding.FragmentCustomerDetailBinding
 import com.example.qadri.ui.activity.MainActivity
-import com.example.qadri.ui.adapter.AdapterGenericVp
 import com.example.qadri.ui.adapter.ViewPagerAdapter
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.customerDetail.tabs.*

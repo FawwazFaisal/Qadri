@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/_20sdp"
+    android:background="@drawable/cardview_bg_white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/linearLayout25"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dateContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <Spinner
+                    android:id="@+id/bank"
+                    android:layout_width="match_parent"
+                    style="@style/spinnerStyle"
+                    android:layout_height="wrap_content"
+                    android:hint="Instrument Number" />
+                <EditText
+                    android:id="@+id/fromDate"
+                    android:layout_width="match_parent"
+                    style="@style/SimpleEditText"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="@dimen/_20sdp"
+                    android:hint="Instrument Number" />
+
+                <EditText
+                    android:id="@+id/toDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/SimpleEditText"
+                    android:hint="Amount" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:text="Upload Image"/>
+                <LinearLayout
+                    android:id="@+id/imageLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginVertical="@dimen/_10sdp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+                    <androidx.constraintlayout.utils.widget.ImageFilterView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/cardview_bg_white"
+                        android:padding="@dimen/_20sdp"
+                        app:srcCompat="@drawable/ic_add_round"
+                        android:adjustViewBounds="true"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        style="@style/btnStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:text="Submit"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout25" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

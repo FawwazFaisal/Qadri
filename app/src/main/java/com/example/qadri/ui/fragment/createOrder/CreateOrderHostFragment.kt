@@ -5,10 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.R
 import com.example.qadri.databinding.CreateOrderHostFragmentBinding
+import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.adapter.ViewPagerAdapter
-import com.example.qadri.ui.fragment.salesPlan.SalesPlanTab
 
 class CreateOrderHostFragment : Fragment() {
 
@@ -19,18 +18,17 @@ class CreateOrderHostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        initView()
-
+        binding = CreateOrderHostFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
-    private fun initView() {
-        binding = CreateOrderHostFragmentBinding.inflate(layoutInflater)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        (requireActivity() as MainActivity).supportActionBar?.title = arguments?.getString("title")
         binding.viewPager.adapter = ViewPagerAdapter(childFragmentManager).apply {
-            addFragment(OrderProductFragment(),"Artificial Leather")
-            addFragment(OrderProductFragment(),"Contact Adhesive")
-            addFragment(OrderProductFragment(),"Spare Parts")
+            addFragment(CreateOrderProductFragment(),"Artificial Leather")
+            addFragment(CreateOrderProductFragment(),"Contact Adhesive")
+            addFragment(CreateOrderProductFragment(),"Spare Parts")
         }
         binding.tabLayout.setupWithViewPager(binding.viewPager)
     }

@@ -1,4 +1,4 @@
-package com.example.qadri.ui.fragment.customerDetail.tabs
+package com.example.qadri.ui.fragment.customerDetail.tabs.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

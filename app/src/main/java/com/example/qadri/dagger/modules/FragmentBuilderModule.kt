@@ -1,17 +1,25 @@
 package com.example.qadri.dagger.modules
 
 import com.example.qadri.ui.fragment.BaseDockFragment
+import com.example.qadri.ui.fragment.bankDeposit.BankDeposit
+import com.example.qadri.ui.fragment.changePassword.ChangePassword
 import com.example.qadri.ui.fragment.customerDetail.CustomerDetails
 import com.example.qadri.ui.fragment.customerDetail.actions.CheckIn
 import com.example.qadri.ui.fragment.customerDetail.actions.CustomerNotes
 import com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm
 import com.example.qadri.ui.fragment.customerDetail.tabs.*
 import com.example.qadri.ui.fragment.createOrder.CreateOrderCustomerFragment
-import com.example.qadri.ui.fragment.createOrder.OrderProductFragment
+import com.example.qadri.ui.fragment.createOrder.CreateOrderDetailFragment
+import com.example.qadri.ui.fragment.createOrder.CreateOrderProductFragment
+import com.example.qadri.ui.fragment.createOrder.Cart
+import com.example.qadri.ui.fragment.customer.AddCustomer
+import com.example.qadri.ui.fragment.customer.Customers
 import com.example.qadri.ui.fragment.dashboard.BankDepositGraphFragment
 import com.example.qadri.ui.fragment.dashboard.DashboardFragment
 import com.example.qadri.ui.fragment.dashboard.VisitsGraphFragment
 import com.example.qadri.ui.fragment.login.*
+import com.example.qadri.ui.fragment.notification.Notification
+import com.example.qadri.ui.fragment.order.CompletedOrderFragment
 import com.example.qadri.ui.fragment.reports.aging.ReportAging
 import com.example.qadri.ui.fragment.reports.bankDeposit.ReportBankDeposit
 import com.example.qadri.ui.fragment.reports.complaint.ReportComplaint
@@ -136,5 +144,37 @@ FragmentBuilderModule {
 
 
     @ContributesAndroidInjector
-    fun contributeOrderProductFragment(): OrderProductFragment
+    fun contributeOrderProductFragment(): CreateOrderProductFragment
+
+
+    @ContributesAndroidInjector
+    fun contributeViewCartOrderFragment(): Cart
+
+
+    @ContributesAndroidInjector
+    fun contributeOrderDetailFragment(): CreateOrderDetailFragment
+
+
+    @ContributesAndroidInjector
+    fun contributeNotification(): Notification
+
+
+    @ContributesAndroidInjector
+    fun contributeChangePassword(): ChangePassword
+
+
+    @ContributesAndroidInjector
+    fun contributeCustomers(): Customers
+
+
+    @ContributesAndroidInjector
+    fun contributeAddCustomer(): AddCustomer
+
+
+    @ContributesAndroidInjector
+    fun contributeBankDeposit(): BankDeposit
+
+
+    @ContributesAndroidInjector
+    fun contributeCompletedOrderFragment(): CompletedOrderFragment
 }

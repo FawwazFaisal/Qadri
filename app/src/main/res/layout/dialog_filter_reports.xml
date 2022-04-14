@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/cardview_bg_white"
-    android:padding="@dimen/_20sdp"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/linearLayout25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnSearch"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/colorAccent"
-            android:gravity="center"
             android:layout_marginTop="@dimen/_20sdp"
-            android:text="Filter"/>
+            android:textStyle="bold"
+            android:textSize="@dimen/_15ssp"
+            android:gravity="center"
+            android:text="Filter"
+            android:textColor="@color/colorAccent" />
 
         <RadioGroup
             android:id="@+id/radioGrp"
@@ -26,39 +34,44 @@
             android:layout_marginTop="@dimen/_10sdp"
             android:gravity="center"
             android:orientation="horizontal">
+
             <RadioButton
                 android:id="@+id/radioDate"
                 android:layout_width="wrap_content"
-                android:checked="true"
-                android:text="Date"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="@dimen/_40sdp"
+                android:checked="true"
                 android:singleLine="true"
-                android:layout_height="wrap_content"/>
+                android:text="Date" />
+
             <RadioButton
                 android:id="@+id/radioName"
                 android:layout_width="wrap_content"
-                android:text="Name"
+                android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:layout_height="wrap_content"/>
+                android:text="Name" />
         </RadioGroup>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/_20sdp"
             android:layout_marginTop="@dimen/_20sdp"
-            android:layout_marginHorizontal="@dimen/_10sdp">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/dateContainer"
                 android:layout_width="match_parent"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
                 <EditText
                     android:id="@+id/fromDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/_10sdp"
+                    android:background="@null"
+                    android:drawableEnd="@drawable/ic_calendar"
                     android:focusable="false"
                     android:hint="From Date" />
 
@@ -66,6 +79,8 @@
                     android:id="@+id/toDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:drawableEnd="@drawable/ic_calendar"
                     android:focusable="false"
                     android:hint="To Date" />
             </LinearLayout>
@@ -74,20 +89,24 @@
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:focusable="false"
                 android:hint="Name"
                 android:visibility="gone" />
         </LinearLayout>
 
-        <Button
-            android:id="@+id/btnSearch"
-            style="@style/btnStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/_20sdp"
-            android:text="Search"/>
-
     </LinearLayout>
 
+    <Button
+        android:id="@+id/btnSearch"
+        style="@style/btnStyle"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/_28sdp"
+        android:layout_marginVertical="@dimen/_10sdp"
+        android:text="Search"
+        app:layout_constraintWidth_percent="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout25"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout25" />
 
-</LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

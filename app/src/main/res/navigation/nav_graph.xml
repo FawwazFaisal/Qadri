@@ -14,47 +14,86 @@
         <action
             android:id="@+id/action_nav_home_to_reportVisit"
             app:destination="@id/reportVisit"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportRecovery"
-            app:destination="@id/reportRecovery" />
+            app:destination="@id/reportRecovery"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportOrder"
-            app:destination="@id/reportOrder" />
+            app:destination="@id/reportOrder"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportAging"
-            app:destination="@id/reportAging" />
+            app:destination="@id/reportAging"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportBankDeposit"
-            app:destination="@id/reportBankDeposit" />
+            app:destination="@id/reportBankDeposit"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportComplaint"
-            app:destination="@id/reportComplaint" />
+            app:destination="@id/reportComplaint"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_reportSalesPlan"
-            app:destination="@id/reportSalesPlan" />
+            app:destination="@id/reportSalesPlan"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
 
         <action
             android:id="@+id/action_nav_home_to_pending_order"
             app:destination="@id/pendingOrder"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
 
         <action
             android:id="@+id/action_nav_home_to_create_order"
             app:destination="@id/create_order"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
 
         <action
             android:id="@+id/action_nav_home_to_transit_order"
             app:destination="@id/transitOrder"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_right" />
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
         <action
             android:id="@+id/action_nav_home_to_hostSalesPlan"
-            app:destination="@id/hostSalesPlan" />
+            app:destination="@id/hostSalesPlan"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_notification"
+            app:destination="@id/notification"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_changePassword"
+            app:destination="@id/changePassword"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_customers"
+            app:destination="@id/customers"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_bankDeposit"
+            app:destination="@id/bankDeposit"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_completedOrderFragment"
+            app:destination="@id/completedOrderFragment"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
     </fragment>
 
     <fragment
@@ -72,7 +111,7 @@
     <fragment
         android:id="@+id/create_order_host_fragment"
         android:name="com.example.qadri.ui.fragment.createOrder.CreateOrderHostFragment"
-        android:label="Detail"
+        android:label=""
         tools:layout="@layout/create_order_host_fragment" >
 
         <action
@@ -82,9 +121,13 @@
 
     <fragment
         android:id="@+id/view_cart_fragment"
-        android:name="com.example.qadri.ui.fragment.createOrder.ViewCartOrderFragment"
+        android:name="com.example.qadri.ui.fragment.createOrder.Cart"
         android:label="Cart"
-        tools:layout="@layout/view_cart_order_fragment" />
+        tools:layout="@layout/view_cart_order_fragment" >
+        <action
+            android:id="@+id/action_view_cart_fragment_to_orderDetailFragment"
+            app:destination="@id/orderDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/transitOrder"
@@ -149,8 +192,12 @@
     <fragment
         android:id="@+id/reportSalesPlan"
         android:name="com.example.qadri.ui.fragment.reports.salesPlanReport.ReportSalesPlan"
-        android:label="fragment_sales_plan_visit_report"
-        tools:layout="@layout/fragment_sales_plan_visit_report" />
+        android:label="Sales Plan Report"
+        tools:layout="@layout/fragment_sales_plan_visit_report">
+        <action
+            android:id="@+id/action_reportSalesPlan_to_customerDetail"
+            app:destination="@id/customerDetail" />
+    </fragment>
     <fragment
         android:id="@+id/hostSalesPlan"
         android:name="com.example.qadri.ui.fragment.salesPlan.HostSalesPlan"
@@ -174,6 +221,9 @@
         <action
             android:id="@+id/action_customerDetail_to_checkIn"
             app:destination="@id/checkIn2" />
+        <action
+            android:id="@+id/action_customerDetail_to_orderDetails"
+            app:destination="@id/orderDetails" />
     </fragment>
     <fragment
         android:id="@+id/customerNotes"
@@ -190,5 +240,52 @@
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm"
         android:label="Recovery Form"
         tools:layout="@layout/fragment_recovery_form" />
+    <fragment
+        android:id="@+id/orderDetailFragment"
+        android:name="com.example.qadri.ui.fragment.createOrder.CreateOrderDetailFragment"
+        android:label="Order Summary"
+        tools:layout="@layout/fragment_cart_order_detail"/>
+    <fragment
+        android:id="@+id/orderDetails"
+        android:name="com.example.qadri.ui.fragment.customerDetail.tabs.OrderDetails"
+        android:label="Order Summary"
+        tools:layout="@layout/fragment_order_detail_report"/>
+    <fragment
+        android:id="@+id/notification"
+        android:name="com.example.qadri.ui.fragment.notification.Notification"
+        android:label="Notifications"
+        tools:layout="@layout/fragment_notification" />
+    <fragment
+        android:id="@+id/changePassword"
+        android:name="com.example.qadri.ui.fragment.changePassword.ChangePassword"
+        tools:layout="@layout/fragment_change_password2"
+        android:label="ChangePassword" />
+    <fragment
+        android:id="@+id/customers"
+        android:name="com.example.qadri.ui.fragment.customer.Customers"
+        android:label="Customers"
+        tools:layout="@layout/fragment_customer">
+        <action
+            android:id="@+id/action_customers_to_addCustomer"
+            app:destination="@id/addCustomer" />
+        <action
+            android:id="@+id/action_customers_to_customerDetail"
+            app:destination="@id/customerDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/addCustomer"
+        android:name="com.example.qadri.ui.fragment.customer.AddCustomer"
+        android:label="Add Customer"
+        tools:layout="@layout/fragment_add_customer" />
+    <fragment
+        android:id="@+id/bankDeposit"
+        android:name="com.example.qadri.ui.fragment.bankDeposit.BankDeposit"
+        android:label="Bank Deposits"
+        tools:layout="@layout/fragment_bank_deposit" />
+    <fragment
+        android:id="@+id/completedOrderFragment"
+        android:name="com.example.qadri.ui.fragment.order.CompletedOrderFragment"
+        android:label="Completed"
+        tools:layout="@layout/fragment_completed_order" />
 
 </navigation>

@@ -39,20 +39,6 @@ class TransitOrderAdapter (val context: Context?, val listener: ClickListener) :
         val item = dataList[position]
         holder.bindItems(item)
 
-        holder.itemView.viewIv.setOnClickListener {
-            holder.itemView.ll_detail.visibility = View.VISIBLE
-            holder.itemView.complain_btn.visibility = View.VISIBLE
-            holder.itemView.cancelIv.visibility = View.VISIBLE
-            holder.itemView.viewIv.visibility = View.GONE
-        }
-
-        holder.itemView.cancelIv.setOnClickListener {
-            holder.itemView.ll_detail.visibility = View.GONE
-            holder.itemView.cancelIv.visibility = View.GONE
-            holder.itemView.complain_btn.visibility = View.GONE
-            holder.itemView.viewIv.visibility = View.VISIBLE
-        }
-
         holder.itemView.setOnClickListener {
             listener.onClick(item)
         }

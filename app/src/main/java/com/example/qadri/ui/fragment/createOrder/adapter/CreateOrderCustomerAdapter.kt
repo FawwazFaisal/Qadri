@@ -10,24 +10,28 @@ import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.ItemCustomerBinding
 import com.example.qadri.databinding.ItemPendingOrderBinding
+import com.example.qadri.mvvm.model.salesPlan.SalesPlanModel
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
 
 class CreateOrderCustomerAdapter (val context: Context?, val listener: ClickListener) :
     RecyclerView.Adapter<CreateOrderCustomerAdapter.ViewHolder>() {
 
-    private lateinit var dataList: List<DummyPendingOrder>
+    private lateinit var dataList: List<SalesPlanModel>
     lateinit var view: ItemCustomerBinding
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        fun bindItems(item: DummyPendingOrder) {
+        fun bindItems(item: SalesPlanModel) {
 
             view.name.text = (item.name ?: "N/A")
+            view.type.text = (item.type ?: "N/A")
+            view.address.text = (item.address ?: "N/A")
+
         }
 
     }
 
-    fun setList(list: List<DummyPendingOrder>) {
+    fun setList(list: List<SalesPlanModel>) {
         dataList = list
         notifyDataSetChanged()
     }
@@ -40,18 +44,6 @@ class CreateOrderCustomerAdapter (val context: Context?, val listener: ClickList
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = dataList[position]
         holder.bindItems(item)
-
-//        holder.itemView.viewIv.setOnClickListener {
-//            holder.itemView.ll_detail.visibility = View.VISIBLE
-//            holder.itemView.cancelIv.visibility = View.VISIBLE
-//            holder.itemView.viewIv.visibility = View.GONE
-//        }
-//
-//        holder.itemView.cancelIv.setOnClickListener {
-//            holder.itemView.ll_detail.visibility = View.GONE
-//            holder.itemView.cancelIv.visibility = View.GONE
-//            holder.itemView.viewIv.visibility = View.VISIBLE
-//        }
 
         holder.itemView.setOnClickListener {
             listener.onClick(item)

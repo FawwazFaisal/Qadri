@@ -5,26 +5,24 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.ItemReportAgingBinding
 import com.example.qadri.databinding.ItemReportBankDepositBinding
-import com.example.qadri.mvvm.model.reports.ReportAgingModel
 import com.example.qadri.mvvm.model.reports.ReportBankDepositModel
 
-class AdapterRvReportBankDeposit(val listener:ClickListener) : RecyclerView.Adapter<AdapterRvReportBankDeposit.AgingHolder>() {
+class AdapterRvReportBankDeposit(val listener:ClickListener) : RecyclerView.Adapter<AdapterRvReportBankDeposit.BankDepositHolder>() {
 
     lateinit var context: Context
     val recoveryList = arrayListOf<ReportBankDepositModel>()
 
-    inner class AgingHolder(val bd: ItemReportBankDepositBinding) :
+    inner class BankDepositHolder(val bd: ItemReportBankDepositBinding) :
         RecyclerView.ViewHolder(bd.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AgingHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BankDepositHolder {
         val bd =
             ItemReportBankDepositBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return AgingHolder(bd)
+        return BankDepositHolder(bd)
     }
 
-    override fun onBindViewHolder(holder: AgingHolder, position: Int) {
+    override fun onBindViewHolder(holder: BankDepositHolder, position: Int) {
         val item = recoveryList[position]
         holder.bd.name.text = item.name
         holder.bd.date.text = item.date
