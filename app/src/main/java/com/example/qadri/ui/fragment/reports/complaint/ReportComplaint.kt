@@ -42,7 +42,7 @@ class ReportComplaint : BaseDockFragment(), ClickListener {
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        BottomSheetDialog(requireContext()).apply {
+        BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
             val bd = DialogReportComplaintBinding.inflate(layoutInflater)
             setContentView(bd.root)
         }.show()

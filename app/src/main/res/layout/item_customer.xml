@@ -50,6 +50,22 @@
                 android:textColor="@color/black_light" />
 
             <TextView
+                android:id="@+id/last_order"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Last Order: Artificial Leather"
+                android:textColor="@color/black_light" />
+
+            <TextView
+                android:id="@+id/last_order_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:text="Last Order Amount: 50,000"
+                android:textColor="@color/black_light" />
+
+            <TextView
                 android:id="@+id/address"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"

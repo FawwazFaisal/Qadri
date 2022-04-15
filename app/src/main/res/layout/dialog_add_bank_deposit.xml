@@ -5,8 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/_20sdp"
-    android:background="@drawable/cardview_bg_white"
+    android:background="@drawable/bottom_sheet_bg"
     android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Add New Deposit"
+        android:textColor="@color/black_light"
+        android:textSize="@dimen/_15ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout25"
@@ -16,7 +28,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btnSubmit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -30,31 +42,35 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <Spinner
                     android:id="@+id/bank"
-                    android:layout_width="match_parent"
                     style="@style/spinnerStyle"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="Instrument Number" />
+
                 <EditText
                     android:id="@+id/fromDate"
-                    android:layout_width="match_parent"
                     style="@style/SimpleEditText"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="@dimen/_20sdp"
                     android:hint="Instrument Number" />
 
                 <EditText
                     android:id="@+id/toDate"
+                    style="@style/SimpleEditText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/SimpleEditText"
                     android:hint="Amount" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/_10sdp"
-                    android:text="Upload Image"/>
+                    android:text="Upload Image" />
+
                 <LinearLayout
                     android:id="@+id/imageLayout"
                     android:layout_width="match_parent"
@@ -62,13 +78,14 @@
                     android:layout_marginVertical="@dimen/_10sdp"
                     android:gravity="center"
                     android:orientation="horizontal">
+
                     <androidx.constraintlayout.utils.widget.ImageFilterView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:adjustViewBounds="true"
                         android:background="@drawable/cardview_bg_white"
                         android:padding="@dimen/_20sdp"
-                        app:srcCompat="@drawable/ic_add_round"
-                        android:adjustViewBounds="true"/>
+                        app:srcCompat="@drawable/ic_add_round" />
                 </LinearLayout>
             </LinearLayout>
 

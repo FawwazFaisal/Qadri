@@ -37,6 +37,11 @@
                 android:textSize="@dimen/_13ssp" />
         </LinearLayout>
 
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -91,7 +96,10 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/_13ssp" />
         </LinearLayout>
-
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -146,7 +154,10 @@
                 android:textColor="@color/colorAccent"
                 android:textSize="@dimen/_13ssp" />
         </LinearLayout>
-
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="?android:attr/listDivider" />
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"

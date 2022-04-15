@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogReportAgingDetailBinding
 import com.example.qadri.databinding.FragmentReportAgingBinding
@@ -35,7 +36,7 @@ class ReportAging : BaseDockFragment(), ClickListener {
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        BottomSheetDialog(requireContext()).apply {
+        BottomSheetDialog(requireContext(), R.style.SheetDialog).apply {
             val bd = DialogReportAgingDetailBinding.inflate(layoutInflater)
             setContentView(bd.root)
         }.show()

@@ -26,7 +26,7 @@
             android:layout_marginTop="@dimen/_30sdp"
             app:hintEnabled="false">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edUserName"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toBottomOf="@+id/edUserNamee"
             app:passwordToggleEnabled="true">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
                 android:id="@+id/edPassword"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_35sdp"
@@ -78,8 +78,9 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="@dimen/_10sdp"
         android:text="@string/forgot_password"
+        android:layout_marginTop="@dimen/_10sdp"
         android:textColor="@color/white"
-        android:textSize="@dimen/_13sdp"
+        android:textSize="@dimen/_12ssp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_linear" />

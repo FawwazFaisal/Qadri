@@ -46,6 +46,7 @@ class CustomerFeedback : BaseDockFragment() {
                 }
             }
         }
+        bd.radioComplaint.isChecked = true
     }
 
     private fun showReturnForm() {

@@ -1,7 +1,7 @@
 <resources>
-    <string name="app_name">Qadri</string>
+    <string name="app_name">Quadri</string>
     <string name="nav_header_desc">TODO</string>
-    <string name="nav_header_title">Abdullah</string>
+    <string name="nav_header_title">Shakoor Ali</string>
     <string name="Home">Dashboard</string>
     <string name="customer_name">Customer Name *</string>
     <string name="enter_customer_name">Enter Customer Name</string>

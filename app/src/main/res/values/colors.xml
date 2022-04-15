@@ -9,6 +9,7 @@
     <color name="colorPrimaryDark">#F46523</color>
     <color name="colorDivider">#01082E</color>
     <color name="lightGray">#9f9f9f</color>
+    <color name="extraLightGray">#D1D1D1</color>
     <color name="red">#ff0033</color>
     <color name="red_error">#AF2626</color>
     <color name="darkGrey">#585858</color>

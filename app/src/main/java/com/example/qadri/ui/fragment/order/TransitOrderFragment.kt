@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogCompletedOrderBinding
 import com.example.qadri.databinding.DialogTransitOrderDetailBinding
@@ -52,7 +53,7 @@ class TransitOrderFragment : Fragment(), ClickListener {
     }
 
     private fun showTransitDetailDialog() {
-        BottomSheetDialog(requireContext()).apply {
+        BottomSheetDialog(requireContext(), R.style.SheetDialog).apply {
             val bd = DialogTransitOrderDetailBinding.inflate(layoutInflater)
             setContentView(bd.root)
         }.show()

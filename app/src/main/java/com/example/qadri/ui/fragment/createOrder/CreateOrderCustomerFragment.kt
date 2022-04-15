@@ -58,7 +58,7 @@ class CreateOrderCustomerFragment : BaseDockFragment(), ClickListener {
 
     override fun <T> onClick(data: T, createNested: Boolean) {
         navigateToFragment(R.id.create_order_host_fragment,Bundle().apply {
-            putString("title",(data as DummyPendingOrder).name)
+            putString("title",(data as SalesPlanModel).name)
         })
     }
 

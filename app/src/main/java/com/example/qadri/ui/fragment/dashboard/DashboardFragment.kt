@@ -68,8 +68,6 @@ class DashboardFragment : BaseDockFragment() {
         init()
         myDockActivity?.getUserViewModel()?.apiListener = this
 //        getDashBoardCount()
-
-
         initGraphViewPager()
 
     }

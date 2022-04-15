@@ -47,7 +47,7 @@ class ReportRecovery : BaseDockFragment(), ClickListener {
 
     override fun <T> onClick(data: T, createNested: Boolean) {
         val reportItem = data as RecoveryReportModel
-        BottomSheetDialog(requireContext()).apply {
+        BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
             val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
             setContentView(bd.root)
         }.show()

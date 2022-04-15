@@ -83,11 +83,13 @@ class MainActivity : DockActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.toolbar_menu, menu)
         val item = menu.findItem(R.id.myswitch) as MenuItem
-        menu.findItem(R.id.action_notification).setOnMenuItemClickListener {
+        val notification = menu.findItem(R.id.action_notification)
+        val cart = menu.findItem(R.id.cart)
+        notification.setOnMenuItemClickListener {
             navigateToFragment(R.id.notification)
             true
         }
-        menu.findItem(R.id.cart).setOnMenuItemClickListener {
+        cart.setOnMenuItemClickListener {
             navigateToFragment(R.id.view_cart_fragment)
             true
         }
@@ -110,6 +112,17 @@ class MainActivity : DockActivity() {
             }
 
         }
+        navController.addOnDestinationChangedListener { controller, destination, arguments ->
+            if (this@MainActivity::switchAB.isInitialized) {
+                cart.isVisible = destination.label != "Notifications" && destination.label != "Cart"
+                notification.isVisible = destination.label != "Notifications" && destination.label != "Cart"
+                if (destination.label != "Dashboard") {
+                    switchAB.visibility = View.GONE
+                } else {
+                    switchAB.visibility = View.VISIBLE
+                }
+            }
+        }
 
         return super.onCreateOptionsMenu(menu)
     }
@@ -117,22 +130,6 @@ class MainActivity : DockActivity() {
     private fun initView() {
         setSupportActionBar(findViewById(R.id.toolBar))
         navController = findNavController(R.id.nav_host_main)
-        navController.addOnDestinationChangedListener(object : NavController.OnDestinationChangedListener{
-            override fun onDestinationChanged(
-                controller: NavController,
-                destination: NavDestination,
-                arguments: Bundle?
-            ) {
-                if(this@MainActivity::switchAB.isInitialized){
-                    if(destination.label!="Dashboard"){
-                        switchAB.visibility = View.GONE
-                    }else{
-                        switchAB.visibility = View.VISIBLE
-                    }
-                }
-            }
-
-        })
 
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.

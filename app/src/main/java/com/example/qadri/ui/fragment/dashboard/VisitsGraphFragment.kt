@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import com.example.qadri.R
 import com.example.qadri.databinding.FragmentVisitsGraphBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
@@ -112,6 +113,10 @@ class VisitsGraphFragment : BaseDockFragment() {
 
             val yl: YAxis = bd.barchart.axisLeft
             yl.textSize = 8f
+            yl.labelCount = 5
+            yl.axisMaximum = 50f
+            yl.gridColor = ContextCompat.getColor(requireContext(),R.color.lightGray)
+            yl.gridLineWidth = 0.2f
 
             val data = BarData(dataSets)
             bd.barchart.data = data
@@ -120,7 +125,7 @@ class VisitsGraphFragment : BaseDockFragment() {
         }
         removeGridLines()
         setCustomLegend()
-        bd.barchart.setFitBars(true)
+        bd.barchart.setFitBars(false)
         bd.barchart.invalidate()
     }
 
@@ -157,7 +162,7 @@ class VisitsGraphFragment : BaseDockFragment() {
         bd.barchart.description.isEnabled = false
         bd.barchart.legend.isEnabled = true //bottom label
 
-        bd.barchart.axisLeft.setDrawGridLines(false)
+//        bd.barchart.axisLeft.setDrawGridLines(false)
         bd.barchart.axisLeft.setDrawLabels(true)
         bd.barchart.axisLeft.setDrawAxisLine(false)
 
