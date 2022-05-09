@@ -313,7 +313,7 @@ class MainActivity : DockActivity() {
 //                sendUserTracking()
             }
             R.id.followup -> {
-                navigateToFragment(R.id.nav_home)
+                navigateToFragment(R.id.action_nav_home_to_followUp)
             }
             R.id.close -> {
                 goneWithAnimation(binding.appBarMain.sideMenu.root)

@@ -16,5 +16,9 @@ data class PreviousVisitModel(
     val vistedTime: String? = "",
     @SerializedName("address")
     @Expose
-    val address: String? = ""
+    val address: String? = "",
+
+    @SerializedName("lastReceived")
+    @Expose
+    val lastReceived: String? = ""
 )

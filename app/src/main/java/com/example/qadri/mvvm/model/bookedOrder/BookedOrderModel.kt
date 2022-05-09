@@ -19,5 +19,8 @@ data class BookedOrderModel(
     val qty: String? = "",
     @SerializedName("amount")
     @Expose
-    val amount: String? = ""
+    val amount: String? = "",
+    @SerializedName("deposit")
+    @Expose
+    val deposit: String? = ""
 )

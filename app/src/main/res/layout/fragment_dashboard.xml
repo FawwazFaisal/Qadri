@@ -74,7 +74,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/graphContainer"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/user_detail"
             android:layout_marginHorizontal="@dimen/_12sdp"
             android:layout_marginTop="@dimen/_15sdp"
@@ -84,7 +84,6 @@
             android:theme="@style/Theme.MaterialComponents.Light"
             app:cardCornerRadius="@dimen/margin_small"
             app:cardElevation="@dimen/_5sdp"
-            app:layout_constraintDimensionRatio="1"
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
             app:layout_constraintStart_toEndOf="@+id/linearLayout2"
             app:layout_constraintTop_toBottomOf="@+id/user_detail"
@@ -174,7 +173,7 @@
                 <androidx.viewpager.widget.ViewPager
                     android:id="@+id/graphViewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_140sdp"
                     android:layout_marginVertical="@dimen/_10sdp"/>
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -242,7 +241,7 @@
 
                     <TextView
                         style="@style/cardtxtDB"
-                        android:text="@string/orders_taken"
+                        android:text="@string/open_complaints"
                         android:textColor="@color/black_light"
                         android:textStyle="bold" />
 
@@ -269,6 +268,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginVertical="@dimen/_10sdp"
             android:layout_marginHorizontal="@dimen/_10sdp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -276,6 +276,7 @@
             app:layout_constraintTop_toBottomOf="@+id/ll_todays_counter">
 
             <androidx.cardview.widget.CardView
+                android:id="@+id/pendingRecoveryCard"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/dbTopCard"
@@ -301,8 +302,46 @@
                         android:gravity="center_horizontal">
 
                         <TextView
+                            android:id="@+id/pendingRecovery"
                             style="@style/txtAchvDB"
                             android:text="Rs. 500K"
+                            android:textSize="@dimen/_20ssp"
+                            android:textColor="@color/black_light" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView
+                android:id="@+id/pendingBankDepositCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                style="@style/dbTopCard"
+                android:padding="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="@dimen/_10sdp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        style="@style/cardtxtDB"
+                        android:text="@string/pending_bank_deposits"
+                        android:textSize="@dimen/_13ssp"
+                        android:textColor="@color/black_light"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:gravity="center_horizontal">
+
+                        <TextView
+                            android:id="@+id/pendingDeposit"
+                            style="@style/txtAchvDB"
+                            android:text="Rs. 200K"
                             android:textSize="@dimen/_20ssp"
                             android:textColor="@color/black_light" />
 

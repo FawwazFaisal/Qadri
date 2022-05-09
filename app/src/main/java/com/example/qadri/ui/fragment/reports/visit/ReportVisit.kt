@@ -64,7 +64,7 @@ class ReportVisit : BaseDockFragment(), ClickListener {
 
     override fun <T> onClick(data: T, createNested: Boolean) {
         val reportItem = data as VisitReportsModel
-        navigateToFragment(R.id.action_reportVisit_to_visitLogDetail,Bundle().apply {
+        navigateToFragment(R.id.action_reportVisit_to_checkin,Bundle().apply {
             putSerializable("data",reportItem)
         })
     }

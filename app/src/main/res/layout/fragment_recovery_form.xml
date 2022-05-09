@@ -252,7 +252,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/white"
-                    android:text="Check-in"
+                    android:text="SUBMIT"
                     android:layout_marginVertical="@dimen/_30sdp"
                     android:textSize="@dimen/_12ssp"
                     android:background="@drawable/btn_bg_orange"/>

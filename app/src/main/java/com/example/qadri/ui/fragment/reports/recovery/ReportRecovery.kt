@@ -46,11 +46,15 @@ class ReportRecovery : BaseDockFragment(), ClickListener {
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        val reportItem = data as RecoveryReportModel
-        BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
-            val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
-            setContentView(bd.root)
-        }.show()
+        if(arguments?.containsKey("data")==true){
+            val reportItem = data as RecoveryReportModel
+            BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
+                val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
+                setContentView(bd.root)
+            }.show()
+        }else{
+            navigateToFragment(R.id.action_reportRecovery_to_recoveryForm)
+        }
 
     }
 }

@@ -94,6 +94,11 @@
             app:destination="@id/completedOrderFragment"
             app:enterAnim="@anim/fadein"
             app:exitAnim="@anim/fadeout" />
+        <action
+            android:id="@+id/action_nav_home_to_followUp"
+            app:destination="@id/followUp"
+            app:enterAnim="@anim/fadein"
+            app:exitAnim="@anim/fadeout" />
     </fragment>
 
     <fragment
@@ -147,8 +152,8 @@
         android:label="Visit Logs"
         tools:layout="@layout/fragment_report_visit" >
         <action
-            android:id="@+id/action_reportVisit_to_visitLogDetail"
-            app:destination="@id/visitLogDetail" />
+            android:id="@+id/action_reportVisit_to_checkin"
+            app:destination="@id/checkIn" />
     </fragment>
     <fragment
         android:id="@+id/visitLogDetail"
@@ -159,7 +164,11 @@
         android:id="@+id/reportRecovery"
         android:name="com.example.qadri.ui.fragment.reports.recovery.ReportRecovery"
         android:label="Recoveries"
-        tools:layout="@layout/fragment_report_recovery" />
+        tools:layout="@layout/fragment_report_recovery" >
+        <action
+            android:id="@+id/action_reportRecovery_to_recoveryForm"
+            app:destination="@id/recoveryForm" />
+    </fragment>
     <fragment
         android:id="@+id/reportOrder"
         android:name="com.example.qadri.ui.fragment.reports.order.ReportOrder"
@@ -220,7 +229,7 @@
             app:destination="@id/recoveryForm" />
         <action
             android:id="@+id/action_customerDetail_to_checkIn"
-            app:destination="@id/checkIn2" />
+            app:destination="@id/checkIn" />
         <action
             android:id="@+id/action_customerDetail_to_orderDetails"
             app:destination="@id/orderDetails" />
@@ -231,7 +240,7 @@
         android:label="Notes"
         tools:layout="@layout/fragment_customer_notes" />
     <fragment
-        android:id="@+id/checkIn2"
+        android:id="@+id/checkIn"
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.CheckIn"
         android:label="Check in"
         tools:layout="@layout/fragment_check_in" />
@@ -239,7 +248,9 @@
         android:id="@+id/recoveryForm"
         android:name="com.example.qadri.ui.fragment.customerDetail.actions.RecoveryForm"
         android:label="Recovery Form"
-        tools:layout="@layout/fragment_recovery_form" />
+        tools:layout="@layout/fragment_recovery_form">
+
+    </fragment>
     <fragment
         android:id="@+id/orderDetailFragment"
         android:name="com.example.qadri.ui.fragment.createOrder.CreateOrderDetailFragment"
@@ -287,5 +298,10 @@
         android:name="com.example.qadri.ui.fragment.order.CompletedOrderFragment"
         android:label="Completed"
         tools:layout="@layout/fragment_completed_order" />
+    <fragment
+        android:id="@+id/followUp"
+        android:name="com.example.qadri.ui.fragment.followup.FollowUp"
+        android:label="Follow up"
+        tools:layout="@layout/fragment_follow_up" />
 
 </navigation>

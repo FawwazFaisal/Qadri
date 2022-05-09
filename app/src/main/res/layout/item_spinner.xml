@@ -8,6 +8,7 @@
     android:paddingStart="@dimen/_7sdp"
     android:textStyle="normal"
     android:text="@string/gender"
+    android:background="@color/white"
     android:textColor="@color/black"
     android:textIsSelectable="false"
     android:textSize="@dimen/_12ssp"

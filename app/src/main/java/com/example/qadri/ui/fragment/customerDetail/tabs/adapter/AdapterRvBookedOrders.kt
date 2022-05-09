@@ -29,6 +29,7 @@ class AdapterRvBookedOrders(val listener:ClickListener) : RecyclerView.Adapter<A
         holder.bd.date.text = item.date
         holder.bd.qty.text = item.qty
         holder.bd.amount.text = item.amount
+        holder.bd.deposit.text = item.deposit
         holder.bd.root.setOnClickListener {
             listener.onClick(item)
         }

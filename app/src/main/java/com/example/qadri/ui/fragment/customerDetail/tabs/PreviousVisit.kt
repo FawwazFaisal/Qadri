@@ -30,9 +30,9 @@ class PreviousVisit : BaseDockFragment(), ClickListener {
         super.onViewCreated(view, savedInstanceState)
         bd.recyclerView.adapter = AdapterRvPreviousVisit(this).apply {
             setList(arrayListOf<PreviousVisitModel>().apply {
-                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi"))
-                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi"))
-                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi"))
+                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi","Rs. 20K"))
+                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi","Rs. 30K"))
+                add(PreviousVisitModel("Usman Bukharist","01-01-2022","3:00 PM","Anum Empire, Shahrah - Faisal, Karachi","Rs. 50K"))
             })
         }
     }

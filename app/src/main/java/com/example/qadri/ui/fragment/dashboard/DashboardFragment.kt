@@ -22,6 +22,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.LiveData
+import androidx.viewpager.widget.ViewPager
 import com.example.qadri.R
 import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.fragment.BaseDockFragment
@@ -78,6 +79,29 @@ class DashboardFragment : BaseDockFragment() {
             addFragment(VisitsGraphFragment())
             addFragment(BankDepositGraphFragment())
         }
+        binding.graphViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+            override fun onPageScrolled(
+                position: Int,
+                positionOffset: Float,
+                positionOffsetPixels: Int
+            ) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                if(position==0){
+                    binding.pendingRecoveryCard.visibility = View.VISIBLE
+                    binding.pendingBankDepositCard.visibility = View.GONE
+                }else{
+                    binding.pendingRecoveryCard.visibility = View.GONE
+                    binding.pendingBankDepositCard.visibility = View.VISIBLE
+                }
+            }
+
+            override fun onPageScrollStateChanged(state: Int) {
+
+            }
+        })
     }
 
 
@@ -89,7 +113,6 @@ class DashboardFragment : BaseDockFragment() {
 //            (requireActivity() as MainActivity).findViewById<TextView>(R.id.JD).text =
 //                sharedPrefManager.getUserDetails()?.des_name
 //        }, 1000)
-
 
         followupList = encryptionKeyStore.decryptList(roomHelper.getFollowupData()) as List<DynamicLeadsItem>
 
@@ -130,6 +153,12 @@ class DashboardFragment : BaseDockFragment() {
         }
         binding.llFollowup.setOnClickListener {
             navigateToFragment(R.id.nav_home)
+        }
+        binding.pendingBankDepositCard.setOnClickListener {
+            navigateToFragment(R.id.action_nav_home_to_bankDeposit)
+        }
+        binding.pendingRecoveryCard.setOnClickListener {
+            navigateToFragment(R.id.action_nav_home_to_reportRecovery)
         }
     }
 

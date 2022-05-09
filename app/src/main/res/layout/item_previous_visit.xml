@@ -107,6 +107,21 @@
             android:text="3:00 PM"
             android:textColor="@color/black_light"
             android:textSize="@dimen/_10ssp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Received Amount:"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/_12ssp" />
+
+        <TextView
+            android:id="@+id/lastReceivedAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Rs. 20K"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/_10ssp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

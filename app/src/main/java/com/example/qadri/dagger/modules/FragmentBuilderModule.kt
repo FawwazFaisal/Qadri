@@ -17,6 +17,7 @@ import com.example.qadri.ui.fragment.customer.Customers
 import com.example.qadri.ui.fragment.dashboard.BankDepositGraphFragment
 import com.example.qadri.ui.fragment.dashboard.DashboardFragment
 import com.example.qadri.ui.fragment.dashboard.VisitsGraphFragment
+import com.example.qadri.ui.fragment.followup.FollowUp
 import com.example.qadri.ui.fragment.login.*
 import com.example.qadri.ui.fragment.notification.Notification
 import com.example.qadri.ui.fragment.order.CompletedOrderFragment
@@ -177,4 +178,7 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeCompletedOrderFragment(): CompletedOrderFragment
+
+    @ContributesAndroidInjector
+    fun contributeFollowUp(): FollowUp
 }

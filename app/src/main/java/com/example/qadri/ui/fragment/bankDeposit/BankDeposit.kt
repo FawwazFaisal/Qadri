@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogAddBankDepositBinding
@@ -48,6 +49,14 @@ class BankDeposit : BaseDockFragment(), ClickListener {
             bd.btnSubmit.setOnClickListener {
                 dismiss()
             }
+            bd.bank.adapter = ArrayAdapter(
+                requireContext(),
+                android.R.layout.simple_spinner_item,
+                resources.getStringArray(R.array.bank_items)
+            ).apply {
+                setDropDownViewResource(R.layout.item_spinner)
+            }
+
             setContentView(bd.root)
         }.show()
     }

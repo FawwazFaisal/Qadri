@@ -33,9 +33,9 @@ class BookedOrders : BaseDockFragment(), ClickListener {
         super.onViewCreated(view, savedInstanceState)
         bd.recyclerView.adapter = AdapterRvBookedOrders(this).apply {
             setList(arrayListOf<BookedOrderModel>().apply {
-                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000"))
-                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000"))
-                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000"))
+                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000","20K"))
+                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000","100K"))
+                add(BookedOrderModel("4589","12:00 PM","5-2-2022","3","500,000","50K"))
             })
         }
     }

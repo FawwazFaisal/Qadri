@@ -57,6 +57,7 @@
     <string name="open_complaints"><u>OPEN COMPLAINTS</u></string>
     <string name="pending_deposit"><u>PENDING BANK DEPOSIT</u></string>
     <string name="pending_recovery"><u>PENDING RECOVERY</u></string>
+    <string name="pending_bank_deposits"><u>PENDING BANK DEPOSITS</u></string>
     <string name="visits_done_per_plan"><u>VISITS DONE PER PLAN</u></string>
     <string name="bank_deposits_graph_title"><u>BANK DEPOSITS</u></string>
 
@@ -179,6 +180,10 @@
         <item>Phone Number</item>
         <item>Branch</item>
         <item>Account Title</item>
+    </array>
+
+    <array name="bank_items">
+        <item>Select Bank</item>
     </array>
 
 

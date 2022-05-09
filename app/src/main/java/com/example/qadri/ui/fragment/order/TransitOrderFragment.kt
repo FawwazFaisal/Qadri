@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.databinding.DialogComplaintBinding
 import com.example.qadri.databinding.DialogCompletedOrderBinding
 import com.example.qadri.databinding.DialogTransitOrderDetailBinding
 import com.example.qadri.databinding.TransitOrderFragmentBinding
@@ -55,6 +56,21 @@ class TransitOrderFragment : Fragment(), ClickListener {
     private fun showTransitDetailDialog() {
         BottomSheetDialog(requireContext(), R.style.SheetDialog).apply {
             val bd = DialogTransitOrderDetailBinding.inflate(layoutInflater)
+            bd.complainBtn.setOnClickListener {
+                dismiss()
+                showComplaintDialog()
+            }
+            setContentView(bd.root)
+        }.show()
+    }
+
+    private fun showComplaintDialog() {
+        BottomSheetDialog(requireContext(), R.style.SheetDialog).apply {
+            val bd = DialogComplaintBinding.inflate(layoutInflater)
+            bd.btnSubmit.setOnClickListener {
+                dismiss()
+                showTransitDetailDialog()
+            }
             setContentView(bd.root)
         }.show()
     }

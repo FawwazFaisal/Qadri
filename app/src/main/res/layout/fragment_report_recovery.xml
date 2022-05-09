@@ -30,6 +30,18 @@
             <include
                 android:id="@+id/titleLayout"
                 layout="@layout/search_filter_layout" />
+            <TextView
+                android:id="@+id/totalAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:background="@drawable/bg_white_orange_outline"
+                android:padding="@dimen/_2sdp"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:text="Total Amount : 450,000"
+                android:textColor="@color/black_light" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
