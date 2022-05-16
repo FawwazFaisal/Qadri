@@ -3,10 +3,8 @@ package com.example.qadri.utils
 import android.content.Context
 import android.content.SharedPreferences
 import com.example.qadri.constant.Constants
-import com.example.qadri.mvvm.model.lov.CompanyLeadSource
-import com.example.qadri.mvvm.model.lov.CompanyLeadStatu
-import com.example.qadri.mvvm.model.lov.CompanyProduct
-import com.example.qadri.mvvm.model.lov.CompanyVisitStatu
+import com.example.qadri.mvvm.model.lov.Category
+import com.example.qadri.mvvm.model.lov.Department
 import com.example.qadri.mvvm.model.userDetail.UserDetailsResponse
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
@@ -21,7 +19,8 @@ class SharedPrefManager @Inject constructor(private val context: Context) {
     private val USERNAME = "KEY_USERNAME"
     private val KEY_SHIFT_START = "KEY_SHIFT_START"
     private val KEY_USER_DETAILS = "KEY_USER_DETAILS"
-    private val KEY_LEAD_STATUS = "KEY_LEAD_STATUS"
+    private val KEY_CATEGORIES = "KEY_CATEGORIES"
+    private val KEY_DEPARTMENT = "KEY_DEPARTMENT"
     private val KEY_COMPANY_PRODUCTS = "KEY_COMPANY_PRODUCTS"
     private val KEY_VISIT_STATUS = "KEY_VISIT_STATUS"
     private val KEY_LEAD_SOURCE = "KEY_LEAD_SOURCE"
@@ -69,51 +68,27 @@ class SharedPrefManager @Inject constructor(private val context: Context) {
         return GsonFactory.getConfiguredGson()?.fromJson(json, UserDetailsResponse::class.java)
     }
 
-    fun setLeadStatus(leadStatus: List<CompanyLeadStatu>): Boolean {
-        editor.putString(KEY_LEAD_STATUS, GsonFactory.getConfiguredGson()?.toJson(leadStatus))
+    fun setCategories(category: List<Category>): Boolean {
+        editor.putString(KEY_CATEGORIES, GsonFactory.getConfiguredGson()?.toJson(category))
         editor.apply();
         return true;
     }
 
-    fun getLeadStatus():List<CompanyLeadStatu>? {
-        val json = sharedPreferences.getString(KEY_LEAD_STATUS, "")
-        val listType: Type = object : TypeToken<List<CompanyLeadStatu>>() {}.type
+    fun getCategories():List<Category>? {
+        val json = sharedPreferences.getString(KEY_CATEGORIES, "")
+        val listType: Type = object : TypeToken<List<Category>>() {}.type
         return GsonFactory.getConfiguredGson()?.fromJson(json, listType)
     }
 
-    fun setCompanyProducts(companyProducts: List<CompanyProduct>): Boolean {
-        editor.putString(KEY_COMPANY_PRODUCTS, GsonFactory.getConfiguredGson()?.toJson(companyProducts))
+    fun setDepartment(department: List<Department>): Boolean {
+        editor.putString(KEY_DEPARTMENT, GsonFactory.getConfiguredGson()?.toJson(department))
         editor.apply();
         return true;
     }
 
-    fun getCompanyProducts():List<CompanyProduct>? {
-        val json = sharedPreferences.getString(KEY_COMPANY_PRODUCTS, "")
-        val listType: Type = object : TypeToken<List<CompanyProduct>>() {}.type
-        return GsonFactory.getConfiguredGson()?.fromJson(json, listType)
-    }
-
-    fun setVisitStatus(visitStatus: List<CompanyVisitStatu>): Boolean {
-        editor.putString(KEY_VISIT_STATUS, GsonFactory.getConfiguredGson()?.toJson(visitStatus))
-        editor.apply();
-        return true;
-    }
-
-    fun setLeadSource(leadSource: List<CompanyLeadSource>): Boolean {
-        editor.putString(KEY_LEAD_SOURCE, GsonFactory.getConfiguredGson()?.toJson(leadSource))
-        editor.apply();
-        return true;
-    }
-
-    fun getLeadSource():List<CompanyLeadSource>? {
-        val json = sharedPreferences.getString(KEY_LEAD_SOURCE, "")
-        val listType: Type = object : TypeToken<List<CompanyLeadSource>>() {}.type
-        return GsonFactory.getConfiguredGson()?.fromJson(json, listType)
-    }
-
-    fun getVisitStatus():List<CompanyVisitStatu>? {
-        val json = sharedPreferences.getString(KEY_VISIT_STATUS, "")
-        val listType: Type = object : TypeToken<List<CompanyVisitStatu>>() {}.type
+    fun getDepartment():List<Department>? {
+        val json = sharedPreferences.getString(KEY_DEPARTMENT, "")
+        val listType: Type = object : TypeToken<List<Department>>() {}.type
         return GsonFactory.getConfiguredGson()?.fromJson(json, listType)
     }
 

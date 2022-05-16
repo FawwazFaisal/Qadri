@@ -22,26 +22,28 @@ class LocationWorker @Inject constructor(
 
     override fun doWork(): Result {
         Log.i(TAG, "Fetching Data from Remote host")
-        return try {
-            val userList = daoAccess.getUserLocation()
-            val call = userRepository.uploadUserLocation(userList)
-            val response = GsonFactory.getConfiguredGson()?.fromJson(call.value, GenericMsgResponse::class.java)
+//        return try {
+//            val userList = daoAccess.getUserLocation()
+//            val call = userRepository.uploadUserLocation(userList)
+//            val response = GsonFactory.getConfiguredGson()?.fromJson(call.value, GenericMsgResponse::class.java)
+//
+//            if (response?.message == "Successful") {
+//                   daoAccess.deleteUserLocation()
+//                Result.success()
+//            } else {
+//                Result.retry()
+//            }
+//
+//        } catch (e: Throwable) {
+//            e.printStackTrace()
+//            // Technically WorkManager will return Result.failure()
+//            // but it's best to be explicit about it.
+//            // Thus if there were errors, we're return FAILURE
+//            Log.e(TAG, "Error fetching data", e)
+//            Result.failure()
+//        }
 
-            if (response?.message == "Successful") {
-                   daoAccess.deleteUserLocation()
-                Result.success()
-            } else {
-                Result.retry()
-            }
-
-        } catch (e: Throwable) {
-            e.printStackTrace()
-            // Technically WorkManager will return Result.failure()
-            // but it's best to be explicit about it.
-            // Thus if there were errors, we're return FAILURE
-            Log.e(TAG, "Error fetching data", e)
-            Result.failure()
-        }
+        return Result.failure()
     }
 
     companion object {

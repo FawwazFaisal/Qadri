@@ -55,7 +55,7 @@ class ForgotPasswordFragment : BaseDockFragment() {
 
     private fun resetPwdReq(loginID: String) {
         myDockActivity?.showProgressIndicator()
-        myDockActivity?.getUserViewModel()?.resetPwdReq(ResetPasswordModel(loginID))
+      //  myDockActivity?.getUserViewModel()?.resetPwdReq(ResetPasswordModel(loginID))
     }
 
     override fun onSuccess(liveData: LiveData<String>, tag: String) {
@@ -72,10 +72,10 @@ class ForgotPasswordFragment : BaseDockFragment() {
                     val bundle = Bundle()
                     bundle.putString("LOGIN_ID", binding.edForgotUserName.text.toString())
                     bundle.putBoolean("RESET_PASSWORD", true)
-//                    LoginActivity.navController.navigate(
-//                        R.id.action_forgotPasswordFragment_to_OTPVerificationFragment,
-//                        bundle
-//                    )
+                    LoginActivity.navController.navigate(
+                        R.id.action_forgotPasswordFragment_to_OTPVerificationFragment,
+                        bundle
+                    )
                 } catch (e: Exception) {
                     myDockActivity?.showErrorMessage(getString(R.string.something_went_wrong))
                 }

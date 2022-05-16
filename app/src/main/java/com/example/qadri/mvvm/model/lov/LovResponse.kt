@@ -1,8 +1,10 @@
 package com.example.qadri.mvvm.model.lov
 
 data class LovResponse(
-    val company_lead_source: List<CompanyLeadSource>,
-    val company_lead_status: List<CompanyLeadStatu>,
-    val company_products: List<CompanyProduct>,
-    val company_visit_status: List<CompanyVisitStatu>
+    val bank: List<String>,
+    val categories: List<Category>,
+    val company_products: List<String>,
+    val company_visit_status: List<String>,
+    val department: List<Department>,
+    val payment_type: List<String>
 )

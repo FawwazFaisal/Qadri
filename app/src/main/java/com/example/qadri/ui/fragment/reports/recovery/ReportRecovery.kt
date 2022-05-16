@@ -10,13 +10,12 @@ import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogFilterReportsBinding
 import com.example.qadri.databinding.DialogRecoveryDetailsBinding
 import com.example.qadri.databinding.FragmentReportRecoveryBinding
-import com.example.qadri.mvvm.model.reports.RecoveryReportModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ReportRecovery : BaseDockFragment(), ClickListener {
 
-    lateinit var bd : FragmentReportRecoveryBinding
+    lateinit var bd: FragmentReportRecoveryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,25 +35,26 @@ class ReportRecovery : BaseDockFragment(), ClickListener {
             openSearchDialog()
         }
 
-        bd.recyclerView.adapter = AdapterRvRecovery(this).apply {
-            setList(arrayListOf<RecoveryReportModel>().apply {
-                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
-                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
-                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
-            })
-        }
+//        bd.recyclerView.adapter = AdapterRvRecovery(this).apply {
+//            setList(arrayListOf<RecoveryReportModel>().apply {
+//                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+//                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+//                add(RecoveryReportModel("Adnan Mahboob","03002001100","A-Category","Amount: 150,000"))
+//            })
+//        }
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        if(arguments?.containsKey("data")==true){
-            val reportItem = data as RecoveryReportModel
-            BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
-                val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
-                setContentView(bd.root)
-            }.show()
-        }else{
+        if (arguments?.containsKey("data") == true) {
+//            val reportItem = data as RecoveryReportModel
+//            BottomSheetDialog(requireContext(),R.style.SheetDialog).apply {
+//                val bd = DialogRecoveryDetailsBinding.inflate(layoutInflater)
+//                setContentView(bd.root)
+//            }.show()
+//        }else{
             navigateToFragment(R.id.action_reportRecovery_to_recoveryForm)
-        }
+//        }
 
+        }
     }
 }

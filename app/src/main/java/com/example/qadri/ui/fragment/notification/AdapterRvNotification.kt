@@ -8,7 +8,6 @@ import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.ItemNotificationBinding
 import com.example.qadri.databinding.ItemReportOrderDetailBinding
 import com.example.qadri.mvvm.model.notification.NotificationModel
-import com.example.qadri.mvvm.model.reports.OrderDetailModel
 
 class AdapterRvNotification(val listener: ClickListener) : RecyclerView.Adapter<AdapterRvNotification.NotificationHolder>() {
 

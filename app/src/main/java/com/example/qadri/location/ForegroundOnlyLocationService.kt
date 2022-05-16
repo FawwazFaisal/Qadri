@@ -139,7 +139,7 @@ class ForegroundOnlyLocationService: Service() {
         GlobalScope.launch {
 //            val userList = daoAccess.getUserLocation()
 
-            insert(locationDevice)
+         //   insert(locationDevice)
         }
 
         // Notify anyone listening for broadcasts about the new location.
@@ -148,10 +148,10 @@ class ForegroundOnlyLocationService: Service() {
         LocalBroadcastManager.getInstance(applicationContext).sendBroadcast(intent)
     }
 
-    private fun insert(locationDevice: UserLocation) {
-        Log.d(TAG, "xxDB")
-        ablDatabase.leadDao().insertLocation(locationDevice)
-    }
+//    private fun insert(locationDevice: UserLocation) {
+//        Log.d(TAG, "xxDB")
+//        ablDatabase.leadDao().insertLocation(locationDevice)
+//    }
 
     override fun onStartCommand(intent: Intent, flags: Int, startId: Int): Int {
         Log.d(TAG, "onStartCommand()")

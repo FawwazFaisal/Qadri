@@ -8,7 +8,6 @@ import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogReportBankDepositDetailBinding
 import com.example.qadri.databinding.FragmentReportBankDepositBinding
-import com.example.qadri.mvvm.model.reports.ReportBankDepositModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -26,13 +25,13 @@ class ReportBankDeposit : BaseDockFragment(), ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bd.recyclerView.adapter = AdapterRvReportBankDeposit(this).apply {
-            setList(arrayListOf<ReportBankDepositModel>().apply {
-                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-            })
-        }
+//        bd.recyclerView.adapter = AdapterRvReportBankDeposit(this).apply {
+//            setList(arrayListOf<ReportBankDepositModel>().apply {
+//                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//                add(ReportBankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//            })
+//        }
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {

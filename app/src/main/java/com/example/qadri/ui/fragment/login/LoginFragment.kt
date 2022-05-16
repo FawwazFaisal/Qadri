@@ -59,11 +59,8 @@ class LoginFragment : BaseDockFragment() {
             isEmpty(binding.edPassword.text.toString()) -> {
                 myDockActivity?.showErrorMessage(getString(R.string.error_empty_pass))
             }
-
             else -> {
-
                 loginUser()
-
             }
         }
     }
@@ -72,10 +69,8 @@ class LoginFragment : BaseDockFragment() {
         email = binding.edUserName.text.toString()
         password = binding.edPassword.text.toString()
         myDockActivity?.showProgressIndicator()
-//        myDockActivity?.getUserViewModel()?.login(LoginModel(email,  Base64.encodeToString(password.toByteArray(), Base64.DEFAULT), utilHelper.getDeviceId(requireContext()).toString()))
-        sharedPrefManager.setToken("dummy-token")
-        startActivity(Intent(requireContext(), WelcomeActivity::class.java))
-        activity?.finish()
+        myDockActivity?.getUserViewModel()?.login(LoginModel(email,  utilHelper.encryptPass("23423532","1234567891011121",password).toString(),
+            utilHelper.getDeviceId(requireContext()).toString()))
     }
 
     override fun onSuccess(liveData: LiveData<String>, tag: String) {
@@ -89,7 +84,7 @@ class LoginFragment : BaseDockFragment() {
                         val bundle = Bundle()
                         bundle.putString("LOGIN_ID", binding.edUserName.text.toString())
                         sharedPrefManager.setUsername(binding.edUserName.text.toString())
-//                        findNavController().navigate(R.id.action_loginFragment_to_otpFragment, bundle)
+                        findNavController().navigate(R.id.action_loginFragment_to_otpFragment, bundle)
 
                     } else {
                         sharedPrefManager.setToken(loginResponseEnt?.token.toString())
@@ -111,19 +106,4 @@ class LoginFragment : BaseDockFragment() {
         }
     }
 
-//    override fun closeDrawer() {
-//        TODO("Not yet implemented")
-//    }
-//
-//    override fun navigateToFragment(id: Int, args: Bundle?) {
-//        TODO("Not yet implemented")
-//    }
-//
-//    override fun setTitle(text: String) {
-//        TODO("Not yet implemented")
-//    }
-//
-//    override fun <T> initiateListArrayAdapter(list: List<T>): ArrayAdapter<T> {
-//        TODO("Not yet implemented")
-//    }
 }

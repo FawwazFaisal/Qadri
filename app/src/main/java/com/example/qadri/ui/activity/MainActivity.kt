@@ -19,7 +19,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
@@ -30,8 +29,7 @@ import com.example.qadri.BuildConfig
 import com.example.qadri.R
 import com.example.qadri.constant.Constants
 import com.example.qadri.databinding.ActivityMainBinding
-import com.example.qadri.mvvm.model.addLead.DynamicLeadsItem
-import com.example.qadri.mvvm.model.checkin.CheckinModel
+import com.example.qadri.mvvm.model.customer.CustomerResponse
 import com.example.qadri.mvvm.model.lov.LovResponse
 import com.example.qadri.mvvm.model.portfolio.PortfolioResponse
 import com.example.qadri.mvvm.viewModel.coroutine.CoroutineViewModel
@@ -142,13 +140,13 @@ class MainActivity : DockActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.navView.setupWithNavController(navController)
 
-        if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
-                .isNotEmpty() && internetHelper.isNetworkAvailable()
-        ) {
+//        if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
+//                .isNotEmpty() && internetHelper.isNetworkAvailable()
+//        ) {
 //            sendLeadData()
-        }
+//        }
 
-//        getSyncData(isShowLoading = false)
+        getSyncData(isShowLoading = false)
         prepareSideMenu()
     }
 
@@ -306,7 +304,7 @@ class MainActivity : DockActivity() {
         showOrHide()
         when (view.id) {
             R.id.sync -> {
-//                getSyncData()
+                getSyncData()
             }
             R.id.upload -> {
                // sendLeadData()
@@ -354,14 +352,12 @@ class MainActivity : DockActivity() {
 
         viewModel.getLOV().observe(this) {
             this.hideProgressIndicator()
-            if (it.lovResponse != null && it.lovResponse.company_lead_source.isNotEmpty()
-                && it.lovResponse.company_lead_status.isNotEmpty()
+            if (it.lovResponse != null && it.lovResponse.categories.isNotEmpty()
+                && it.lovResponse.department.isNotEmpty()
             ) {
                 processData(
                     it.lovResponse,
-                    it.dynamicList,
-                    it.visitCallResponse,
-                    it.portfolioResponse
+                    it.customersResponse
                 )
                 if (isShowLoading == true) {
                     this.showSuccessMessage("Data synced successfully")
@@ -376,31 +372,25 @@ class MainActivity : DockActivity() {
 
     private fun processData(
         lovResponse: LovResponse,
-        dynamicLeadsItem: ArrayList<DynamicLeadsItem>?,
-        visitsCallResponseItem: ArrayList<CheckinModel>?,
-        portfolioResponse: PortfolioResponse?
+        customerResponse: CustomerResponse
     ) {
-        sharedPrefManager.setLeadStatus(lovResponse.company_lead_status)
-        sharedPrefManager.setCompanyProducts(lovResponse.company_products)
-        sharedPrefManager.setVisitStatus(lovResponse.company_visit_status)
-        sharedPrefManager.setLeadSource(lovResponse.company_lead_source)
+        sharedPrefManager.setDepartment(lovResponse.department)
+        sharedPrefManager.setCategories(lovResponse.categories)
 
         // Set leads data in local DB
-        if (dynamicLeadsItem != null) {
-            roomHelper.deleteLeadData()
-            roomHelper.insertLeadData(encryptionKeyStore.encryptList(dynamicLeadsItem) as ArrayList<DynamicLeadsItem>)
-        }
+        roomHelper.deleteCustomersData()
+        roomHelper.insertCustomerData(customerResponse)
 
-        // Set checkIn data in local DB
-        if (visitsCallResponseItem != null) {
-            roomHelper.deleteCheckInData()
-            roomHelper.insertVisitCallData(visitsCallResponseItem)
-        }
-
-        if (portfolioResponse != null) {
-            roomHelper.deletePortfolioData()
-            roomHelper.insertPortfolio(portfolioResponse.porfolio)
-        }
+//        // Set checkIn data in local DB
+//        if (visitsCallResponseItem != null) {
+//            roomHelper.deleteCheckInData()
+//            roomHelper.insertVisitCallData(visitsCallResponseItem)
+//        }
+//
+//        if (portfolioResponse != null) {
+//            roomHelper.deletePortfolioData()
+//            roomHelper.insertPortfolio(portfolioResponse.porfolio)
+//        }
 
         prepareSideMenu()
     }
@@ -499,17 +489,17 @@ class MainActivity : DockActivity() {
         alertDialog.setPositiveButton(
             "Yes"
         ) { dialog, which ->
-            if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
-                    .isNotEmpty()
-            ) {
-                showErrorMessage(getString(R.string.un_synced_msg))
-            } else {
-                sharedPrefManager.logout()
-                roomHelper.clearDB()
-                foregroundOnlyLocationService?.unsubscribeToLocationUpdates()
-                startActivity(Intent(this, LoginActivity::class.java))
-                finish()
-            }
+//            if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
+//                    .isNotEmpty()
+//            ) {
+//                showErrorMessage(getString(R.string.un_synced_msg))
+//            } else {
+//                sharedPrefManager.logout()
+//                roomHelper.clearDB()
+//                foregroundOnlyLocationService?.unsubscribeToLocationUpdates()
+//                startActivity(Intent(this, LoginActivity::class.java))
+//                finish()
+//            }
 
         }
         alertDialog.setNegativeButton(

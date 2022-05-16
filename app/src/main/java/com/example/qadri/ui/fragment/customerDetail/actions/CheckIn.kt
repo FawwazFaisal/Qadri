@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
 import com.example.qadri.databinding.FragmentCheckInBinding
-import com.example.qadri.mvvm.model.reports.VisitReportsModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 
 class CheckIn : BaseDockFragment() {
@@ -28,8 +27,8 @@ class CheckIn : BaseDockFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         if(arguments?.containsKey("data")==true){
-            val reportModel = arguments?.getSerializable("data") as VisitReportsModel
-            bd.name.setText(reportModel.name)
+//            val reportModel = arguments?.getSerializable("data") as VisitReportsModel
+//            bd.name.setText(reportModel.name)
         }
     }
 }

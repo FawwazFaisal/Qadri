@@ -6,24 +6,14 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.qadri.constant.Constants
-import com.example.qadri.mvvm.model.addLead.DynamicLeadsItem
-import com.example.qadri.mvvm.model.checkin.CheckinModel
+import com.example.qadri.mvvm.model.customer.CustomerResponse
 import com.example.qadri.mvvm.model.location.UserLocation
-import com.example.qadri.mvvm.model.lov.CompanyLeadStatu
-import com.example.qadri.mvvm.model.lov.CompanyProduct
-import com.example.qadri.mvvm.model.lov.CompanyVisitStatu
 import com.example.qadri.mvvm.model.portfolio.portfolioList
-import com.example.qadri.mvvm.model.previousVisits.GetPreviousVisit
 
 @Database(entities = [
-    DynamicLeadsItem::class,
-    CompanyProduct::class,
-    CompanyVisitStatu::class,
-    CompanyLeadStatu::class,
-    GetPreviousVisit::class,
-    CheckinModel::class,
+    CustomerResponse::class,
     UserLocation::class,
-    portfolioList::class], version = 22, exportSchema = false)
+    portfolioList::class], version = 23, exportSchema = false)
 
 @TypeConverters(Converters::class)
 abstract class ABLDatabase : RoomDatabase() {

@@ -10,7 +10,6 @@ import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import com.example.qadri.R
 import com.example.qadri.databinding.FragmentCustomerComplaintsBinding
-import com.example.qadri.mvvm.model.reports.OrderDetailModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.customerDetail.tabs.adapter.AdapterRvBookedOrderProducts
 import com.example.qadri.ui.fragment.customerDetail.tabs.adapter.AdapterRvReturnProducts
@@ -56,11 +55,11 @@ class CustomerFeedback : BaseDockFragment() {
             if((it as Button).text.contentEquals("search",true)){
                 bd.reasonViewChild.visibility = View.VISIBLE
                 bd.recyclerView.adapter = AdapterRvReturnProducts().apply {
-                    setList(arrayListOf<OrderDetailModel>().apply {
-                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
-                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
-                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
-                    })
+//                    setList(arrayListOf<OrderDetailModel>().apply {
+//                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+//                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+//                        add(OrderDetailModel("3RD Design (BURNISH OFF) 0.9mm Black","500"))
+//                    })
                 }
                 it.text = "Request Refund"
             }else{

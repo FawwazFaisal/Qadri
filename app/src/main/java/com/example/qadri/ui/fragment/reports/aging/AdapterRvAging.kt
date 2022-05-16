@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.ItemReportAgingBinding
 import com.example.qadri.databinding.ItemReportOrderBinding
-import com.example.qadri.mvvm.model.reports.RecoveryReportModel
-import com.example.qadri.mvvm.model.reports.ReportAgingModel
 
 class AdapterRvAging(val listener:ClickListener) : RecyclerView.Adapter<AdapterRvAging.AgingHolder>() {
 
     lateinit var context: Context
-    val recoveryList = arrayListOf<ReportAgingModel>()
+    val recoveryList = listOf<String>()
 
     inner class AgingHolder(val bd: ItemReportAgingBinding) :
         RecyclerView.ViewHolder(bd.root)
@@ -26,19 +24,19 @@ class AdapterRvAging(val listener:ClickListener) : RecyclerView.Adapter<AdapterR
 
     override fun onBindViewHolder(holder: AgingHolder, position: Int) {
         val item = recoveryList[position]
-        holder.bd.name.text = item.name
-        holder.bd.overdue.text = item.overdue
-        holder.bd.total.text = item.total
+//        holder.bd.name.text = item.name
+//        holder.bd.overdue.text = item.overdue
+//        holder.bd.total.text = item.total
         holder.bd.root.setOnClickListener {
             listener.onClick(item)
         }
     }
 
-    fun setList(list: ArrayList<ReportAgingModel>){
-        recoveryList.clear()
-        recoveryList.addAll(list)
-        notifyDataSetChanged()
-    }
+//    fun setList(list: ArrayList<ReportAgingModel>){
+//        recoveryList.clear()
+//        recoveryList.addAll(list)
+//        notifyDataSetChanged()
+//    }
 
     override fun getItemCount(): Int {
         return recoveryList.size

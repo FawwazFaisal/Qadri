@@ -9,7 +9,6 @@ import com.example.qadri.R
 import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.FragmentNotificationBinding
 import com.example.qadri.mvvm.model.notification.NotificationModel
-import com.example.qadri.mvvm.model.reports.OrderDetailModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.createOrder.adapter.AdapterRvCartProducts
 

@@ -60,10 +60,10 @@ class WelcomeFragment : BaseDockFragment() {
             }
 
             markAttendance("checkin", myDockActivity?.latitude.toString(), myDockActivity?.longitude.toString())
-//            (requireActivity() as WelcomeActivity).foregroundOnlyLocationService?.subscribeToLocationUpdates()
+            (requireActivity() as WelcomeActivity).foregroundOnlyLocationService?.subscribeToLocationUpdates()
         }
 
-//        getUserData()
+        getUserData()
 
         return binding.root
     }
@@ -80,28 +80,27 @@ class WelcomeFragment : BaseDockFragment() {
     fun markAttendance(type: String, lat: String, lng: String) {
         myDockActivity?.showProgressIndicator()
 
-        enterDashboard()
+    //    enterDashboard()
 
-//        myDockActivity?.getUserViewModel()?.markAttendance(
-//            MarkAttendanceModel(type,lat,lng))
+        myDockActivity?.getUserViewModel()?.markAttendance(
+            MarkAttendanceModel(type,lat,lng))
 
     }
 
-    private fun enterDashboard() {
-        sharedPrefManager.setShiftStart(true)
-        val sdf = SimpleDateFormat("hh:mm:ss dd/M/yyyy")
-        val currentDate = sdf.format(Date())
-        sharedPrefManager.setTime(currentDate)
-        val welcomeIntent = Intent(context, MainActivity::class.java)
-        welcomeIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
-        startActivity(welcomeIntent)
-        activity?.finish()
-        activity?.overridePendingTransition(R.anim.bottomtotop, R.anim.toptobottom)
-    }
+//    private fun enterDashboard() {
+//        sharedPrefManager.setShiftStart(true)
+//        val sdf = SimpleDateFormat("hh:mm:ss dd/M/yyyy")
+//        val currentDate = sdf.format(Date())
+//        sharedPrefManager.setTime(currentDate)
+//        val welcomeIntent = Intent(context, MainActivity::class.java)
+//        welcomeIntent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
+//        startActivity(welcomeIntent)
+//        activity?.finish()
+//        activity?.overridePendingTransition(R.anim.bottomtotop, R.anim.toptobottom)
+//    }
 
     override fun onSuccess(liveData: LiveData<String>, tag: String) {
         super.onSuccess(liveData, tag)
-        myDockActivity?.hideProgressIndicator()
         when (tag) {
             Constants.USER_DETAIL -> {
                 try {

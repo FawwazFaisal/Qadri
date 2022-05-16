@@ -44,6 +44,7 @@ object Constants {
     const val KAFALAH_REPORT: String = "KAFALAH_REPORT"
     const val TIERWISEDEPOSIT: String = "TIERWISEDEPOSIT"
     const val CHANGE_PASSWORD ="CHANGE_PASSWORD"
+    const val GET_CUSTOMERS ="GET_CUSTOMERS"
     const val WEALTH: String = "WEALTH"
     const val LOGIN : String = "LOGIN"
     const val VERIFY_OTP : String = "VERIFY_OTP"

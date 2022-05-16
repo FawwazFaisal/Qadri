@@ -24,29 +24,31 @@ class UploadLeadWorker @Inject constructor(
     override suspend fun doWork(): Result {
         Log.i(TAG, "Fetching Data from Remote host")
 
-        return try {
-            val leadData = daoAccess.getUnSyncLeadData()
-            if (leadData.isNotEmpty()) {
-                leadData.forEach {
-                    val response = userRepository.addLead(it.getCustomerDetail()).execute()
-                    if (response.body() != null && response.body()?.lead_id != null) {
-                        daoAccess.updateLeadData(response.body()?.lead_id.toString(), it.local_lead_id.toString())
-                        daoAccess.updateCheckInLeadStatus(response.body()?.lead_id.toString(), it.local_lead_id.toString())
-                    } else {
-                        Result.retry()
-                    }
-                }
-            }
+//        return try {
+//            val leadData = daoAccess.getUnSyncLeadData()
+//            if (leadData.isNotEmpty()) {
+//                leadData.forEach {
+//                    val response = userRepository.addLead(it.getCustomerDetail()).execute()
+//                    if (response.body() != null && response.body()?.lead_id != null) {
+//                        daoAccess.updateLeadData(response.body()?.lead_id.toString(), it.local_lead_id.toString())
+//                        daoAccess.updateCheckInLeadStatus(response.body()?.lead_id.toString(), it.local_lead_id.toString())
+//                    } else {
+//                        Result.retry()
+//                    }
+//                }
+//            }
+//
+//            Result.success()
+//
+//        } catch (e: Throwable) {
+//            e.printStackTrace()
+//            // Technically WorkManager will return Result.failure()
+//            // but it's best to be explicit about it.
+//            // Thus if there were errors, we're return FAILURE
+//            Log.e(TAG, "Error fetching data", e)
+//            Result.failure()
+//        }
 
-            Result.success()
-
-        } catch (e: Throwable) {
-            e.printStackTrace()
-            // Technically WorkManager will return Result.failure()
-            // but it's best to be explicit about it.
-            // Thus if there were errors, we're return FAILURE
-            Log.e(TAG, "Error fetching data", e)
-            Result.failure()
-        }
+        return Result.failure()
     }
 }

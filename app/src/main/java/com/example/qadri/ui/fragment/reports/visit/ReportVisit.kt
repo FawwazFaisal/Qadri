@@ -10,7 +10,6 @@ import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogFilterReportsBinding
 import com.example.qadri.databinding.FragmentReportRecoveryBinding
 import com.example.qadri.databinding.FragmentReportVisitBinding
-import com.example.qadri.mvvm.model.reports.VisitReportsModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 
 
@@ -32,41 +31,41 @@ class ReportVisit : BaseDockFragment(), ClickListener {
         bd.titleLayout.search.setOnClickListener {
             openSearchDialog()
         }
-        bd.recyclerView.adapter = AdapterRVReportVisit(this).apply {
-            setList(arrayListOf<VisitReportsModel>().apply {
-                add(
-                    VisitReportsModel(
-                        "Anum Empire, Shahrah-e-Faisal",
-                        "Visit Date : 2-1-2022",
-                        "Aftab Qureshi",
-                        "11:00"
-                    )
-                )
-                add(
-                    VisitReportsModel(
-                        "Anum Empire, Shahrah-e-Faisal",
-                        "Visit Date : 2-1-2022",
-                        "Aftab Qureshi",
-                        "11:00"
-                    )
-                )
-                add(
-                    VisitReportsModel(
-                        "Anum Empire, Shahrah-e-Faisal",
-                        "Visit Date : 2-1-2022",
-                        "Aftab Qureshi",
-                        "11:00"
-                    )
-                )
-            })
-        }
+//        bd.recyclerView.adapter = AdapterRVReportVisit(this).apply {
+//            setList(arrayListOf<VisitReportsModel>().apply {
+//                add(
+//                    VisitReportsModel(
+//                        "Anum Empire, Shahrah-e-Faisal",
+//                        "Visit Date : 2-1-2022",
+//                        "Aftab Qureshi",
+//                        "11:00"
+//                    )
+//                )
+//                add(
+//                    VisitReportsModel(
+//                        "Anum Empire, Shahrah-e-Faisal",
+//                        "Visit Date : 2-1-2022",
+//                        "Aftab Qureshi",
+//                        "11:00"
+//                    )
+//                )
+//                add(
+//                    VisitReportsModel(
+//                        "Anum Empire, Shahrah-e-Faisal",
+//                        "Visit Date : 2-1-2022",
+//                        "Aftab Qureshi",
+//                        "11:00"
+//                    )
+//                )
+//            })
+//        }
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        val reportItem = data as VisitReportsModel
-        navigateToFragment(R.id.action_reportVisit_to_checkin,Bundle().apply {
-            putSerializable("data",reportItem)
-        })
+//        val reportItem = data as VisitReportsModel
+//        navigateToFragment(R.id.action_reportVisit_to_checkin,Bundle().apply {
+//            putSerializable("data",reportItem)
+//        })
     }
 
 

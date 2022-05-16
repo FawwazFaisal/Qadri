@@ -10,7 +10,6 @@ import com.example.qadri.dagger.base.ClickListener
 import com.example.qadri.databinding.DialogAddBankDepositBinding
 import com.example.qadri.databinding.DialogReportBankDepositDetailBinding
 import com.example.qadri.databinding.FragmentBankDepositBinding
-import com.example.qadri.mvvm.model.bankDeposit.BankDepositModel
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.bankDeposit.adapter.AdapterRvBankDeposit
 import com.google.android.material.bottomsheet.BottomSheetDialog
@@ -29,17 +28,17 @@ class BankDeposit : BaseDockFragment(), ClickListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bd.recyclerView.adapter = AdapterRvBankDeposit(this).apply {
-            setList(arrayListOf<BankDepositModel>().apply {
-                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
-            })
-        }
+//        bd.recyclerView.adapter = AdapterRvBankDeposit(this).apply {
+//            setList(arrayListOf<BankDepositModel>().apply {
+//                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//                add(BankDepositModel("Usman Bukhari", "2-1-2022", "70,000"))
+//            })
+//        }
     }
 
     override fun <T> onClick(data: T, createNested: Boolean) {
-        val item = data as BankDepositModel
+      //  val item = data as BankDepositModel
         showAddPaymentDialog()
     }
 

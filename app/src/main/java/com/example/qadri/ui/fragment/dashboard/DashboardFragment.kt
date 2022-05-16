@@ -28,7 +28,6 @@ import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.constant.Constants
 import com.example.qadri.databinding.FragmentDashboardBinding
-import com.example.qadri.mvvm.model.addLead.DynamicLeadsItem
 import com.example.qadri.mvvm.model.dashboard.DashboardResponse
 import com.example.qadri.mvvm.model.generic.GenericMsgResponse
 import com.example.qadri.security.EncryptionKeyStoreImpl
@@ -53,8 +52,8 @@ class DashboardFragment : BaseDockFragment() {
 
     private lateinit var binding: FragmentDashboardBinding
     val encryptionKeyStore = EncryptionKeyStoreImpl.instance
-    var followupList: List<DynamicLeadsItem> = listOf()
-    var followUpCount = ArrayList<DynamicLeadsItem>()
+//    var followupList: List<DynamicLeadsItem> = listOf()
+//    var followUpCount = ArrayList<DynamicLeadsItem>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -114,15 +113,15 @@ class DashboardFragment : BaseDockFragment() {
 //                sharedPrefManager.getUserDetails()?.des_name
 //        }, 1000)
 
-        followupList = encryptionKeyStore.decryptList(roomHelper.getFollowupData()) as List<DynamicLeadsItem>
-
-        if (followupList.isNotEmpty()) {
-            for (item in followupList) {
-                if (item.lead_status.equals("17")) {
-                    followUpCount.add(item)
-                }
-            }
-        }
+//        followupList = encryptionKeyStore.decryptList(roomHelper.getFollowupData()) as List<DynamicLeadsItem>
+//
+//        if (followupList.isNotEmpty()) {
+//            for (item in followupList) {
+//                if (item.lead_status.equals("17")) {
+//                    followUpCount.add(item)
+//                }
+//            }
+//        }
 
 //        Handler(Looper.getMainLooper()).postDelayed(Runnable {
 //            val image =
@@ -237,22 +236,22 @@ class DashboardFragment : BaseDockFragment() {
 
     override fun onResume() {
         super.onResume()
-        try {
-            Handler(Looper.getMainLooper()).postDelayed(Runnable {
-                binding.todayVisit.text = roomHelper.getVisitLogsCount()
-
-                binding.todaysFollowUp.text = followUpCount.size.toString()
-            }, 2000)
-        } catch (e: Exception) {
-            Log.i("DashboardCount", e.message.toString())
-        }
-
-        if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
-                .isNotEmpty() && myDockActivity?.internetHelper?.isNetworkAvailable() == true
-        ) {
-            Log.i("xxUpload", "upload")
+//        try {
+//            Handler(Looper.getMainLooper()).postDelayed(Runnable {
+//                binding.todayVisit.text = roomHelper.getVisitLogsCount()
+//
+//                binding.todaysFollowUp.text = followUpCount.size.toString()
+//            }, 2000)
+//        } catch (e: Exception) {
+//            Log.i("DashboardCount", e.message.toString())
+//        }
+//
+//        if (roomHelper.checkUnSyncLeadData().isNotEmpty() || roomHelper.checkUnSyncCheckInData()
+//                .isNotEmpty() && myDockActivity?.internetHelper?.isNetworkAvailable() == true
+//        ) {
+//            Log.i("xxUpload", "upload")
 //            (requireActivity() as MainActivity).sendLeadData()
-        }
+//        }
     }
 
     private fun getDashBoardCount() {
@@ -279,11 +278,11 @@ class DashboardFragment : BaseDockFragment() {
 
     override fun onDestroy() {
         super.onDestroy()
-        followUpCount.clear()
+     //   followUpCount.clear()
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        followUpCount.clear()
+       // followUpCount.clear()
     }
 }

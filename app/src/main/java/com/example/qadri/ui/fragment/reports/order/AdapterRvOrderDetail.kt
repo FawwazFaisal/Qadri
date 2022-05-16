@@ -5,12 +5,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.databinding.ItemReportOrderDetailBinding
-import com.example.qadri.mvvm.model.reports.OrderDetailModel
 
 class AdapterRvOrderDetail() : RecyclerView.Adapter<AdapterRvOrderDetail.RecoveryHolder>() {
 
     lateinit var context: Context
-    val recoveryList = arrayListOf<OrderDetailModel>()
+    val recoveryList = listOf<String>()
 
     inner class RecoveryHolder(val bd: ItemReportOrderDetailBinding) :
         RecyclerView.ViewHolder(bd.root)
@@ -25,11 +24,11 @@ class AdapterRvOrderDetail() : RecyclerView.Adapter<AdapterRvOrderDetail.Recover
         val item = recoveryList[position]
     }
 
-    fun setList(list: ArrayList<OrderDetailModel>){
-        recoveryList.clear()
-        recoveryList.addAll(list)
-        notifyDataSetChanged()
-    }
+//    fun setList(list: ArrayList<OrderDetailModel>){
+//        recoveryList.clear()
+//        recoveryList.addAll(list)
+//        notifyDataSetChanged()
+//    }
 
     override fun getItemCount(): Int {
         return recoveryList.size

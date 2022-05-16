@@ -63,9 +63,9 @@ class ChangePasswordFragment : BaseDockFragment(){
         changePassword(
             ChangePasswordModel(
                 sharedPrefManager.getUsername(),
-                binding.edNewPassword.text.toString(),
-                binding.edConfirmPassword.text.toString(),
-                binding.edOldPassword.text.toString(),
+                utilHelper.encryptPass("23423532","1234567891011121",binding.edNewPassword.text.toString()).toString(),
+                utilHelper.encryptPass("23423532","1234567891011121",binding.edConfirmPassword.text.toString()).toString(),
+                utilHelper.encryptPass("23423532","1234567891011121",binding.edOldPassword.text.toString()).toString(),
             )
         )
     }

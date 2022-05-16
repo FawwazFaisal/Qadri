@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/NewStudioProjects/Qadri/app/src/main/res/layout/fragment_dashboard.xml" value="0.2786458333333333" />
+        <entry key="..\:/NewStudioProjects/Qadri/app/src/main/res/layout/fragment_login.xml" value="0.2869791666666667" />
+        <entry key="..\:/NewStudioProjects/Qadri/app/src/main/res/layout/fragment_new_password.xml" value="0.2869791666666667" />
+        <entry key="..\:/NewStudioProjects/Qadri/app/src/main/res/layout/fragment_visits_graph.xml" value="0.3338541666666667" />
+        <entry key="..\:/NewStudioProjects/Qadri/app/src/main/res/layout/otp_verification_fragment.xml" value="0.2869791666666667" />
         <entry key="..\:/Users/cz3/StudioProjects/Qadri/app/src/main/res/drawable/bg_holo_orange_outline.xml" value="0.3828125" />
         <entry key="..\:/Users/cz3/StudioProjects/Qadri/app/src/main/res/drawable/bg_toolbar.xml" value="0.3828125" />
         <entry key="..\:/Users/cz3/StudioProjects/Qadri/app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.3828125" />
