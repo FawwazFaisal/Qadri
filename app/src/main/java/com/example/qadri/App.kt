@@ -24,7 +24,6 @@ class App: Application(), HasAndroidInjector, Configuration.Provider {
             .application(this)
             .build()
         appComponent.inject(this)
-        AppInjector.init(this)
 
     }
 

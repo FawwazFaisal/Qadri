@@ -181,4 +181,7 @@ FragmentBuilderModule {
 
     @ContributesAndroidInjector
     fun contributeFollowUp(): FollowUp
+
+    @ContributesAndroidInjector
+    fun contributeOTPVerificationFragment(): OTPVerificationFragment
 }
