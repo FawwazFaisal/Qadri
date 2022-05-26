@@ -11,6 +11,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import androidx.activity.viewModels
 import androidx.annotation.IdRes
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
@@ -46,7 +47,7 @@ import kotlin.collections.set
 class MainActivity : DockActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
-    lateinit var viewModel: CoroutineViewModel
+    val coroutineViewModel: CoroutineViewModel by viewModels()
     lateinit var listDataChild: HashMap<String, List<String>>
     lateinit var listDataHeader: ArrayList<String>
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -63,9 +64,6 @@ class MainActivity : DockActivity() {
         setContentView(binding.root)
 
         window.statusBarColor = ContextCompat.getColor(this,R.color.black_light);
-
-//      navController = findNavController(R.id.nav_host_main)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(CoroutineViewModel::class.java)
 
         initView()
         setData()
@@ -350,7 +348,7 @@ class MainActivity : DockActivity() {
             this.showProgressIndicator()
         }
 
-        viewModel.getLOV().observe(this) {
+        coroutineViewModel.getLOV().observe(this) {
             this.hideProgressIndicator()
             if (it.lovResponse != null && it.lovResponse.categories.isNotEmpty()
                 && it.lovResponse.department.isNotEmpty()

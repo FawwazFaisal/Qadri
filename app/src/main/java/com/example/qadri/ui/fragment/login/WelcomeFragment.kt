@@ -46,7 +46,7 @@ class WelcomeFragment : BaseDockFragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(this, viewModelFactory).get(CoroutineViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(CoroutineViewModel::class.java)
         mCalender = Calendar.getInstance()
         SharedPrefKeyManager.with(requireContext())
         initView()

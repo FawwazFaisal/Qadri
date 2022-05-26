@@ -1,5 +1,7 @@
 package com.example.qadri.mvvm.viewModel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.ViewModel
 import com.example.qadri.mvvm.model.changePassword.ChangePasswordModel
 import com.example.qadri.mvvm.model.changePassword.VerifyPassModel
@@ -13,7 +15,10 @@ import org.json.JSONObject
 import java.io.File
 import javax.inject.Inject
 
-class UserViewModel @Inject constructor(private val userRepository: UserRepository) : ViewModel() {
+class UserViewModel(app: Application) : AndroidViewModel(app) {
+
+    @Inject
+    lateinit var userRepository: UserRepository
 
     var apiListener: ApiListener? = null
 

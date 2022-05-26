@@ -38,9 +38,6 @@ abstract class BaseDockFragment : DaggerFragment(), ApiListener {
     private var isLoading = false
 
     @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
     lateinit var sharedPrefManager: SharedPrefManager
 
     @Inject

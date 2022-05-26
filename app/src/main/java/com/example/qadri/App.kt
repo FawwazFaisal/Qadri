@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.work.Configuration
 import com.example.qadri.dagger.components.AppComponent
 import com.example.qadri.dagger.components.DaggerAppComponent
-import com.example.qadri.dagger.modules.AppInjector
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasAndroidInjector
@@ -24,7 +23,6 @@ class App: Application(), HasAndroidInjector, Configuration.Provider {
             .application(this)
             .build()
         appComponent.inject(this)
-
     }
 
     override fun androidInjector(): AndroidInjector<Any> {

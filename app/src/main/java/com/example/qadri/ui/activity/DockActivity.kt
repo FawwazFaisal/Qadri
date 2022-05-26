@@ -14,6 +14,7 @@ import android.view.View
 import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
@@ -47,9 +48,6 @@ import javax.inject.Inject
 abstract class DockActivity : DaggerAppCompatActivity(), ProgressIndicator {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
-
-    @Inject
     lateinit var sharedPrefManager: SharedPrefManager
 
     @Inject
@@ -66,7 +64,7 @@ abstract class DockActivity : DaggerAppCompatActivity(), ProgressIndicator {
     var longitude: String? = ""
     var locationManager: LocationManager? = null
     private lateinit var progressBarDialog: ProgressDialog
-    private lateinit var userViewModel: UserViewModel
+    val viewModel: UserViewModel by viewModels()
     private lateinit var foregroundOnlyBroadcastReceiver: ForegroundOnlyBroadcastReceiver
     var foregroundOnlyLocationService: ForegroundOnlyLocationService? = null
     private var mBound = false
@@ -121,14 +119,9 @@ abstract class DockActivity : DaggerAppCompatActivity(), ProgressIndicator {
     @SuppressLint("LongLogTag")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewModels()
         foregroundOnlyBroadcastReceiver = ForegroundOnlyBroadcastReceiver()
         getLocation()
 
-    }
-
-    private fun initViewModels() {
-        userViewModel = ViewModelProviders.of(this, viewModelFactory).get(UserViewModel::class.java)
     }
 
     fun hideKeyboard(view: View) {
@@ -158,7 +151,7 @@ abstract class DockActivity : DaggerAppCompatActivity(), ProgressIndicator {
     }
 
     fun getUserViewModel(): UserViewModel {
-        return userViewModel
+        return viewModel
     }
 
     open fun showErrorMessage(message: String) {

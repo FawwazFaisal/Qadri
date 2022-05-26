@@ -19,18 +19,12 @@ import javax.inject.Singleton
  *  @author Abdullah Nagori
  */
 
-@Module(includes = [(ViewModelModule::class)])
+@Module
 class AppModule {
     @Provides
     @Singleton
     fun provideApi(retrofit: Retrofit): Api {
         return retrofit.create(Api::class.java)
-    }
-
-    @Provides
-    @Singleton
-    fun provideScheduler(): BaseScheduler {
-        return SchedulerProvider()
     }
 
     @Provides

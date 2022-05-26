@@ -68,10 +68,9 @@ class LoginFragment : BaseDockFragment() {
     private fun loginUser() {
         email = binding.edUserName.text.toString()
         password = binding.edPassword.text.toString()
-        val bundle = Bundle()
-        bundle.putString("LOGIN_ID", binding.edUserName.text.toString())
-        sharedPrefManager.setUsername(binding.edUserName.text.toString())
-        findNavController().navigate(R.id.action_loginFragment_to_otpFragment, bundle)
+        myDockActivity?.showProgressIndicator()
+        myDockActivity?.getUserViewModel()?.login(LoginModel(email,  utilHelper.encryptPass("23423532","1234567891011121",password).toString(),
+            utilHelper.getDeviceId(requireContext()).toString()))
     }
 
     override fun onSuccess(liveData: LiveData<String>, tag: String) {
@@ -82,7 +81,10 @@ class LoginFragment : BaseDockFragment() {
                 try {
                     val loginResponseEnt = GsonFactory.getConfiguredGson()?.fromJson(liveData.value, LoginResponse::class.java)
                     if (loginResponseEnt?.two_factor == "yes") {
-
+                        val bundle = Bundle()
+                        bundle.putString("LOGIN_ID", binding.edUserName.text.toString())
+                        sharedPrefManager.setUsername(binding.edUserName.text.toString())
+                        findNavController().navigate(R.id.action_loginFragment_to_otpFragment, bundle)
 
                     } else {
                         sharedPrefManager.setToken(loginResponseEnt?.token.toString())

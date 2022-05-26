@@ -1,7 +1,9 @@
 package com.example.qadri.mvvm.viewModel.coroutine
 
 import android.annotation.SuppressLint
+import android.app.Application
 import android.util.Log
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.qadri.mvvm.model.customer.CustomerResponse
@@ -17,8 +19,8 @@ import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class CoroutineViewModel @Inject constructor(private val userRepository: UserRepository) :
-    ViewModel() {
+class CoroutineViewModel @Inject constructor(private val userRepository: UserRepository, private val app:Application) :
+    AndroidViewModel(app) {
 
     var handler = CoroutineExceptionHandler { _, exception ->
         println("Caught $exception")
