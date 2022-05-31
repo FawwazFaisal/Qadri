@@ -1,14 +1,10 @@
 package com.example.qadri.ui.fragment.reports.visit
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.DialogFilterReportsBinding
-import com.example.qadri.databinding.FragmentReportRecoveryBinding
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.FragmentReportVisitBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
 

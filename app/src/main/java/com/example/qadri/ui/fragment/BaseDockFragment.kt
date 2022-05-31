@@ -1,6 +1,5 @@
 package com.example.qadri.ui.fragment
 
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
@@ -9,30 +8,31 @@ import android.os.Bundle
 import android.view.Gravity
 import android.view.View
 import androidx.annotation.IdRes
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.qadri.R
 import com.example.qadri.databinding.DialogFilterReportsBinding
-import com.example.qadri.ui.activity.*
 import com.example.qadri.databinding.DialogPasswordInstructionBinding
 import com.example.qadri.mvvm.network.ApiListener
 import com.example.qadri.mvvm.room.RoomHelper
+import com.example.qadri.ui.activity.ChangePasswordActivity
+import com.example.qadri.ui.activity.DockActivity
+import com.example.qadri.ui.activity.LoginActivity
 import com.example.qadri.utils.DateTimeFormatter
 import com.example.qadri.utils.SharedPrefManager
 import com.example.qadri.utils.UtilHelper
 import com.example.qadri.utils.ValidationHelper
 import com.google.android.material.bottomsheet.BottomSheetDialog
-import dagger.android.support.DaggerFragment
-
+import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 /**
  * @author Abdullah Nagori
  */
 
-
-abstract class BaseDockFragment : DaggerFragment(), ApiListener {
+@AndroidEntryPoint
+abstract class BaseDockFragment : Fragment(), ApiListener {
     protected var myDockActivity: DockActivity? = null
 
     private var isLoading = false

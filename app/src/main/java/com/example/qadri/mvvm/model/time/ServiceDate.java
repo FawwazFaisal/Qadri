@@ -1,4 +1,4 @@
-package com.example.qadri.mvvm.network.gson;
+package com.example.qadri.mvvm.model.time;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

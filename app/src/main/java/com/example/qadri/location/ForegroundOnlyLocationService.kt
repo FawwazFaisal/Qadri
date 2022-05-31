@@ -16,14 +16,14 @@ import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.qadri.R
-import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.mvvm.model.location.UserLocation
-import com.example.qadri.mvvm.repository.UserRepository
 import com.example.qadri.mvvm.room.ABLDatabase
 import com.example.qadri.mvvm.room.DAOAccess
 import com.example.qadri.mvvm.room.RoomHelper
+import com.example.qadri.ui.activity.MainActivity
 import com.google.android.gms.location.*
-import kotlinx.coroutines.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
 /**
@@ -46,7 +46,6 @@ class ForegroundOnlyLocationService: Service() {
     private val localBinder = LocalBinder()
     private var mLocation: Location? = null
     private var repo: RoomHelper? = null
-    private var userRepository: UserRepository? = null
     private lateinit var context: Context
     private lateinit var ablDatabase: ABLDatabase
     private lateinit var daoAccess: DAOAccess

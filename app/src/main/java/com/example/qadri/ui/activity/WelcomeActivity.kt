@@ -11,7 +11,9 @@ import com.example.qadri.ui.fragment.login.WelcomeFragment
 import com.example.qadri.location.ForegroundOnlyLocationService
 import com.example.qadri.location.toText
 import com.example.qadri.utils.SharedPrefKeyManager
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WelcomeActivity : DockActivity() {
     lateinit var binding: ActivityWelcomeBinding
 

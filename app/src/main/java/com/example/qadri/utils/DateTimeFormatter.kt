@@ -2,11 +2,12 @@ package com.example.qadri.utils
 
 import android.content.Context
 import com.example.qadri.constant.Constants
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class DateTimeFormatter @Inject constructor(private val context: Context) {
+class DateTimeFormatter @Inject constructor(@ApplicationContext private val context: Context) {
     fun getTime(date: String): String {
         val format = SimpleDateFormat(Constants.TIME_FORMAT_1)
         val date: Date = format.parse(date)

@@ -1,4 +1,4 @@
-package com.example.qadri.mvvm.viewModel.coroutine
+package com.example.qadri.mvvm.viewModel
 
 import android.annotation.SuppressLint
 import android.app.Application
@@ -8,24 +8,22 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.qadri.mvvm.model.customer.CustomerResponse
 import com.example.qadri.mvvm.model.lov.LovResponse
-import com.example.qadri.mvvm.model.portfolio.PortfolioResponse
 import com.example.qadri.mvvm.model.syncModel.SyncModel
+import com.example.qadri.mvvm.repository.BaseRepository
 import com.example.qadri.mvvm.repository.UserRepository
 import com.example.qadri.mvvm.room.RoomHelper
 import com.example.qadri.utils.SharedPrefManager
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.*
 import retrofit2.Response
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
 
-class CoroutineViewModel @Inject constructor(private val userRepository: UserRepository, private val app:Application) :
-    AndroidViewModel(app) {
-
-    var handler = CoroutineExceptionHandler { _, exception ->
-        println("Caught $exception")
-    }
-    private val scope: CoroutineScope = CoroutineScope(Dispatchers.IO + handler)
+@HiltViewModel
+class CoroutineViewModel @Inject constructor(private val userRepository: UserRepository) :
+    ViewModel() {
 
     @Inject
     lateinit var sharedPrefManager: SharedPrefManager
@@ -65,6 +63,7 @@ class CoroutineViewModel @Inject constructor(private val userRepository: UserRep
                     val lovResponse: LovResponse? = try {
                         callLov.await()
                     } catch (ex: Exception) {
+                        data.postValue(null)
                         null
                     }
 

@@ -2,19 +2,24 @@ package com.example.qadri.utils.Schedulers.UploadLeadWorkManager
 
 import android.content.Context
 import android.util.Log
+import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.qadri.mvvm.repository.UserRepository
 import com.example.qadri.mvvm.room.DAOAccess
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedFactory
+import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
-class UploadLeadWorker @Inject constructor(
-    private val userRepository: UserRepository,
-    private val daoAccess: DAOAccess,
-    var appContext: Context,
-    var workerParams: WorkerParameters
+@HiltWorker
+class UploadLeadWorker @AssistedInject constructor(
+    @Assisted var appContext: Context,
+    @Assisted var workerParams: WorkerParameters
 ) : CoroutineWorker(appContext, workerParams) {
 
+    @Inject lateinit var userRepository: UserRepository
+    @Inject lateinit var daoAccess: DAOAccess
 //    var apiListener: ApiListener? = null
 
     companion object {

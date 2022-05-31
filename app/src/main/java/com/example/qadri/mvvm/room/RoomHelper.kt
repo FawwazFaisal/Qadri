@@ -7,7 +7,7 @@ import javax.inject.Inject
 import kotlin.collections.ArrayList
 
 
-class RoomHelper @Inject constructor(private val daoAccess: DAOAccess, private val ablDatabase: ABLDatabase) : BaseRepository() {
+class RoomHelper @Inject constructor(private val daoAccess: DAOAccess, private val ablDatabase: ABLDatabase) {
 
     val encryptionKeyStore = EncryptionKeyStoreImpl.instance
 

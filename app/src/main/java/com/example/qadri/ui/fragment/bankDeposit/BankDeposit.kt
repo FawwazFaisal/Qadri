@@ -6,12 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.DialogAddBankDepositBinding
-import com.example.qadri.databinding.DialogReportBankDepositDetailBinding
 import com.example.qadri.databinding.FragmentBankDepositBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
-import com.example.qadri.ui.fragment.bankDeposit.adapter.AdapterRvBankDeposit
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class BankDeposit : BaseDockFragment(), ClickListener {

@@ -1,18 +1,15 @@
 package com.example.qadri.ui.fragment.createOrder
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.CreateOrderHostFragmentBinding
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.OrderProductFragmentBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.createOrder.adapter.OrderProductAdapter
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
-import com.example.qadri.ui.fragment.order.adapter.PendingOrderAdapter
 
 class CreateOrderProductFragment : BaseDockFragment(), ClickListener {
 

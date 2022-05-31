@@ -18,7 +18,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -32,8 +31,7 @@ import com.example.qadri.constant.Constants
 import com.example.qadri.databinding.ActivityMainBinding
 import com.example.qadri.mvvm.model.customer.CustomerResponse
 import com.example.qadri.mvvm.model.lov.LovResponse
-import com.example.qadri.mvvm.model.portfolio.PortfolioResponse
-import com.example.qadri.mvvm.viewModel.coroutine.CoroutineViewModel
+import com.example.qadri.mvvm.viewModel.CoroutineViewModel
 import com.example.qadri.security.EncryptionKeyStoreImpl
 import com.example.qadri.ui.adapter.ExpandableListAdapter
 import com.example.qadri.utils.Schedulers.LocationWorkManager.LocationWorker
@@ -47,7 +45,7 @@ import kotlin.collections.set
 class MainActivity : DockActivity() {
     lateinit var binding: ActivityMainBinding
     private lateinit var sharedPreferences: SharedPreferences
-    val coroutineViewModel: CoroutineViewModel by viewModels()
+    val coroutineViewModel by viewModels<CoroutineViewModel>()
     lateinit var listDataChild: HashMap<String, List<String>>
     lateinit var listDataHeader: ArrayList<String>
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -350,7 +348,7 @@ class MainActivity : DockActivity() {
 
         coroutineViewModel.getLOV().observe(this) {
             this.hideProgressIndicator()
-            if (it.lovResponse != null && it.lovResponse.categories.isNotEmpty()
+            if (it?.lovResponse != null && it.lovResponse.categories.isNotEmpty()
                 && it.lovResponse.department.isNotEmpty()
             ) {
                 processData(

@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.DialogCompletedOrderBinding
 import com.example.qadri.databinding.FragmentCompletedOrderBinding
 import com.example.qadri.ui.fragment.BaseDockFragment

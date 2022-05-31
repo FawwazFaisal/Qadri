@@ -1,8 +1,8 @@
 package com.example.qadri.utils
 
-import com.example.qadri.mvvm.network.gson.ServiceDate
-import com.example.qadri.mvvm.network.gson.ServiceDateTime
-import com.example.qadri.mvvm.network.gson.ServiceTime
+import com.example.qadri.mvvm.model.time.ServiceDate
+import com.example.qadri.mvvm.model.time.ServiceDateTime
+import com.example.qadri.mvvm.model.time.ServiceTime
 import com.google.gson.*
 import java.lang.reflect.Type
 import java.text.ParseException

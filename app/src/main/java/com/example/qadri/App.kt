@@ -1,36 +1,25 @@
 package com.example.qadri
 
 import android.app.Application
+import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.example.qadri.dagger.components.AppComponent
-import com.example.qadri.dagger.components.DaggerAppComponent
-import dagger.android.AndroidInjector
-import dagger.android.DispatchingAndroidInjector
-import dagger.android.HasAndroidInjector
+import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
-class App: Application(), HasAndroidInjector, Configuration.Provider {
-    @Inject
-    lateinit var dispatchingAndroidInjector: DispatchingAndroidInjector<Any>
-    private lateinit var appComponent: AppComponent
+@HiltAndroidApp
+open class App : Application(), Configuration.Provider {
 
     @Inject
-    lateinit var workerConfiguration: Configuration
+    lateinit var workerFactory: HiltWorkerFactory
 
     override fun onCreate() {
         super.onCreate()
-        appComponent = DaggerAppComponent.builder()
-            .application(this)
-            .build()
-        appComponent.inject(this)
-    }
-
-    override fun androidInjector(): AndroidInjector<Any> {
-        return dispatchingAndroidInjector
     }
 
     override fun getWorkManagerConfiguration(): Configuration {
-        return workerConfiguration
+        return Configuration.Builder()
+            .setWorkerFactory(workerFactory)
+            .build()
     }
 
 }

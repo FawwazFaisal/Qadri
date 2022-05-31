@@ -1,4 +1,4 @@
-package com.example.qadri.dagger.base
+package com.example.qadri.hilt.base
 
 import android.os.Bundle
 

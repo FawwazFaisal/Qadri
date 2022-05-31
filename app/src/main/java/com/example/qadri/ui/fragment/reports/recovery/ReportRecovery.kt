@@ -1,17 +1,13 @@
 package com.example.qadri.ui.fragment.reports.recovery
 
-import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.DialogFilterReportsBinding
-import com.example.qadri.databinding.DialogRecoveryDetailsBinding
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.FragmentReportRecoveryBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
-import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class ReportRecovery : BaseDockFragment(), ClickListener {
 

@@ -3,7 +3,7 @@ package com.example.qadri.ui.fragment.reports.visit
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemReportVisitBinding
 
 class AdapterRVReportVisit(val listener:ClickListener): RecyclerView.Adapter<AdapterRVReportVisit.ReportViewHolder>() {

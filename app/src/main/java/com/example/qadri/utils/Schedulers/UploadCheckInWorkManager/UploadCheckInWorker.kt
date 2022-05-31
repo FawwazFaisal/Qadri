@@ -1,20 +1,25 @@
 package com.example.qadri.utils.Schedulers.UploadCheckInWorkManager
 
 import android.content.Context
-import android.util.Log
+import androidx.hilt.work.HiltWorker
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.qadri.mvvm.repository.UserRepository
 import com.example.qadri.mvvm.room.DAOAccess
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
-class UploadCheckInWorker @Inject constructor(
-    private val userRepository: UserRepository,
-    private val daoAccess: DAOAccess,
-    var appContext: Context,
-    var workerParams: WorkerParameters
-) : CoroutineWorker(appContext, workerParams) {
+@HiltWorker
+class UploadCheckInWorker @AssistedInject constructor(
+    @Assisted var context: Context,
+    @Assisted var workerParams: WorkerParameters
+) : CoroutineWorker(context, workerParams) {
 
+    @Inject
+    lateinit var userRepository: UserRepository
+    @Inject
+    lateinit var daoAccess: DAOAccess
     companion object {
         private const val TAG = "UploadCheckInWorker"
     }

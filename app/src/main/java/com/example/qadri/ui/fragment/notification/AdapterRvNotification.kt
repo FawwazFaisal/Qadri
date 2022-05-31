@@ -4,9 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemNotificationBinding
-import com.example.qadri.databinding.ItemReportOrderDetailBinding
 import com.example.qadri.mvvm.model.notification.NotificationModel
 
 class AdapterRvNotification(val listener: ClickListener) : RecyclerView.Adapter<AdapterRvNotification.NotificationHolder>() {

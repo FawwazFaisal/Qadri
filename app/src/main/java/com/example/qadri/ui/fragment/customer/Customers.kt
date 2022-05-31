@@ -1,18 +1,15 @@
 package com.example.qadri.ui.fragment.customer
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.FragmentCustomerBinding
 import com.example.qadri.mvvm.model.salesPlan.SalesPlanModel
 import com.example.qadri.ui.fragment.BaseDockFragment
-import com.example.qadri.ui.fragment.createOrder.adapter.CreateOrderCustomerAdapter
 import com.example.qadri.ui.fragment.customer.adapter.AdapterRvCustomer
-import com.example.qadri.ui.fragment.order.DummyPendingOrder
 
 class Customers : BaseDockFragment(), ClickListener {
 

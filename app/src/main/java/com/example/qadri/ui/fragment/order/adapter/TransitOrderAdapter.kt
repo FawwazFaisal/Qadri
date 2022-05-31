@@ -7,10 +7,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemPendingOrderBinding
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
-import kotlinx.android.synthetic.main.item_pending_order.view.*
 
 class TransitOrderAdapter (val context: Context?, val listener: ClickListener) :
     RecyclerView.Adapter<TransitOrderAdapter.ViewHolder>() {

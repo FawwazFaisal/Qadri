@@ -11,11 +11,14 @@ import com.example.qadri.mvvm.model.markAttendance.MarkAttendanceModel
 import com.example.qadri.mvvm.model.otp.OtpModel
 import com.example.qadri.mvvm.network.ApiListener
 import com.example.qadri.mvvm.repository.UserRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
 import org.json.JSONObject
 import java.io.File
 import javax.inject.Inject
 
-class UserViewModel(app: Application) : AndroidViewModel(app) {
+@HiltViewModel
+class UserViewModel @Inject constructor () : ViewModel() {
 
     @Inject
     lateinit var userRepository: UserRepository

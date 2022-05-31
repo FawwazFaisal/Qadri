@@ -3,7 +3,7 @@ package com.example.qadri.ui.fragment.customerDetail.tabs.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemPreviousVisitBinding
 
 class AdapterRvPreviousVisit(listener: ClickListener) :

@@ -1,11 +1,16 @@
-package com.example.qadri.mvvm.network
+package com.example.qadri.hilt.modules
 
 import android.content.Context
 import android.util.Log
 import com.example.qadri.BuildConfig
 import com.example.qadri.R
+import com.example.qadri.mvvm.network.Api
+import com.example.qadri.utils.SharedPrefManager
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -30,7 +35,9 @@ import javax.net.ssl.*
  */
 
 @Module
+@InstallIn(SingletonComponent::class)
 class NetworkModule {
+
     @Provides
     @Singleton
     fun provideOKHttpClient(): OkHttpClient {
@@ -105,7 +112,7 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(context: Context): Retrofit {
+    fun provideRetrofit(@ApplicationContext context : Context): Retrofit {
 
         Log.d("test", " #context getInstance")
 
@@ -155,7 +162,7 @@ class NetworkModule {
         NoSuchAlgorithmException::class,
         KeyManagementException::class
     )
-    private fun getSSLConfig(context: Context): SSLContext? {
+    private fun getSSLConfig(context : Context): SSLContext? {
         val cf = CertificateFactory.getInstance("X.509")
         val cert = context.resources.openRawResource(R.raw.bdosales_meezanbank_com)
         val ca: Certificate

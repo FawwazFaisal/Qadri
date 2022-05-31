@@ -15,26 +15,26 @@ import android.view.animation.AnimationUtils
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
 import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import com.example.qadri.R
-import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.location.ForegroundOnlyLocationService
 import com.example.qadri.location.toText
+import com.example.qadri.mvvm.room.RoomHelper
+import com.example.qadri.mvvm.viewModel.UserViewModel
 import com.example.qadri.progress.ProgressDialog
 import com.example.qadri.progress.ProgressIndicator
-import com.example.qadri.mvvm.room.RoomHelper
+import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.utils.InternetHelper
 import com.example.qadri.utils.SharedPrefManager
 import com.example.qadri.utils.UtilHelper
-import com.example.qadri.mvvm.viewModel.UserViewModel
 import com.google.android.gms.location.LocationServices
 import com.tapadoo.alerter.Alerter
-import dagger.android.support.DaggerAppCompatActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Retrofit
 import java.io.File
 import java.io.FileOutputStream
 import java.util.*
@@ -44,8 +44,8 @@ import javax.inject.Inject
 /**
  * @author Abdullah Nagori
  */
-
-abstract class DockActivity : DaggerAppCompatActivity(), ProgressIndicator {
+@AndroidEntryPoint
+abstract class DockActivity : AppCompatActivity(), ProgressIndicator {
 
     @Inject
     lateinit var sharedPrefManager: SharedPrefManager

@@ -4,9 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemNoteBinding
-import com.example.qadri.mvvm.model.bookedOrder.BookedOrderModel
 import com.example.qadri.mvvm.model.note.NoteModel
 
 class AdapterRvNotes(val listener:ClickListener) : RecyclerView.Adapter<AdapterRvNotes.NoteHolder>() {

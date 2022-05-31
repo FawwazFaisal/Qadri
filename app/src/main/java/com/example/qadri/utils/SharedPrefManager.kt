@@ -8,11 +8,12 @@ import com.example.qadri.mvvm.model.lov.Department
 import com.example.qadri.mvvm.model.userDetail.UserDetailsResponse
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import dagger.hilt.android.qualifiers.ApplicationContext
 import java.lang.reflect.Type
 import javax.inject.Inject
 
 
-class SharedPrefManager @Inject constructor(private val context: Context) {
+class SharedPrefManager @Inject constructor(@ApplicationContext private val context: Context) {
 
     private val Key_Pref = "Key_Pref"
     private val TOKEN = "KEY_TOKEN"

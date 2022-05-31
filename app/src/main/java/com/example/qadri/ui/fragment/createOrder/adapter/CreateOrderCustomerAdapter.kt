@@ -7,11 +7,9 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemCustomerBinding
-import com.example.qadri.databinding.ItemPendingOrderBinding
 import com.example.qadri.mvvm.model.salesPlan.SalesPlanModel
-import com.example.qadri.ui.fragment.order.DummyPendingOrder
 
 class CreateOrderCustomerAdapter (val context: Context?, val listener: ClickListener) :
     RecyclerView.Adapter<CreateOrderCustomerAdapter.ViewHolder>() {

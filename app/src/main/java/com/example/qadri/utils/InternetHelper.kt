@@ -3,6 +3,7 @@ package com.example.qadri.utils
 import android.content.Context
 import android.net.ConnectivityManager
 import android.util.Log
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 /**
@@ -10,7 +11,7 @@ import javax.inject.Inject
  */
 
 
-class InternetHelper @Inject constructor(private val context: Context) {
+class InternetHelper @Inject constructor(@ApplicationContext private val context: Context) {
 
     fun isNetworkAvailable(): Boolean {
         var haveConnectedWifi = false

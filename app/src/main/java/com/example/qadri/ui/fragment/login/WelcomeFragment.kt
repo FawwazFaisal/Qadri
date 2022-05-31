@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
 import com.example.qadri.R
 import com.example.qadri.ui.activity.MainActivity
 import com.example.qadri.ui.activity.WelcomeActivity
@@ -19,7 +18,6 @@ import com.example.qadri.mvvm.model.markAttendance.MarkAttendanceModel
 import com.example.qadri.mvvm.model.userDetail.UserDetailsResponse
 import com.example.qadri.utils.GsonFactory
 import com.example.qadri.utils.SharedPrefKeyManager
-import com.example.qadri.mvvm.viewModel.coroutine.CoroutineViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -37,16 +35,12 @@ class WelcomeFragment : BaseDockFragment() {
         }
     }
 
-    lateinit var viewModel: CoroutineViewModel
-
 
     @SuppressLint("MissingPermission")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        viewModel = ViewModelProvider(this).get(CoroutineViewModel::class.java)
         mCalender = Calendar.getInstance()
         SharedPrefKeyManager.with(requireContext())
         initView()

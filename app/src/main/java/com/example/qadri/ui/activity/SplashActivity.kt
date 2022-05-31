@@ -20,22 +20,21 @@ import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-
-class SplashActivity : AppCompatActivity() {
-    lateinit var sharedPrefManager : SharedPrefManager
+@AndroidEntryPoint
+class SplashActivity : DockActivity() {
     private lateinit var binding: ActivitySplashBinding
     private val TIME_OUT: Long = 2500
     val encryptionKeyStore = EncryptionKeyStoreImpl.instance
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySplashBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         SharedPrefKeyManager.with(this)
-        sharedPrefManager = SharedPrefManager(this)
         val isFirstRun = sharedPrefManager.get(Constants.FIRST_TIME) as Boolean?
         encryptionKeyStore.setContext(this)
 
@@ -79,7 +78,6 @@ class SplashActivity : AppCompatActivity() {
 
 
     private fun nextView() {
-        val sharedPrefManager = SharedPrefManager(this)
 
         if (sharedPrefManager.getToken().isNotEmpty()) {
             if (sharedPrefManager.getShiftStart()){

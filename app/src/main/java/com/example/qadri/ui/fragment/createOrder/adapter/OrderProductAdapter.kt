@@ -7,8 +7,7 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.RecyclerView
 import com.example.qadri.R
-import com.example.qadri.dagger.base.ClickListener
-import com.example.qadri.databinding.ItemCustomerBinding
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.ItemOrderProductBinding
 import com.example.qadri.ui.fragment.order.DummyPendingOrder
 import kotlinx.android.synthetic.main.item_order_product.view.*

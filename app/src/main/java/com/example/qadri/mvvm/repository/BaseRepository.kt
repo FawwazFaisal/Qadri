@@ -1,10 +1,14 @@
 package com.example.qadri.mvvm.repository
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
+import com.example.qadri.hilt.modules.AppEntryPointModule
 import com.example.qadri.mvvm.model.generic.ErrorResponseEnt
 import com.example.qadri.mvvm.network.ApiListener
 import com.example.qadri.utils.GsonFactory
-import com.example.qadri.utils.ValidationHelper
+import com.example.qadri.utils.SharedPrefManager
+import dagger.hilt.android.EntryPointAccessors
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
@@ -17,10 +21,17 @@ import javax.inject.Inject
  */
 
 
-open class BaseRepository {
+open class BaseRepository @Inject constructor(@ApplicationContext private val context: Context) {
+    var sharedPrefManager: SharedPrefManager
 
-    @Inject
-    lateinit var validationhelper: ValidationHelper
+    init {
+        val hiltEntryPoint = EntryPointAccessors.fromApplication(
+            context,
+            AppEntryPointModule.BaseRepositoryEntryPoint::class.java
+        )
+        sharedPrefManager = hiltEntryPoint.provideSharedPrefs()
+    }
+
     var apiResponse = MutableLiveData<String>()
     var apiListener: ApiListener? = null
 

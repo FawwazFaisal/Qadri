@@ -2,6 +2,7 @@ package com.example.qadri.utils.Schedulers.LocationWorkManager
 
 import android.content.Context
 import android.util.Log
+import androidx.hilt.work.HiltWorker
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.example.qadri.mvvm.model.generic.GenericMsgResponse
@@ -9,15 +10,17 @@ import com.example.qadri.mvvm.network.ApiListener
 import com.example.qadri.mvvm.repository.UserRepository
 import com.example.qadri.mvvm.room.DAOAccess
 import com.example.qadri.utils.GsonFactory
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import javax.inject.Inject
 
-class LocationWorker @Inject constructor(
-    private val userRepository: UserRepository,
-    private val daoAccess: DAOAccess,
-    var appContext: Context,
-    var workerParams: WorkerParameters
+@HiltWorker
+class LocationWorker @AssistedInject constructor(
+    @Assisted var appContext: Context,
+    @Assisted var workerParams: WorkerParameters
 ) : Worker(appContext, workerParams) {
-
+    @Inject lateinit var userRepository: UserRepository
+    @Inject lateinit var daoAccess: DAOAccess
     var apiListener: ApiListener? = null
 
     override fun doWork(): Result {

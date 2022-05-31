@@ -31,6 +31,7 @@ import com.example.qadri.databinding.FragmentDashboardBinding
 import com.example.qadri.mvvm.model.dashboard.DashboardResponse
 import com.example.qadri.mvvm.model.generic.GenericMsgResponse
 import com.example.qadri.security.EncryptionKeyStoreImpl
+import com.example.qadri.ui.activity.DockActivity
 import com.example.qadri.utils.GsonFactory
 import com.github.mikephil.charting.components.Legend
 import com.github.mikephil.charting.components.LegendEntry
@@ -274,6 +275,11 @@ class DashboardFragment : BaseDockFragment() {
                 myDockActivity?.showSuccessMessage(dashboardResponseEnt?.message!!)
             }
         }
+    }
+
+    override fun onFailure(message: String, tag: String) {
+        super.onFailure(message, tag)
+
     }
 
     override fun onDestroy() {

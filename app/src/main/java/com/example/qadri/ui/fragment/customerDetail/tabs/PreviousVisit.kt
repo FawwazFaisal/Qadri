@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.qadri.dagger.base.ClickListener
+import com.example.qadri.hilt.base.ClickListener
 import com.example.qadri.databinding.FragmentPreviousVisitBinding
 import com.example.qadri.ui.fragment.BaseDockFragment
 import com.example.qadri.ui.fragment.customerDetail.tabs.adapter.AdapterRvPreviousVisit

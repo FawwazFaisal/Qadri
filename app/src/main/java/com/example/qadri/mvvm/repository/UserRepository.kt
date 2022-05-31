@@ -1,5 +1,6 @@
 package com.example.qadri.mvvm.repository
 
+import android.content.Context
 import android.util.Base64
 import androidx.lifecycle.MutableLiveData
 import com.example.qadri.constant.Constants
@@ -14,6 +15,7 @@ import com.example.qadri.mvvm.model.otp.OtpModel
 import com.example.qadri.mvvm.model.portfolio.PortfolioResponse
 import com.example.qadri.mvvm.network.Api
 import com.example.qadri.utils.SharedPrefManager
+import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
@@ -26,8 +28,8 @@ import kotlin.collections.HashMap
 
 class UserRepository @Inject constructor(
     private val api: Api,
-    private val sharedPrefManager: SharedPrefManager
-) : BaseRepository() {
+    @ApplicationContext private val context: Context
+) : BaseRepository(context) {
 
     private val sdf = SimpleDateFormat(Constants.DATE_FORMAT_2, Locale.ENGLISH)
     private val mCalender = Calendar.getInstance()
@@ -53,24 +55,35 @@ class UserRepository @Inject constructor(
         val headerMap = HashMap<String, String>()
         return callApi(
             api.getUserDetails(headerMap.apply {
-                put("Authorization","Bearer " + sharedPrefManager.getToken())
-                put("x-csrf-token",
-                    Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-                put("x-token-time",sdf.format(mCalender.time))
+                put("Authorization", "Bearer " + sharedPrefManager.getToken())
+                put(
+                    "x-csrf-token",
+                    Base64.encodeToString(
+                        "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                        Base64.NO_WRAP
+                    )
+                )
+                put("x-token-time", sdf.format(mCalender.time))
             }),
             Constants.USER_DETAIL
         )
     }
 
     fun markAttendance(
-        markAttendanceModel: MarkAttendanceModel): MutableLiveData<String> {
+        markAttendanceModel: MarkAttendanceModel
+    ): MutableLiveData<String> {
         val headerMap = HashMap<String, String>()
         return callApi(
-            api.markAttendance(markAttendanceModel,headerMap.apply {
-                put("Authorization","Bearer " + sharedPrefManager.getToken())
-                put("x-csrf-token",
-                    Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-                put("x-token-time",sdf.format(mCalender.time))
+            api.markAttendance(markAttendanceModel, headerMap.apply {
+                put("Authorization", "Bearer " + sharedPrefManager.getToken())
+                put(
+                    "x-csrf-token",
+                    Base64.encodeToString(
+                        "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                        Base64.NO_WRAP
+                    )
+                )
+                put("x-token-time", sdf.format(mCalender.time))
             }), Constants.MARK_ATTENDANCE
         )
     }
@@ -78,10 +91,15 @@ class UserRepository @Inject constructor(
     suspend fun getLovs(): LovResponse {
         val headerMap = HashMap<String, String>()
         return api.getLovs(headerMap.apply {
-            put("Authorization","Bearer " + sharedPrefManager.getToken())
-            put("x-csrf-token",
-                Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-            put("x-token-time",sdf.format(mCalender.time))
+            put("Authorization", "Bearer " + sharedPrefManager.getToken())
+            put(
+                "x-csrf-token",
+                Base64.encodeToString(
+                    "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                    Base64.NO_WRAP
+                )
+            )
+            put("x-token-time", sdf.format(mCalender.time))
         })
     }
 
@@ -89,10 +107,15 @@ class UserRepository @Inject constructor(
         val headerMap = HashMap<String, String>()
         return callApi(
             api.userLocation(userLocation, headerMap.apply {
-                put("Authorization","Bearer " + sharedPrefManager.getToken())
-                put("x-csrf-token",
-                    Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-                put("x-token-time",sdf.format(mCalender.time))
+                put("Authorization", "Bearer " + sharedPrefManager.getToken())
+                put(
+                    "x-csrf-token",
+                    Base64.encodeToString(
+                        "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                        Base64.NO_WRAP
+                    )
+                )
+                put("x-token-time", sdf.format(mCalender.time))
             }),
             Constants.UPDATE_LOCATION
         )
@@ -102,10 +125,15 @@ class UserRepository @Inject constructor(
     fun getDashboard(): MutableLiveData<String> {
         val headerMap = HashMap<String, String>()
         return callApi(api.getDashboard(headerMap.apply {
-            put("Authorization","Bearer " + sharedPrefManager.getToken())
-            put("x-csrf-token",
-                Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-            put("x-token-time",sdf.format(mCalender.time))
+            put("Authorization", "Bearer " + sharedPrefManager.getToken())
+            put(
+                "x-csrf-token",
+                Base64.encodeToString(
+                    "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                    Base64.NO_WRAP
+                )
+            )
+            put("x-token-time", sdf.format(mCalender.time))
         }), Constants.DASHBOARD_COUNT)
 
     }
@@ -116,10 +144,15 @@ class UserRepository @Inject constructor(
             api.changePassword(
                 changePasswordModel,
                 headerMap.apply {
-                    put("Authorization","Bearer " + sharedPrefManager.getToken())
-                    put("x-csrf-token",
-                        Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-                    put("x-token-time",sdf.format(mCalender.time))
+                    put("Authorization", "Bearer " + sharedPrefManager.getToken())
+                    put(
+                        "x-csrf-token",
+                        Base64.encodeToString(
+                            "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                            Base64.NO_WRAP
+                        )
+                    )
+                    put("x-token-time", sdf.format(mCalender.time))
                 }
             ), Constants.CHANGE_PASSWORD
         )
@@ -128,33 +161,50 @@ class UserRepository @Inject constructor(
     suspend fun getPortfolio(): PortfolioResponse {
         val headerMap = HashMap<String, String>()
         return api.getPortfolio(headerMap.apply {
-            put("Authorization","Bearer " + sharedPrefManager.getToken())
-            put("x-csrf-token",
-                Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-            put("x-token-time",sdf.format(mCalender.time))
+            put("Authorization", "Bearer " + sharedPrefManager.getToken())
+            put(
+                "x-csrf-token",
+                Base64.encodeToString(
+                    "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                    Base64.NO_WRAP
+                )
+            )
+            put("x-token-time", sdf.format(mCalender.time))
         })
 
     }
 
     fun uploadUserProfileImage(profileImage: File): MutableLiveData<String> {
         val headerMap = HashMap<String, String>()
-        val fileReqBody: RequestBody = RequestBody.create("image/*".toMediaTypeOrNull(), profileImage)
-        val part: MultipartBody.Part = MultipartBody.Part.createFormData("profile_img", profileImage.name, fileReqBody)
-        return callApi(api.uploadUserProfileImage(part,headerMap.apply {
-            put("Authorization","Bearer " + sharedPrefManager.getToken())
-            put("x-csrf-token",
-                Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-            put("x-token-time",sdf.format(mCalender.time))
+        val fileReqBody: RequestBody =
+            RequestBody.create("image/*".toMediaTypeOrNull(), profileImage)
+        val part: MultipartBody.Part =
+            MultipartBody.Part.createFormData("profile_img", profileImage.name, fileReqBody)
+        return callApi(api.uploadUserProfileImage(part, headerMap.apply {
+            put("Authorization", "Bearer " + sharedPrefManager.getToken())
+            put(
+                "x-csrf-token",
+                Base64.encodeToString(
+                    "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                    Base64.NO_WRAP
+                )
+            )
+            put("x-token-time", sdf.format(mCalender.time))
         }), Constants.UPLOAD_PHOTO)
     }
 
     fun getCustomers(): Call<CustomerResponse> {
         val headerMap = HashMap<String, String>()
         return api.getCustomer(headerMap.apply {
-            put("Authorization","Bearer " + sharedPrefManager.getToken())
-            put("x-csrf-token",
-                Base64.encodeToString("${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(), Base64.NO_WRAP))
-            put("x-token-time",sdf.format(mCalender.time))
+            put("Authorization", "Bearer " + sharedPrefManager.getToken())
+            put(
+                "x-csrf-token",
+                Base64.encodeToString(
+                    "${sharedPrefManager.getToken()}${sdf.format(mCalender.time)}".toByteArray(),
+                    Base64.NO_WRAP
+                )
+            )
+            put("x-token-time", sdf.format(mCalender.time))
         })
 
     }
